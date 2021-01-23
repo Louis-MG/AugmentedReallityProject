@@ -1,0 +1,43 @@
+body {
+    margin : 0;
+    overflow: hidden;
+    font-family: Monospace;
+}
+canvas {
+    -moz-transform: scale(-1, 1);
+    -webkit-transform: scale(-1, 1);
+    -o-transform: scale(-1, 1);
+    -ms-transform: scale(-1, 1);
+    transform: scale(-1, 1);
+}
+video {
+    -moz-transform: scale(-1, 1);
+    -webkit-transform: scale(-1, 1);
+    -o-transform: scale(-1, 1);
+    -ms-transform: scale(-1, 1);
+    transform: scale(-1, 1);
+}
+
+.mainText{
+    position: fixed;
+    top: 10px;
+    width:inherit;
+    text-align: center;
+    z-index: 1;
+    background-color: rgba(255, 255, 255, 0.6);
+}
+
+#info{
+    text-align: left;
+    font-size: 18px;
+}
+
+#infop{
+    font-size: 15px;
+    text-align: left;
+    color: red;
+}
+
+.box{
+
+}
