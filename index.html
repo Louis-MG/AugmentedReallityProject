@@ -6,142 +6,65 @@
     <script src="aframe-ar.js"></script>
     <script src="hbondprotontransferclient.js"></script>
 
-<html>
-<head>
-<title>Acids, bases, H-bonds, and proton transfer</title>
-</head>
+<html lang="en">
+    <head>
+        <title>Acids, bases, H-bonds, and proton transfer</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="mainText">
+            <p id="info"><b>Three atoms that transfer a proton: move markers around to create an H2O molecule</b></p>
+            <p id="infop"></p>
+        </div>
+        <div class="custom-select">
+            <select>
+                <option value="0">Select reaction:</option>
+                <option value="1">reaction 1</option>
+                <option value="2">reaction 2</option>
+                <option value="3">reaction 3</option>
+                <option value="4">reaction 4</option>
+                <option value="5">reaction 5</option>
+                <option value="6">reaction 6</option>
+                <option value="7">reaction 7</option>
+            </select>
+        </div>
+        <a-scene embedded artoolkit='patternRatio: 500; sourceType: webcam;' id="thescene">
+            <!-- handle hiro marker-->
+            <a-marker preset='hiro' id="lysmarker">
+              <!-- This is an hydrogen atom
+              All coordinates have been divided by 2, so any distance between two atoms must be multiplied by 2 to get the actual distance-->
+              <a-sphere id="hyd1" position="-1.0 0 -0.3" color="white" radius="0.25" visible="false"></a-sphere>
+            </a-marker>
 
-<body style='margin : 0px; overflow: hidden; font-family: Monospace;'>
-<style>
-  canvas  {	-moz-transform: scale(-1, 1);	-webkit-transform: scale(-1, 1);	-o-transform: scale(-1, 1);	-ms-transform: scale(-1, 1);	transform: scale(-1, 1);  }
-  video  {	-moz-transform: scale(-1, 1);	-webkit-transform: scale(-1, 1);	-o-transform: scale(-1, 1);	-ms-transform: scale(-1, 1);	transform: scale(-1, 1);  }
-</style>
-<div style='position: fixed; top: 10px; width:inherit; text-align: center; z-index: 1; background-color: rgba(255, 255, 255, 0.6);'>
-  <font size=4>
-  <p align=left><b>Three atoms that transfer a proton: move markers around to create an H2O molecule</b></p>
-  </font>
-  <font size=4 color=red><p id="infop" align=left></p></font>
-</div>
-<div style='position: fixed; top: 0px; right:0px; width:400; text-align: right; z-index: 1; background-color: rgba(255, 255, 255, 0);'>
-  <font size=4>
-  </font>
-</div>
-<div class="box">
-	<style>
-	 box{ position: relative; background-color: grey;} 
-	</style>
-</div>
-	<a-scene embedded artoolkit='sourceType: webcam;' id="thescene" >
-		<!-- handle hiro marker-->
-		<a-marker preset='hiro' id="lysmarker">
-          <!-- This is an hydrogen atom 
-          All coordinates have been divided by 2, so any distance between two atoms must be multiplied by 2 to get the actual distance-->
-          <a-sphere id="hyd1" position="-1.0 0 -0.3" color="white" radius="0.25"></a-sphere>
-		</a-marker>
+            <a-marker preset='letterA' id="promarker">
+              <!-- This is a second hydrogen atom
+              All coordinates have been divided by 2, so any distance between two atoms must be multiplied by 2 to get the actual distance-->
+              <a-sphere id="hyd2" position="-1.0 0 -0.3" color="white" radius="0.25" visible="false"></a-sphere>
+            </a-marker>
 
-		<a-marker preset='letterA' id="promarker">
-          <!-- This is a second hydrogen atom
-          All coordinates have been divided by 2, so any distance between two atoms must be multiplied by 2 to get the actual distance-->
-          <a-sphere id="hyd2" position="-1.0 0 -0.3" color="white" radius="0.25"></a-sphere>
-		</a-marker>
-		
-		<!-- handle kanji marker -->
-		<a-marker preset='kanji' id="glumarker">
-          <!-- This is an H2O molecule with hydrogen bonds
-		  The deal is to create H2O and to hide or not H and bonds -->
-          <a-sphere id="hoh1" position="0 0 0" color="red" radius="0.35"></a-sphere>
-          <a-sphere id="hoh2" position="0 0 -0.8" color="white" radius="0.25"></a-sphere>
-          <a-sphere id="hoh3" position="0 0 0.8" color="white" radius="0.25"></a-sphere>
-		  <a-box id="l1" position="0 0 -0.3" color="grey"  lenght="0.15" width="0.15" height="0.04" ></a-box>
-		  <a-box id="l2" position="0 0 0.3" color="grey"  lenght="0.15" width="0.15" height="0.04" ></a-box>
-		</a-marker> 
-		
-     
-		<!-- add a simple camera -->
-  	    <a-entity camera></a-entity>
-	
-	</a-scene>
-	
-</body>
+            <!-- handle kanji marker -->
+            <a-marker preset='kanji' id="glumarker">
+              <!-- This is an H2O molecule with hydrogen bonds
+              The deal is to create H2O and to hide or not H and bonds -->
+              <a-sphere id="hoh1" position="0 0 0" color="red" radius="0.35" visible="false"></a-sphere>
+              <a-sphere id="hoh2" position="0 0 -0.8" color="white" radius="0.25" visible="false"></a-sphere>
+              <a-sphere id="hoh3" position="0 0 0.8" color="white" radius="0.25" visible="false"></a-sphere>
+              <a-box id="l1" position="0 0 -0.3" color="grey"  lenght="0.15" width="0.15" height="0.04" visible="false"></a-box>
+              <a-box id="l2" position="0 0 0.3" color="grey"  lenght="0.15" width="0.15" height="0.04" visible="false"></a-box>
+            </a-marker>
 
-<script type="text/javascript">
-	var hoh=0 // step counter
-    setInterval(function(){
-		document.getElementById("thescene").object3D.updateMatrixWorld();
-        var p1 = new THREE.Vector3(); p1.setFromMatrixPosition(document.getElementById("hoh1").object3D.matrixWorld);
-        var p2 = new THREE.Vector3(); p2.setFromMatrixPosition(document.getElementById("hyd1").object3D.matrixWorld);
-		var p3 = new THREE.Vector3(); p3.setFromMatrixPosition(document.getElementById("hyd2").object3D.matrixWorld);
-		distOH1 = 2 * Math.sqrt( Math.pow(p2.x-p1.x,2) + Math.pow(p2.y-p1.y,2) + Math.pow(p2.z-p1.z,2) );
-		distOH2 = 2 * Math.sqrt( Math.pow(p3.x-p1.x,2) + Math.pow(p3.y-p1.y,2) + Math.pow(p3.z-p1.z,2) );
-		document.getElementById("infop").innerHTML="<p align='left'>" + distOH1 + "     " + distOH2 + "     " + hoh + "</p>";
-		
-			// At the first or second step, if the distance between one of the H and O is smaller than 2 angström... 
-			if (distOH1 < 2 && hoh < 2){
-				document.getElementById("hyd1").setAttribute('visible',false) //...the H disappears
-				document.getElementById("hoh1").setAttribute('visible',true)
-				document.getElementById("hoh2").setAttribute('visible',true)  //...the H on H2O appears
-				document.getElementById("l1").setAttribute('visible',true)    //...the bond between them appears
-				
-			}
-			// if the distance is too long between H and O...
-			else if (distOH1 > 2 && hoh < 2){
-				document.getElementById("hyd1").setAttribute('visible',true) //...the H is visible
-				document.getElementById("hoh1").setAttribute('visible',true) 
-				document.getElementById("hoh2").setAttribute('visible',false)//...the H on H2O is not visible 
-				document.getElementById("l1").setAttribute('visible',false)  //...the bond is not visible
-			}
-			// At the first or second step, if the distance between one of the H and O is smaller than 2 angström...
-			if (distOH2 < 2 && hoh < 2){
-				document.getElementById("hyd2").setAttribute('visible',false) //...the H disapears
-				document.getElementById("hoh1").setAttribute('visible',true)  //...the H on H2O appears
-				document.getElementById("hoh3").setAttribute('visible',true) 
-				document.getElementById("l2").setAttribute('visible',true)    //...the bond between them appears
-				hoh++
-			}
-			// if the distance is too long between H and O...
-			else if (distOH2 > 2 && hoh < 2){
-				document.getElementById("hyd2").setAttribute('visible',true) //...the H is visible
-				document.getElementById("hoh1").setAttribute('visible',true)
-				document.getElementById("hoh3").setAttribute('visible',false)//...the H on H2O is not visible
-				document.getElementById("l2").setAttribute('visible',false)  //...the bond is not visible
-			}
-			
-			
-			//Now,when we put out hydrogens markers out of the camera shot, the molecule has to stay on the last marker
-		
-			// when hiro marker desappears, the bond and H(of H2O) stay visible 
-			if(hoh ==1 && document.querySelector("lysmarker").object3D.visible == false){
-				document.getElementById("hoh2").setAttribute('visible',true)
-				document.getElementById("l1").setAttribute('visible',true)
-				hoh = 2;
-			}
-			// when we put away the kanji marker, it's reinitialize the H2O molecule at O
-			if(hoh == 2 && document.querySelector("glumarker").object3D.visible == false){
-				document.getElementById("hoh2").setAttribute('visible',false)
-				document.getElementById("l1").setAttribute('visible',false)
-				hoh=0
-			}
-			// when letterA marker desappears, the bond and H(of H2O) stay visible 
-			if(hoh == 1 && document.querySelector("promarker").object3D.visible == false){
-				document.getElementById("hoh3").setAttribute('visible',true)
-				document.getElementById("l2").setAttribute('visible',true)
-				hoh = 2
-			}
-			// when we put away the kanji marker, it's reinitialize the H2O molecule at O
-			if(hoh == 2 && document.querySelector("glumarker").object3D.visible == false){
-				document.getElementById("hoh3").setAttribute('visible',false)
-				document.getElementById("l2").setAttribute('visible',false)
-				hoh=0
-			}
-			
-    }, 200);
-</script>
+            <!-- add a simple camera -->
+            <a-entity camera></a-entity>
+        </a-scene>
+    </body>
+    <!-- main script -->
+    <script src="script.js"></script>
 
-<script>
-  // Workaround for an AR.js bug (https://github.com/jeromeetienne/AR.js/issues/410)
-  const sceneEl = document.querySelector('a-scene');
-  sceneEl.addEventListener('loaded', () => {
-    sceneEl.camera = new THREE.PerspectiveCamera();
-  });
-</script>
+    <script>
+      // Workaround for an AR.js bug (https://github.com/jeromeetienne/AR.js/issues/410)
+      const sceneEl = document.querySelector('a-scene');
+      sceneEl.addEventListener('loaded', () => {
+        sceneEl.camera = new THREE.PerspectiveCamera();
+      });
+    </script>
 </html>
