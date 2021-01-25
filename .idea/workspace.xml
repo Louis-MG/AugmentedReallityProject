@@ -19,13 +19,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2011a926-b223-453b-8fd3-cfc4a49f2b16" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/script.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/style.css" afterDir="false" />
+    <list default="true" id="2011a926-b223-453b-8fd3-cfc4a49f2b16" name="Default Changelist" comment="ajout d'un selecteur customisable pour choisir ses réactions">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aframe-ar.js" beforeDir="false" afterPath="$PROJECT_DIR$/aframe-ar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hbondprotontransferclient.js" beforeDir="false" afterPath="$PROJECT_DIR$/hbondprotontransferclient.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/script.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,6 +38,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1nFXLI4cmD7uUNaCKWHrD7g1t1A" />
@@ -69,8 +71,16 @@
       <workItem from="1611039434662" duration="157000" />
       <workItem from="1611125793860" duration="1827000" />
       <workItem from="1611218430393" duration="159000" />
-      <workItem from="1611406455431" duration="19122000" />
+      <workItem from="1611406455431" duration="21813000" />
     </task>
+    <task id="LOCAL-00001" summary="ajout d'un selecteur customisable pour choisir ses réactions">
+      <created>1611433371857</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1611433371857</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -88,11 +98,23 @@
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="ajout d'un selecteur customisable pour choisir ses réactions" />
+    <option name="LAST_COMMIT_MESSAGE" value="ajout d'un selecteur customisable pour choisir ses réactions" />
+  </component>
   <component name="WindowStateProjectService">
+    <state x="345" y="230" key="MultipleFileMergeDialog" timestamp="1611433447003">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="345" y="230" key="MultipleFileMergeDialog/0.23.1440.877@0.23.1440.877" timestamp="1611433447003" />
     <state x="443" y="106" key="SettingsEditor" timestamp="1611406496626">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="764" y="278" key="SettingsEditor/-1920.23.1920.1057/0.23.1920.1057@0.23.1920.1057" timestamp="1610986930098" />
     <state x="443" y="106" key="SettingsEditor/0.23.1440.877@0.23.1440.877" timestamp="1611406496626" />
+    <state x="307" y="201" key="Vcs.Push.Dialog.v2" timestamp="1611433486880">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="307" y="201" key="Vcs.Push.Dialog.v2/0.23.1440.877@0.23.1440.877" timestamp="1611433486880" />
   </component>
 </project>
