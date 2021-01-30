@@ -8,40 +8,93 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="./main.css">
 
-    <title>What is AR ?</title>
+    <title>Documentation: la réalité virtuelle</title>
+    <script src = "docu_functions.js"></script>
+    
+  </head> 
 
-  </head>
+  <div class = bg_image>
 
   <!-- Documentation about AR -->
 
-  <body class = french >
-
-    <button class = language><img class = flag src = "./union-jack.jpg"></img></button>
+    <button class = "language1"><img class = flag src = "./french-flag.png" onclick="change_to_english()"></img></button>
 
     <button class = back><img class = left_arrow src = "./arrow-left.svg"></img></button>
 
+    <button class = "language2" onclick="change_to_english()" ><img class = flag src = "./union-jack.jpg" ></img></button>
 
-    <div class = title ><h2><strong>La réalité augmentée</strong></h2></div>
+    <div id ="french" class = "french">
 
-    <div class = hemititle ><h2>Comment ça marche ?</h2></div>
+      <body class = "french"> <!--should b the first seen, with switch to english available through button-->
 
-    <p class  = main_text>
+        <div class = title ><h2><strong>La réalité augmentée</strong></h2></div>
 
-        La visualisation de réactions chimiques dans l’espace 3D est un exercice difficile. La Réalité Virtuelle est un outil puissant pour pallier cette difficulté,
-        mais il est extrêmement coûteux. Le professeur Emmanuel Bettler a donc souhaité mettre à disposition de ses étudiants de licence la Réalité Augmentée (AR). 
-        La Réalité Augmentée repose sur le principe de superposition à l’écran de la vue d’une caméra et d’objets virtuels. L’apparition, la transformation et le 
-        maintien à l’écran de ces objets dépend de la visibilité par la caméra de marqueurs. Ceux-ci sont des motifs imprimés, connus par l’outil utilisé. En voici plusieurs exemples :
-    </p>
-    <img class = marker src = "./markers.png" alt = "Exemples de marqueurs utilisés"><img>
+        <div class = hemititle ><h2>Comment ça marche ?</h2></div>
 
-    <p class = main_text>
+        <p class  = main_text>
 
-        Lorsque ces marqueurs apparaissent à la caméra, l’outil les reconnaît et leur superpose l’objet correspondant à l'écran. Dans notre cas, si deux marqueurs correspondent à 
-        deux substrats d’une réaction et que la distance les séparant est inférieure à un certain seuil, alors la réaction à lieu et les produits remplacent les substrats. 
-        Des marqueurs de conditions expérimentales peuvent être nécessaires. Le principe en schéma :
+            La visualisation de réactions chimiques dans l’espace 3D est un exercice difficile. La Réalité Virtuelle est un outil puissant pour pallier cette difficulté,
+            mais il est extrêmement coûteux. Le professeur Emmanuel Bettler a donc souhaité mettre à disposition de ses étudiants de licence la Réalité Augmentée (AR). 
+            La Réalité Augmentée repose sur le principe de superposition à l’écran de la vue d’une caméra et d’objets virtuels. L’apparition, la transformation et le 
+            maintien à l’écran de ces objets dépend de la visibilité par la caméra de marqueurs. Ceux-ci sont des motifs imprimés, connus par l’outil utilisé. En voici plusieurs exemples :
+        </p>
+        <img class = marker src = "./markers.png" alt = "Exemples de marqueurs utilisés"><img>
 
-    </p>
+        <p class = main_text>
 
-    <p class = main_text>Une illustration en vidéo :</p>
+            Lorsque ces marqueurs apparaissent à la caméra, l’outil les reconnaît et leur superpose l’objet correspondant à l'écran. Dans notre cas, si deux marqueurs correspondent à 
+            deux substrats d’une réaction et que la distance les séparant est inférieure à un certain seuil, alors la réaction à lieu et les produits remplacent les substrats. 
+            Des marqueurs de conditions expérimentales peuvent être nécessaires. Le principe en schéma :
 
-    <iframe src = "https://youtu.be/-vkovOVkMp8" width="40%" height="40%"></iframe>
+        </p>
+
+        <p class = main_text>Une illustration en vidéo :</p>
+
+        <iframe src = "https://youtu.be/-vkovOVkMp8"></iframe>
+
+      </body>
+
+    </div>
+
+    <!--English section, should be shown when clicking the button and vice-versa with the french one-->
+
+    <div id = "english" class = "english">
+
+      <body id = "english" class = english lang = "english">
+    
+        <div id = "english" class = title ><h2><strong>Augmented Reality</strong></h2></div>
+    
+        <div id = "english" class = hemititle ><h2>How does it work ?</h2></div>
+    
+        <p id = "english" class  = main_text>
+    
+          3D visualisation of chemical reactions is a difficult exercise. Virtual Reality is a powerful tool to remedy such difficulty, but it is very costly. Pr. Emmanuel Bettler decided to make available Augmented Reality (AR) to its bachelor students. 
+
+          AR is based on the principle of superposition on the screen of: a camera vue and virtual objects. The apparition, transformation and maintenance on the screen of these objects depends on the marker's visibility for the camera. These markers are printed motifs. Here is an example:
+          
+        </p>
+        
+        <img id = "english" class = marker src = "./markers.png" alt = "Exemples de marqueurs utilisés"><img>
+    
+        <p id = "english" class = main_text>
+    
+          When these markers appear to the camera, the tool recognises them and overlays their corresponding object on the screen. In our case, if two markers correspond to two substrates of a reaction and they are at a distance inferior to a certain threshold, then the reaction takes place and the products replace the substrates. Markers for experimental conditions might be necessary. The principle summarized by a schematic:
+    
+        </p>
+    
+        <p id = "english" class = main_text>Illustrative video:</p>
+    
+        <iframe id = "english" src = "https://youtu.be/-vkovOVkMp8"></iframe>
+    
+      </body>
+
+    </div>
+
+  </div>
+
+    <footer>
+
+      
+
+    </footer>
+</html>
