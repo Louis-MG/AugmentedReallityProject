@@ -17,7 +17,7 @@
 
   <!-- Documentation about AR -->
 
-    <button class = "language1"><img class = flag src = "./french-flag.png" onclick="change_to_english()"></img></button>
+    <button class = "language1"><img class = flag src = "./french-flag.png" onclick="change_to_french()"></img></button>
 
     <button class = back><img class = left_arrow src = "./arrow-left.svg"></img></button>
 
@@ -25,7 +25,7 @@
 
     <div id ="french" class = "french">
 
-      <body class = "french"> <!--should b the first seen, with switch to english available through button-->
+      <body> <!--should b the first seen, with switch to english available through button-->
 
         <div class = title ><h2><strong>La réalité augmentée</strong></h2></div>
 
@@ -60,13 +60,13 @@
 
     <div id = "english" class = "english">
 
-      <body id = "english" class = english lang = "english">
+      <body>
     
-        <div id = "english" class = title ><h2><strong>Augmented Reality</strong></h2></div>
+        <div class = title ><h2><strong>Augmented Reality</strong></h2></div>
     
-        <div id = "english" class = hemititle ><h2>How does it work ?</h2></div>
+        <div class = hemititle ><h2>How does it work ?</h2></div>
     
-        <p id = "english" class  = main_text>
+        <p class  = main_text>
     
           3D visualisation of chemical reactions is a difficult exercise. Virtual Reality is a powerful tool to remedy such difficulty, but it is very costly. Pr. Emmanuel Bettler decided to make available Augmented Reality (AR) to its bachelor students. 
 
@@ -74,17 +74,17 @@
           
         </p>
         
-        <img id = "english" class = marker src = "./markers.png" alt = "Exemples de marqueurs utilisés"><img>
+        <img class = marker src = "./markers.png" alt = "Exemples de marqueurs utilisés"><img>
     
-        <p id = "english" class = main_text>
+        <p class = main_text>
     
           When these markers appear to the camera, the tool recognises them and overlays their corresponding object on the screen. In our case, if two markers correspond to two substrates of a reaction and they are at a distance inferior to a certain threshold, then the reaction takes place and the products replace the substrates. Markers for experimental conditions might be necessary. The principle summarized by a schematic:
     
         </p>
     
-        <p id = "english" class = main_text>Illustrative video:</p>
+        <p class = main_text>Illustrative video:</p>
     
-        <iframe id = "english" src = "https://youtu.be/-vkovOVkMp8"></iframe>
+        <iframe src = "https://youtu.be/-vkovOVkMp8"></iframe>
     
       </body>
 
