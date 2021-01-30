@@ -23,6 +23,9 @@ function change_to_french() {
     }
 }
 
+function goHome() {
+    window.location.href = "home.html";
+}
 
 
 // document.getElementById("english").style.display = "none" ;
