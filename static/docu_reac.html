@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="./main.css">
+
+    <title>Documentation: les réactions.</title>
+    <script src = "docu_functions.js"></script>
+    
+  </head> 
+
+  <!-- Documentation about reactions -->
+
+    <button class = "button button1" onclick = "goHome()"><img class = left_arrow src = "./arrow-left.svg"></img></button>
+    <!-- https://icons.getbootstrap.com/icons/arrow-left/ -->
+
+    <button class = "language1"><img class = flag src = "./french-flag.png" onclick="change_to_french()"></img></button>
+
+    <button class = "language2" onclick="change_to_english()" ><img class = flag src = "./union-jack.jpg" ></img></button>
+
+    <div id ="french" class = "french">
+
+      <body> <!--should b the first seen, with switch to english available through button-->
+
+        <div class = title ><h2><strong>Réactions explorables avec l’AR de ce projet:</strong></h2></div>
+
+        <div class = hemititle ><h2>Réaction de saponification entre un acide gras et la potasse:</h2></div>
+
+        <p class  = main_text>
+
+          La réaction de saponification est une réaction chimique qui transforme un ester carboxylique (groupement de la forme R-COO-R’), ou un acide carboxylique (R’ est remplacé par un groupement hydroxyle) en un ion carboxylate et un alcool si la molécule de départ était un ester sinon une molécule d’eau si c'était un acide carboxylique. Pour permettre la transformation, l’ester ou l’acide carboxylique doivent réagir avec une base forte, comme par exemple la potasse KOH, qui en milieu aqueux se dissocie en K+ et OH-. 
+          Le OH- libre dans l’eau sera donc capable de faire un attaque nucléophile sur le groupement R’ de l’ester ou le proton H du groupement carboxyle de l’acide gras.
+          
+        </p>
+        <img class = marker src = "reac_sapo.png" alt = "La réaction de saponification"><img>
+
+        <p class = main_text>
+
+          La saponification est une réaction plutôt lente (cinétique d’ordre 2) mais elle se produit à température ambiante. C’est une réaction totale donc les réactifs (l’acide gras et la base) sont complètement consommés à la fin de la réaction et il s’agit d’une réaction exothermique (elle dégage de l'énergie thermique).
+          La réaction de saponification peut être bien plus complexe que cela car elle peut se produire sur les esters d’acides gras des triglycérides. <br>
+          <br>
+          Cette réaction s’appelle réaction de saponification car le sel d’acide gras obtenu à fin réaction est plus communément appelé savon, et c’est pour cela qu'elle est amplement utilisée dans l’industrie chimique dans la production de produits pour l'hygiène.
+          
+        </p>
+
+        <div class = hemititle ><h2>Formation de la liaison peptidique:</h2></div>
+
+        <p class  = main_text>
+
+          La formation de liaisons peptidiques est une réaction biochimique très importante pour la vie car il s’agit de la réaction qui permet d'enchainer et relier les acides aminés qui constituent les protéines.
+          La réaction qui mène à la formation de la liaison peptidique est une réaction de condensation entre  un groupement carboxylique -COOH et un groupement amine -NH2 avec la libération d’une molécule d’eau.
+        
+        </p>
+        <img class = marker src = "reac_peptidic.png" alt = "Formation d'une liaison peptidique"><img>
+
+        <p class = main_text>
+
+          La réaction mène à la formation d’une amide substituée où la résonance entre la liaison C=O et le doublet non liant de l’azote fait que la liaison peptidique soit un mélange entre une liaison simple et une liaison double.
+          
+        </p>
+
+        <div class = hemititle ><h2>Formation de la liaison ester:</h2></div>
+
+        <p class  = main_text>
+
+          La formation de liaison ester aussi appelée estérification consiste en la condensation d’un groupement acide carboxylique ( ou un dérivé ) avec un groupement alcool pour aboutir à un ester et un résidu (le résidu étant une molécule d’eau pour un acide carboxylique).
+          Cette réaction est une réaction lente.
+        
+        </p>
+        <img class = marker src = "reac_ester.png" alt = "Formation d'une liaison ester"><img>
+
+        <p class = main_text>
+
+          
+        </p>
+
+      </body>
+
+    </div>
+
+    <!--English section, should be shown when clicking the button and vice-versa with the french one-->
+
+    <div id = "english" class = "english">
+
+      <body>
+    
+        <div class = title ><h2><strong>Augmented Reality</strong></h2></div>
+    
+        <div class = hemititle ><h2>How does it work ?</h2></div>
+    
+        <p class  = main_text>
+    
+          3D visualisation of chemical reactions is a difficult exercise. Virtual Reality is a powerful tool to remedy such difficulty, but it is very costly. Asst. Pr. Emmanuel Bettler decided to make available Augmented Reality (AR) to its bachelor students. 
+
+          AR is based on the principle of superposition on the screen of: a camera vue and virtual objects. The apparition, transformation and maintenance on the screen of these objects depends on the marker's visibility for the camera. These markers are printed motifs. Here is an example:
+          
+        </p>
+        
+        <img class = marker src = "./markers.png" alt = "Exemples de marqueurs utilisés"><img>
+    
+        <p class = main_text>
+    
+          When these markers appear to the camera, the tool recognises them and overlays their corresponding object on the screen. In our case, if two markers correspond to two substrates of a reaction and they are at a distance inferior to a certain threshold, then the reaction takes place and the products replace the substrates. Markers for experimental conditions might be necessary. The principle summarized by a schematic:
+    
+        </p>
+    
+      </body>
+
+    </div>
+
+  </div>
+
+    <footer>
+
+      
+
+    </footer>
+</html>
