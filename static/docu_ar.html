@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="./main.css">
+
+    <title>Documentation: la réalité virtuelle</title>
+    <script src = "docu_functions.js"></script>
+    
+  </head> 
+
+  <!-- Documentation about AR -->
+
+    <button class = "button button1" onclick = "goHome()"><img class = left_arrow src = "assets/arrow-left.svg"></img></button>
+    <!-- https://icons.getbootstrap.com/icons/arrow-left/ -->
+
+    <button class = "language" id="fr" onclick="switchToFrench()"><img class = flag src = "assets/french-flag.png" ></img></button>
+
+    <button class = "language" id="en" onclick="switchToEnglish()" ><img class = flag src = "assets/union-jack.jpg" ></img></button>
+
+    <button class = "language" id="it" onclick="switchToItalian()" ><img class = flag src = "assets/Flag_of_Italy.svg" ></img></button>
+
+    <div id ="french" class = "french">
+
+      <body> <!--should b the first seen, with switch to english available through button-->
+
+        <div class = title ><h2><strong>La réalité augmentée</strong></h2></div>
+
+        <div class = hemititle ><h2>Comment ça marche ?</h2></div>
+
+        <p class  = main_text>
+
+            La visualisation de réactions chimiques dans l’espace 3D est un exercice difficile. La Réalité Virtuelle est un outil puissant pour pallier cette difficulté,
+            mais il est extrêmement coûteux. Le professeur Emmanuel Bettler a donc souhaité mettre à disposition de ses étudiants de licence la Réalité Augmentée (AR). 
+            La Réalité Augmentée repose sur le principe de superposition à l’écran de la vue d’une caméra et d’objets virtuels. L’apparition, la transformation et le 
+            maintien à l’écran de ces objets dépend de la visibilité par la caméra de marqueurs. Ceux-ci sont des motifs imprimés, connus par l’outil utilisé. En voici plusieurs exemples :
+        </p>
+        <img class = marker src = "./markers.png" alt = "Exemples de marqueurs utilisés"><img>
+
+        <p class = main_text>
+
+            Lorsque ces marqueurs apparaissent à la caméra, l’outil les reconnaît et leur superpose l’objet correspondant à l'écran. Dans notre cas, si deux marqueurs correspondent à 
+            deux substrats d’une réaction et que la distance les séparant est inférieure à un certain seuil, alors la réaction à lieu et les produits remplacent les substrats. 
+            Des marqueurs de conditions expérimentales peuvent être nécessaires. Le principe en schéma :
+
+        </p>
+
+        <p class = main_text>Une illustration en vidéo :</p>
+
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/-vkovOVkMp8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </body>
+
+    </div>
+
+    <!--English section, should be shown when clicking the button and vice-versa with the french one-->
+
+    <div id = "english" class = "english">
+
+      <body>
+    
+        <div class = title ><h2><strong>Augmented Reality</strong></h2></div>
+    
+        <div class = hemititle ><h2>How does it work ?</h2></div>
+    
+        <p class  = main_text>
+    
+          3D visualisation of chemical reactions is a difficult exercise. Virtual Reality is a powerful tool to remedy such difficulty, but it is very costly. Asst. Pr. Emmanuel Bettler decided to make available Augmented Reality (AR) to its bachelor students. 
+
+          AR is based on the principle of superposition on the screen of: a camera vue and virtual objects. The apparition, transformation and maintenance on the screen of these objects depends on the marker's visibility for the camera. These markers are printed motifs. Here is an example:
+          
+        </p>
+        
+        <img class = marker src = "./markers.png" alt = "Exemples de marqueurs utilisés"><img>
+    
+        <p class = main_text>
+    
+          When these markers appear to the camera, the tool recognises them and overlays their corresponding object on the screen. In our case, if two markers correspond to two substrates of a reaction and they are at a distance inferior to a certain threshold, then the reaction takes place and the products replace the substrates. Markers for experimental conditions might be necessary. The principle summarized by a schematic:
+    
+        </p>
+    
+        <p class = main_text>Illustrative video:</p>
+    
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/-vkovOVkMp8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>    
+      </body>
+
+    </div>
+
+    <!-- Italian version -->
+
+    <div id = "italian" class = "italian">
+
+      <body>
+    
+        <div class = title ><h2><strong>La realtà aumentata</strong></h2></div>
+    
+        <div class = hemititle ><h2>How does it work ?</h2></div>
+    
+        <p class  = main_text>
+    
+          La visualizzazione 3D di reazioni chimiche nello spazio est una prova difficile. La realtà virtuale è uno strumento che permette di superare questa difficoltà,
+          ma sfortunatamente è una tecnologia troppo costosa per essere alla portata di tutti. Il professore Emmanuel Bettler ha quindi deciso di mettere a disposizione dei suoi studenti la Realtà Aumentata (AR).
+          La Realtà Aumentata si basa sul sovrapporre allo schermo l'immagine di una fotocamera con degli oggetti 3D virtuali. L'apparizione, la trasformazione e
+          il mantimento di quest'ulltimi dipende dalla visibilità di sengalini da parte della telecamera. I segnalini sono semplicemente dei motivi stampati su carta, che possono essere riconosciuti dallo strumento AR. 
+          Qua sotto qualche esempio:
+        </p>
+        
+        <img class = marker src = "./markers.png" alt = "Exemples de marqueurs utilisés"><img>
+    
+        <p class = main_text>
+    
+          Quando i segnalini appaiono nel campo visivo della fotocamera, il programma li riconosce e gli sovvrapone l'oggetto 3D corrispondente allo schermo. Nel nostro caso, se due segnalini corrispondono a
+          due substrati di una reazione e che la distanza fra i due è inferiore a un certo valore soglia, allora la reazione può svolgersi e i prodotti rimpiazzano i reagenti.
+          Dei segnalini di condizioni esperimentali possono essere necessari (temperatura, pH, etc.). Schema del principio base: 
+        </p>
+    
+        <p class = main_text>Video illustrattivo:</p>
+    
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/-vkovOVkMp8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>    
+
+      </body>
+
+    </div>
+
+    <footer>
+
+      
+
+    </footer>
+</html>

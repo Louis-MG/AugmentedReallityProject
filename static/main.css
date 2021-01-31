@@ -1,0 +1,147 @@
+/*
+
+    Style for the documentation
+
+*/
+
+body {
+    background-image: url("molecule.png");
+    background-size: 100%;
+    background-position: 100%;
+    display: block;
+}
+
+
+.french {
+    margin-left: 10%;
+    margin-top: 4%;
+    margin-right: 10%;
+    margin-bottom: auto;
+    display: block;
+}
+
+.english {
+    margin-left: 10%;
+    margin-top: 4%;
+    margin-right: 10%;
+    margin-bottom: auto;
+    display: none;
+}
+
+.italian {
+    margin-left: 10%;
+    margin-top: 4%;
+    margin-right: 10%;
+    margin-bottom: auto;
+    display: none;
+}
+
+button {
+    border: none;
+    background-color: white;
+    position: absolute;
+    cursor: pointer;
+    border-radius: 50%;
+    box-shadow: 0px 0px 10px #555454;
+}
+
+@keyframes on-load {
+    0% {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+    70% {
+        opacity: 0.7;
+        transform: scale(0.7);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+button:hover {
+    border: 2px dashed var(--colour-white) ;
+    animation: on-load 0.3s ease-in-out forwards;
+}
+
+#fr {
+    right: 5%;
+    padding: 26px 21px 26px 21px;
+}
+
+#en {
+    right: 11%;
+    padding: 27px 19px 27px 19px;
+}
+
+#it {
+    right: 17%;
+    padding: 27px 19px 27px 19px;
+}
+.button1 {
+    left: 5%;
+    padding: 10px 10px 8px 10px;
+}
+
+.arrow_left {
+    height: 30px;
+    width: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.title {
+    font-size: 35px;
+    text-align: center;
+    font-family: "helvetica";    
+}
+
+
+.flag {
+    height : 30px ;
+    width: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+
+.hemititle {
+    font-size: 25px;
+    font-family: "helvetica";
+    text-align: left;
+}
+
+.main_text {
+    font-size: 20px;
+    font-family:  "helvetica";
+    text-align: justify;
+}
+
+.marker {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 300px;
+    width: auto;
+    box-shadow: 0px 0px 10px #555454;
+}
+
+/*
+    Known bug: the video doe snot work in firefox
+*/
+
+iframe {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 854px ;
+    height: 480px;
+}
+

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+  <script src="https://aframe.io/releases/1.1.0/aframe.min.js"></script>
+  <script src="static/aframe-ar.js"></script>
+  <script src="static/peptide-link.js"></script>
+
+<html lang="en">
+  <head>
+    <title>developAR</title>
+  </head>
+
+  <body>
+    <p id="info"><b>Peptide link formation</b></p>
+    <a-scene id="scene1">
+      <!--a-marker-camera preset='hiro'></a-marker-camera-->
+        <a-assets>
+          <a-asset-item id="aa1-obj" src="static/assets/objABfinal.obj"></a-asset-item>
+          <a-asset-item id="aa1-mtl" src="static/assets/objABfinal.mtl"></a-asset-item>
+        </a-assets>
+        <a-marker-camera preset='hiro' id="pep"></a-marker-camera>
+          <a-entity obj-model="obj: #aa1-obj; mtl: #aa1-mtl" scale="0.01 0.01 0.01" id="aminoacid1"></a-entity>
+        <a-assets>
+          <a-asset-item id="aa2-obj" src="static/assets/objABfinal.obj"></a-asset-item>
+          <a-asset-item id="aa2-mtl" src="static/assets/objABfinal.mtl"></a-asset-item>
+        </a-assets>
+        <a-marker-camera preset='letterA' id="pep"></a-marker-camera>
+          <a-entity obj-model="obj: #aa2-obj; mtl: #aa2-mtl" scale="0.01 0.01 0.01" id="aminoacid2"></a-entity>
+    </a-scene>
+  </body>
+</html>
