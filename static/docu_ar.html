@@ -15,12 +15,18 @@
 
   <!-- Documentation about AR -->
 
-    <button class = "button button1" onclick = "goHome()"><img class = left_arrow src = "./arrow-left.svg"></img></button>
-    <!-- https://icons.getbootstrap.com/icons/arrow-left/ -->
+  <button class = "back_to_menu" onclick = "goHome()"><img class = left_arrow src = "./arrow-left.svg"></img></button>
+  <!-- https://icons.getbootstrap.com/icons/arrow-left/ -->
 
-    <button class = "language1"><img class = flag src = "./french-flag.png" onclick="change_to_french()"></img></button>
+  <div class = "button_box">
+
+    <button class = "language1" onclick="change_to_french()" ><img class = flag src = "./french-flag.png" ></img></button>
 
     <button class = "language2" onclick="change_to_english()" ><img class = flag src = "./union-jack.jpg" ></img></button>
+
+    <button class = "language3" onclick="change_to_italian()" ><img class = flag src = "./italian_flag.svg" ></img></button>
+
+  </div>
 
     <div id ="french" class = "french">
 
@@ -49,8 +55,8 @@
 
         <p class = main_text>Une illustration en vidéo :</p>
 
-        <iframe src = "https://youtu.be/-vkovOVkMp8"></iframe>
-
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/-vkovOVkMp8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>    
+        
       </body>
 
     </div>
@@ -73,7 +79,7 @@
           
         </p>
         
-        <img class = marker src = "./markers.png" alt = "Exemples de marqueurs utilisés"><img>
+        <img class = marker src = "./markers.png" alt = "Exemples of used markers"><img>
     
         <p class = main_text>
     
@@ -83,11 +89,46 @@
     
         <p class = main_text>Illustrative video:</p>
     
-        <iframe src = "https://youtu.be/-vkovOVkMp8"></iframe>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/-vkovOVkMp8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>    
     
       </body>
 
     </div>
+
+
+  <!-- Italian version -->
+
+  <div id = "italian" class = "italian">
+
+    <body>
+
+      <div class = title ><h2><strong>La realtà aumentata</strong></h2></div>
+
+      <div class = hemititle ><h2>How does it work ?</h2></div>
+
+      <p class  = main_text>
+
+        La visualizzazione 3D di reazioni chimiche nello spazio est una prova difficile. La realtà virtuale è uno strumento che permette di superare questa difficoltà,
+        ma sfortunatamente è una tecnologia troppo costosa per essere alla portata di tutti. Il professore Emmanuel Bettler ha quindi deciso di mettere a disposizione dei suoi studenti la Realtà Aumentata (AR).
+        La Realtà Aumentata si basa sul sovrapporre allo schermo l'immagine di una fotocamera con degli oggetti 3D virtuali. L'apparizione, la trasformazione e
+        il mantimento di quest'ulltimi dipende dalla visibilità di sengalini da parte della telecamera. I segnalini sono semplicemente dei motivi stampati su carta, che possono essere riconosciuti dallo strumento AR. 
+        Qua sotto qualche esempio:
+      </p>
+      
+      <img class = marker src = "./markers.png" alt = "Exemples de marqueurs utilisés"><img>
+
+      <p class = main_text>
+
+        Quando i segnalini appaiono nel campo visivo della fotocamera, il programma li riconosce e gli sovvrapone l'oggetto 3D corrispondente allo schermo. Nel nostro caso, se due segnalini corrispondono a
+        due substrati di una reazione e che la distanza fra i due è inferiore a un certo valore soglia, allora la reazione può svolgersi e i prodotti rimpiazzano i reagenti.
+        Dei segnalini di condizioni esperimentali possono essere necessari (temperatura, pH, etc.). Schema del principio base: 
+      </p>
+
+      <p class = main_text>Video illustrattivo:</p>
+
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/-vkovOVkMp8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>    
+
+    </body>
 
   </div>
 

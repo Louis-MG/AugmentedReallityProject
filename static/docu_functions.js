@@ -27,7 +27,7 @@ function change_to_french() {
     }
 }
 
-function change_to_Italian() {
+function change_to_italian() {
   var x = document.getElementById("italian");
   if (x.style.display === "none") {
     x.style.display = "block";
