@@ -15,12 +15,18 @@
 
   <!-- Documentation about reactions -->
 
-    <button class = "button button1" onclick = "goHome()"><img class = left_arrow src = "./arrow-left.svg"></img></button>
+    <button class = "back_to_menu" onclick = "goHome()"><img class = left_arrow src = "./arrow-left.svg"></img></button>
     <!-- https://icons.getbootstrap.com/icons/arrow-left/ -->
 
-    <button class = "language1"><img class = flag src = "./french-flag.png" onclick="change_to_french()"></img></button>
+    <div class = "button_box">
 
-    <button class = "language2" onclick="change_to_english()" ><img class = flag src = "./union-jack.jpg" ></img></button>
+      <button class = "language1" onclick="change_to_french()" ><img class = flag src = "./french-flag.png" ></img></button>
+
+      <button class = "language2" onclick="change_to_english()" ><img class = flag src = "./union-jack.jpg" ></img></button>
+
+      <button class = "language3" onclick="change_to_italian()" ><img class = flag src = "./italian_flag.svg" ></img></button>
+
+    </div>
 
     <div id ="french" class = "french">
 
@@ -71,11 +77,12 @@
           Cette réaction est une réaction lente.
         
         </p>
-        <img class = marker src = "reac_ester.png" alt = "Formation d'une liaison ester"><img>
+        <img class = ester src = "reac_ester.png" alt = "Formation d'une liaison ester"><img>
 
         <p class = main_text>
 
-          
+          Cette réactiond onne lieu à la formation d'une amine substituée au lieu de la raisonnance entre la liaison double C=O et le doublet non liant de l'azote. 
+
         </p>
 
       </body>
@@ -88,31 +95,98 @@
 
       <body>
     
-        <div class = title ><h2><strong>Augmented Reality</strong></h2></div>
+        <div class = title ><h2><strong>Reactions to explore with this project:</strong></h2></div>
     
-        <div class = hemititle ><h2>How does it work ?</h2></div>
+        <div class = hemititle ><h2>Saponification reaction between a fatty acid and potash:</h2></div>
     
         <p class  = main_text>
     
-          3D visualisation of chemical reactions is a difficult exercise. Virtual Reality is a powerful tool to remedy such difficulty, but it is very costly. Asst. Pr. Emmanuel Bettler decided to make available Augmented Reality (AR) to its bachelor students. 
+          Saponification reaction is a chemical reaction that transform a carboxylic ester (R-COO-R’ form) or a carboxylic acid (if R’ is replaced by OH) into a carboxylate ion and an alcohol (or water if R’ was a OH).To allow the transformation, the ester/carboxylic acid must react with a strong base like potash KOH, which dissolves in K+ and OH- in water. The free OH- will do a nucleophile attack on the R’ of the ester or H of the carboxylic group of the fatty acid.
 
-          AR is based on the principle of superposition on the screen of: a camera vue and virtual objects. The apparition, transformation and maintenance on the screen of these objects depends on the marker's visibility for the camera. These markers are printed motifs. Here is an example:
-          
         </p>
         
-        <img class = marker src = "./markers.png" alt = "Exemples de marqueurs utilisés"><img>
+        <img class = marker src = "./reac_sapo.png" alt = "Saponification"><img>
     
         <p class = main_text>
     
-          When these markers appear to the camera, the tool recognises them and overlays their corresponding object on the screen. In our case, if two markers correspond to two substrates of a reaction and they are at a distance inferior to a certain threshold, then the reaction takes place and the products replace the substrates. Markers for experimental conditions might be necessary. The principle summarized by a schematic:
+          Saponification has a cinetic order of 2 and can happen at ambient temperature. The reaction is total and exothermic. It also can be much more complex due to it happening with fatty acid esters of triglycerides. 
     
         </p>
+        
+        <div class = hemititle ><h2>Formation of the peptidic bond:</h2></div>
     
+        <p class  = main_text>
+    
+          The formation of peptidic bonds is a very important biochemical reaction for life as it chains amino acids to build proteins. More precisely it is the condensation of a carboxylic group (-COOH) and an amine group (-NH2), and it frees a water molecule. 
+
+        </p>
+        
+        <img class = marker src = "./reac_peptidic.png" alt = "Petpid bond formation"><img>
+    
+        <p class = main_text>
+    
+          That reaction leads to the formation of an amino substituted where the resonance between the C=O bond and the non-binding doublet is balanced between simple and double bond.
+    
+        </p>
+
+        <div class = hemititle ><h2>Ester bond formation:</h2></div>
+    
+        <p class  = main_text>
+    
+          The formation of the ester bond, also called esterification consists in the condensation of a carboxylic acid group (or similar) with an alcohol group to give rise to the ester and a residue (water in case of a carboxylic). 
+
+        </p>
+        
+        <img class = ester src = "./reac_ester.png" alt = "Ester formation"><img>
+    
+        <p class = main_text>
+    
+          That reaction leads to the formation of an amino substituted where the resonance between the C=O bond and the non-binding doublet is balanced between simple and double bond.
+    
+        </p>
+
       </body>
 
     </div>
 
   </div>
+
+   <!-- Italian version -->
+
+   <div id = "italian" class = "italian">
+
+    <body>
+  
+      <div class = title ><h2><strong>La realtà aumentata</strong></h2></div>
+  
+      <div class = hemititle ><h2>How does it work ?</h2></div>
+  
+      <p class  = main_text>
+  
+        La visualizzazione 3D di reazioni chimiche nello spazio est una prova difficile. La realtà virtuale è uno strumento che permette di superare questa difficoltà,
+        ma sfortunatamente è una tecnologia troppo costosa per essere alla portata di tutti. Il professore Emmanuel Bettler ha quindi deciso di mettere a disposizione dei suoi studenti la Realtà Aumentata (AR).
+        La Realtà Aumentata si basa sul sovrapporre allo schermo l'immagine di una fotocamera con degli oggetti 3D virtuali. L'apparizione, la trasformazione e
+        il mantimento di quest'ulltimi dipende dalla visibilità di sengalini da parte della telecamera. I segnalini sono semplicemente dei motivi stampati su carta, che possono essere riconosciuti dallo strumento AR. 
+        Qua sotto qualche esempio:
+      </p>
+      
+      <img class = marker src = "./markers.png" alt = "Exemples de marqueurs utilisés"><img>
+  
+      <p class = main_text>
+  
+        Quando i segnalini appaiono nel campo visivo della fotocamera, il programma li riconosce e gli sovvrapone l'oggetto 3D corrispondente allo schermo. Nel nostro caso, se due segnalini corrispondono a
+        due substrati di una reazione e che la distanza fra i due è inferiore a un certo valore soglia, allora la reazione può svolgersi e i prodotti rimpiazzano i reagenti.
+        Dei segnalini di condizioni esperimentali possono essere necessari (temperatura, pH, etc.). Schema del principio base: 
+      </p>
+  
+      <p class = main_text>Video illustrattivo:</p>
+  
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/-vkovOVkMp8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>    
+
+    </body>
+
+  </div>
+
 
     <footer>
 

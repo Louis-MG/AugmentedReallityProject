@@ -6,7 +6,9 @@
     <!-- <script src="aframe-ar.js"></script> -->
 <!-- <script src="hbondprotontransferclient.js"></script> -->
     <script language="javascript" type="text/javascript" src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js" crossorigin="anonymous" integrity="sha256-RYh3g3iPuZjkKUQFPEz4dqTTtP3/FlVlMaKV5g1otbg="></script>
-
+    <script language = "javascript" type = "module"> 
+      import { setIntervale3 } from "../module/script-reac3.js"
+    </script>
 
 <html lang="en">
     <head>
@@ -17,6 +19,7 @@
         <div class="mainText">
             <p id="info"><b>Three atoms that transfer a proton: move markers around to create an H2O molecule</b></p>
             <p id="infop"></p>
+            <p id="test"> Ceci est un putain de test imothep</p>
         </div>
         <a-scene embedded artoolkit='patternRatio: 500; sourceType: webcam;' id="thescene">
             <!-- handle hiro marker-->

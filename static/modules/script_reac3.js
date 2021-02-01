@@ -1,7 +1,7 @@
 console.log("loading new reaction ...")
 var ester = 0
 
-setInterval(function(){
+setInterval3(function() {
     document.getElementById("thescene").object3D.updateMatrixWorld(); // select the scene by id in the html, the attribute object3D and the function updateMatrixWorld
     var p1 = new THREE.Vector3(); p1.setFromMatrixPosition(document.getElementById("alcohol").object3D.matrixWorld); // H2O : the object will be partialy visible or not depending on distances
     var p2 = new THREE.Vector3(); p2.setFromMatrixPosition(document.getElementById("carboxy").object3D.matrixWorld); // H1
@@ -10,7 +10,7 @@ setInterval(function(){
 
     // prendre en compte les liens, donc il faut séparer le caborxy de son H, et l'alcool du R
 
-    if (distCarboxyAlco > X && ester < 1){
+    if (distCarboxyAlco > X && ester < 1) {
         document.getElementById("carboxy").setAttribute('visible', true)
         document.getElementById("alcohol").setAttribute('visible', true)
         document.getElementById("ester").setAttribute('visible', false)
@@ -22,13 +22,24 @@ setInterval(function(){
         document.getElementById("alcohol").setAttribute('visible', false)
         document.getElementById("ester").setAttribute('visible', true)
         document.getElementById("residue").setAttribute('visible', true)
+        ester  = 1
     }
 
-    // now if the marker if the caboxy disapears after the reaction:
+    // now if the marker if the carboxy disappears after the reaction the others stay visible :
 
     if (ester = 1 && document.querySelector("CarboxySelectorName").object3D.visible== false) {
         document.getElementById("ester").setAttribute('visible', true)
+        document.getElementById("carboxy").setAttribute('visible', false)
+        document.getElementById("alcohol").setAttribute('visible', false)
+    }
 
+    // if the maarker supporting the ester isnt visible anymore then set the molecule to not visible :
+
+    if (ester = 1 && document.querySelector("CarboxySelectorName").object3D.visible== false) {
+        document.getElementById("ester").setAttribute('visible', true)
+        ester = 0 
     }
 
 }, 200)
+
+export { setInterval3 }
