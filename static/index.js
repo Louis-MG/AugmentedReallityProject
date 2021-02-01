@@ -1,7 +1,6 @@
-import "static/style.css";
+import * as AR from "./aframe-ar.js";
 
-import * as AR from ".static/aframe-ar";
-// window.AR = AR ;
+window.AR = AR;
 AR.registerComponent('connector', {
     schema: {
       src:  {type: 'selector'},
