@@ -1,4 +1,4 @@
-setInterval(function createReaction() {
+function createReaction() {
     console.log("loading new reaction...");
     var pep=0;
 
@@ -36,6 +36,6 @@ setInterval(function createReaction() {
     if (pep == 1 && document.querySelector("#kanjiMarkerSelector").object3D.visible == false){
         aminoAcid2.setAttribute('visible', true)
     }
-}, 200);
+};
 
 export {createReaction};

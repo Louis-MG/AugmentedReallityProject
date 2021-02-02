@@ -1,4 +1,5 @@
 import * as AR from "./aframe-ar.js";
+import {createReaction} from "./peptide-link.js";
 
 window.AR = AR;
 AR.registerComponent('connector', {
@@ -23,3 +24,5 @@ AR.registerComponent('connector', {
       this.el.setAttribute("position", this.pf);
     },
   });
+
+  setInterval(createReaction(), 200);

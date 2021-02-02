@@ -2,7 +2,7 @@
 <!-- This script is based on the work of Luciano Abriata (https://molecularmirror.altervista.org/en/) -->
 
   <script src = "https://aframe.io/releases/1.1.0/aframe.min.js"></script>
-  <script src = "static/aframe-ar.js"></script>
+  <script type = "module" src = "static/aframe-ar.js"></script>
   <script type = "module" src = "static/index.js"></script>
 
 <html lang="en">
@@ -23,7 +23,7 @@
             <a-marker preset = 'hiro' id = "hiroMarkerSelector">
               <a-asset-item id = "aa1-obj" src = "static/assets/objAfinal.obj"></a-asset-item>
               <a-asset-item id = "aa1-mtl" src = "static/assets/objAfinal.mtl"></a-asset-item>
-              <a-entity id = "aminoAcid1" obj-model = "obj: #aa1-obj; mtl: #aa1-mtl" position = "-1.0 0 -0.3" scale = "0.01 0.01 0.01" visible = "false"></a-entity>
+                <a-entity id = "aminoAcid1" obj-model = "obj: #aa1-obj; mtl: #aa1-mtl" position = "-1.0 0 -0.3" scale = "0.01 0.01 0.01" visible = "false"></a-entity>
             </a-marker>
           </a-assets>
 
@@ -32,7 +32,7 @@
             <a-marker preset = 'kanji' id = "kanjiMarkerSelector">
               <a-asset-item id = "aa2-obj" src = "static/assets/objABfinal.obj"></a-asset-item>
               <a-asset-item id = "aa2-mtl" src = "static/assets/objABfinal.mtl"></a-asset-item>
-              <a-entity id = "aminoAcid2" obj-model = "obj: #aa2-obj; mtl: #aa2-mtl" position = "-1.0 0 -0.3" scale = "0.01 0.01 0.01" visible = "false"></a-entity>
+                <a-entity id = "aminoAcid2" obj-model = "obj: #aa2-obj; mtl: #aa2-mtl" position = "-1.0 0 -0.3" scale = "0.01 0.01 0.01" visible = "false"></a-entity>
             </a-marker>
           </a-assets>
 
@@ -41,7 +41,7 @@
   </body>
 
   <!-- main script -->
-  <script src="static/peptide-link.js"></script>
+  <script type = "module" src="static/peptide-link.js"></script>
 
   <script>
       const sceneEl = document.querySelector("a-scene");
