@@ -5,7 +5,7 @@
 */
 
 body {
-    background-image: url("molecule.png");
+    background-image: url("molecule.png"); 
     background-size: 100%;
     background-position: 100%;
     display: block;
@@ -17,7 +17,7 @@ body {
     margin-top: 4%;
     margin-right: 10%;
     margin-bottom: auto;
-    display: block;
+    display: block;     /*the only one visible by deflaut*/
 }
 
 .english {
@@ -25,7 +25,7 @@ body {
     margin-top: 4%;
     margin-right: 10%;
     margin-bottom: auto;
-    display: none;
+    display: none;  /* not visible by default */
 }
 
 .italian {
@@ -33,18 +33,18 @@ body {
     margin-top: 4%;
     margin-right: 10%;
     margin-bottom: auto;
-    display: none;
+    display: none;    /* not visible by default */
 }
 
 .button_box {
-    position: fixed;
+    position: fixed;  /* button sare in a fixed box on the right side, they saty as you scroll */
     right: 2.5%;
     width: 10%;
     height: 100%;
 }
 
 button {
-    border: none;
+    border: none;   /* css for all buttons */
     background-color: white;
     position: absolute;
     cursor: pointer;
@@ -52,7 +52,7 @@ button {
     box-shadow: 0px 0px 10px #555454;
 }
 
-@keyframes on-load {
+@keyframes on-load { /* animation for buttons when hovering with cursor*/
     0% {
         opacity: 0;
         transform: scale(0.3);
@@ -72,28 +72,29 @@ button:hover {
     animation: on-load 0.3s ease-in-out forwards;
 }
 
+/* options for the 3 buttons they have diff paddings to obtain similar look hbecause of diff dimensions of flags */
+
 .language1 {
     top: 30%;
     right: 5%;
-    padding: 26px 21px 26px 21px;
-}
+    padding: 26px 21px 26px 21px; /*french*/
 
 .language2 {
     top: 40%;
     right: 5%;
-    padding: 27px 19px 27px 19px;
+    padding: 28px 19px 28px 19px; /*english*/
 }
 
 .language3 {
     top: 50%;
     right: 5%;
-    padding: 27px 19px 27px 19px;
+    padding: 27px 19px 27px 19px; /*italian*/
 }
 
 .back_to_menu {
     left: 5%;
     position: fixed;
-    padding: 10px 10px 8px 10px;
+    padding: 10px 10px 8px 10px; /* css for the button at the top left, which leads back to the menu */
 }
 
 .arrow_left {
@@ -103,18 +104,18 @@ button:hover {
     margin-left: auto;
     margin-right: auto;
     margin-top: auto;
-    margin-bottom: auto;
+    margin-bottom: auto; /* css for picture of the button at the top */
 }
 
 .title {
     font-size: 35px;
     text-align: center;
-    font-family: "helvetica";    
+    font-family: "helvetica";  
 }
 
 
 .flag {
-    height : 30px ;
+    height : 30px ; /* css for the flags in the buttons */
     width: auto;
     display: block;
     margin-left: auto;
@@ -126,13 +127,13 @@ button:hover {
 
 .hemititle {
     font-size: 25px;
-    font-family: "helvetica";
+    font-family: "helvetica"; /* for paragraphs titles */
     text-align: left;
 }
 
 .main_text {
     font-size: 20px;
-    font-family:  "helvetica";
+    font-family:  "helvetica"; /* for text in paragraphs */
     text-align: justify;
 }
 
@@ -142,26 +143,21 @@ button:hover {
     margin-right: auto;
     height: 300px;
     width: auto;
-    box-shadow: 0px 0px 10px #555454;
+    box-shadow: 0px 0px 10px #555454; /* for all pictures exept the one of esterification; which is too big */
 }
 
 .ester {
     display: block;
     margin-left: auto;
-    margin-right: auto;
+    margin-right: auto; /* specific to esterification, as the picture is too big */
     height: 150px;
     width: auto;
 }
 
-/*
-    Known bug: the video doe snot work in firefox, french and english versions
-
-*/
-
 iframe {
     display: block;
     margin-left: auto;
-    margin-right: auto;
+    margin-right: auto; /* for the youtube video */
     width: 854px ;
     height: 480px;
 }
