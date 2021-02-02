@@ -77,7 +77,8 @@ button:hover {
 .language1 {
     top: 30%;
     right: 5%;
-    padding: 26px 21px 26px 21px; /*french*/
+    padding: 26px 21px 26px 21px; /* french */
+}
 
 .language2 {
     top: 40%;

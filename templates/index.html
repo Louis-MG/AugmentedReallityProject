@@ -1,25 +1,24 @@
 <!DOCTYPE html>
 <!-- This script is based on the work of Luciano Abriata (https://molecularmirror.altervista.org/en/) -->
 
-    <!-- <script src="https://aframe.io/releases/1.0.0/aframe.min.js"></script>  is the same as aframe-ar ???? sert potentiellement à réserver un epace mémoire  -->
+    <script src="https://aframe.io/releases/1.0.0/aframe.min.js"></script>  <!--is the same as aframe-ar ???? sert potentiellement à réserver un epace mémoire  -->
     <!-- a locale source in which a 'letterA' preset(a new marker) had been added -->
-    <!-- <script src="aframe-ar.js"></script> -->
-<!-- <script src="hbondprotontransferclient.js"></script> -->
-    <script language="javascript" type="text/javascript" src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js" crossorigin="anonymous" integrity="sha256-RYh3g3iPuZjkKUQFPEz4dqTTtP3/FlVlMaKV5g1otbg="></script>
-    <script language = "javascript" type = "module"> 
+    <script src="../static/aframe-ar.js"></script>
+    <script src="../static/hbondprotontransferclient.js"></script>
+    <!-- <script language="javascript" type="text/javascript" src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js" crossorigin="anonymous" integrity="sha256-RYh3g3iPuZjkKUQFPEz4dqTTtP3/FlVlMaKV5g1otbg="></script> -->
+    <!-- <script language = "javascript" type = "module"> 
       import { setIntervale3 } from "../module/script-reac3.js"
-    </script>
+    </script> -->
 
 <html lang="en">
     <head>
         <title>Acids, bases, H-bonds, and proton transfer</title>
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="../static/style.css">
     </head>
     <body>
         <div class="mainText">
             <p id="info"><b>Three atoms that transfer a proton: move markers around to create an H2O molecule</b></p>
             <p id="infop"></p>
-            <p id="test"> Ceci est un putain de test imothep</p>
         </div>
         <a-scene embedded artoolkit='patternRatio: 500; sourceType: webcam;' id="thescene">
             <!-- handle hiro marker-->
@@ -51,7 +50,7 @@
         </a-scene>
     </body>
     <!-- main script -->
-    <script src="script.js"></script>
+    <script src="../static/script.js"></script>
 
     <script>
       // Workaround for an AR.js bug (https://github.com/jeromeetienne/AR.js/issues/410)
