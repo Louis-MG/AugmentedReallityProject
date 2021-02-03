@@ -1,4 +1,4 @@
-console.log("loading new reaction ...")
+console.log("loading new reaction ")
 var ester = 0
 
 setInterval3(function() {
@@ -10,14 +10,14 @@ setInterval3(function() {
 
     // prendre en compte les liens, donc il faut séparer le caborxy de son H, et l'alcool du R
 
-    if (distCarboxyAlco > X && ester < 1) {
+    if (distCarboxyAlco > 2 && ester < 1) {
         document.getElementById("carboxy").setAttribute('visible', true)
         document.getElementById("alcohol").setAttribute('visible', true)
         document.getElementById("ester").setAttribute('visible', false)
         document.getElementById("residue").setAttribute('visible', false)
     }
 
-    else if (distCarboxyAlco < X && ester < 1) {
+    else if (distCarboxyAlco < 2 && ester < 1) {
         document.getElementById("carboxy").setAttribute('visible', false)
         document.getElementById("alcohol").setAttribute('visible', false)
         document.getElementById("ester").setAttribute('visible', true)
@@ -27,7 +27,7 @@ setInterval3(function() {
 
     // now if the marker if the carboxy disappears after the reaction the others stay visible :
 
-    if (ester = 1 && document.querySelector("CarboxySelectorName").object3D.visible== false) {
+    if (ester = 1 && document.querySelector("carboxy").object3D.visible== false) {
         document.getElementById("ester").setAttribute('visible', true)
         document.getElementById("carboxy").setAttribute('visible', false)
         document.getElementById("alcohol").setAttribute('visible', false)
@@ -40,6 +40,6 @@ setInterval3(function() {
         ester = 0 
     }
 
-}, 200)
+}, 200);
 
-export { setInterval3 }
+export { setInterval3 };

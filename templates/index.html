@@ -6,9 +6,9 @@
     <script src="../static/aframe-ar.js"></script>
     <script src="../static/hbondprotontransferclient.js"></script>
     <!-- <script language="javascript" type="text/javascript" src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js" crossorigin="anonymous" integrity="sha256-RYh3g3iPuZjkKUQFPEz4dqTTtP3/FlVlMaKV5g1otbg="></script> -->
-    <!-- <script language = "javascript" type = "module"> 
-      import { setIntervale3 } from "../module/script-reac3.js"
-    </script> -->
+    <script type = "module"> 
+      import { setInterval3 as setInterval3 } from "../static/modules/script_reac3.js" 
+    </script>
 
 <html lang="en">
     <head>
@@ -31,7 +31,12 @@
             <a-marker preset='letterA' id="promarker">
               <!-- This is a second hydrogen atom
               All coordinates have been divided by 2, so any distance between two atoms must be multiplied by 2 to get the actual distance-->
-              <a-sphere id="hyd2" position="-1.0 0 -0.3" color="white" radius="0.25" visible="false"></a-sphere>
+              <a-assets>
+                <a-asset-item id="obj" src="../static/assets/objAfinal.obj"></a-asset-item>
+                <a-asset-item id="mtl" src="../static/assets/objAfinal.mtl"></a-asset-item>
+              </a-assets>
+            
+              <a-entity obj-model="obj: #tree-obj; mtl: #tree-mtl"></a-entity>            
             </a-marker>
 
             <!-- handle kanji marker -->
@@ -43,6 +48,27 @@
               <a-sphere id="hoh3" position="0 0 0.8" color="white" radius="0.25" visible="false"></a-sphere>
               <a-box id="l1" position="0 0 -0.3" color="grey"  lenght="0.15" width="0.15" height="0.04" visible="false"></a-box>
               <a-box id="l2" position="0 0 0.3" color="grey"  lenght="0.15" width="0.15" height="0.04" visible="false"></a-box>
+            </a-marker>
+
+            <a-marker preset = "letterB", id = "carboxy">
+
+              <!-- intégration du marker -->
+              <a-sphere id="hyd2" position="-1.0 0 -0.3" color="white" radius="0.25" visible="false"></a-sphere>
+
+            </a-marker>
+
+            <a-marker preset = "letterC", id = "alcohol">
+
+              <!-- intégration du marker -->
+              <a-sphere id="hyd2" position="-1.0 0 -0.3" color="white" radius="0.25" visible="false"></a-sphere>
+
+            </a-marker>
+
+            <a-marker preset = "letterD", id = "ester">
+
+              <!-- intégration du marker -->
+              <a-obj src = "../static/assets/objABfinal.obj" visible = "true" ></a-obj>
+
             </a-marker>
 
             <!-- add a simple camera -->
