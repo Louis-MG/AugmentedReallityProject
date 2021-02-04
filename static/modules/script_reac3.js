@@ -1,7 +1,6 @@
-console.log("loading new reaction ")
 var ester = 0
 
-setInterval3(function() {
+setInterval(function() {
     document.getElementById("thescene").object3D.updateMatrixWorld(); // select the scene by id in the html, the attribute object3D and the function updateMatrixWorld
     var p1 = new THREE.Vector3(); p1.setFromMatrixPosition(document.getElementById("alcohol").object3D.matrixWorld); // H2O : the object will be partialy visible or not depending on distances
     var p2 = new THREE.Vector3(); p2.setFromMatrixPosition(document.getElementById("carboxy").object3D.matrixWorld); // H1
@@ -41,5 +40,3 @@ setInterval3(function() {
     }
 
 }, 200);
-
-export { setInterval3 };
