@@ -15,16 +15,20 @@
 
   <!-- Documentation about AR -->
 
-  <button class = "back_to_menu" onclick = "goHome()"><img class = left_arrow src = "./arrow-left.svg"></img></button>
+  <button class = "back_to_menu" onclick = "goHome()"><img class = left_arrow src = "./assets/arrow-left.svg"></img></button>
   <!-- https://icons.getbootstrap.com/icons/arrow-left/ -->
 
   <div class = "button_box"> <!--buttons to change languages-->
 
-    <button class = "language1" onclick="change_to_french()" ><img class = flag src = "./french-flag.png" ></img></button>
+    <button class = "language1" onclick="change_to_french()" ><img class = flag src = "./assets/french-flag.png" ></img></button>
 
-    <button class = "language2" onclick="change_to_english()" ><img class = flag src = "./union-jack.jpg" ></img></button>
+    <button class = "language2" onclick="change_to_english()" ><img class = flag src = "./assets/union-jack.jpg" ></img></button>
 
-    <button class = "language3" onclick="change_to_italian()" ><img class = flag src = "./italian_flag.svg" ></img></button>
+    <button class = "language3" onclick="change_to_italian()" ><img class = flag src = "./assets/italian_flag.svg" ></img></button>
+
+    <form method="get" action="./assets/Markers.pdf">
+      <button class = "download" type = "submit" ><img class = download src = "./assets/download.svg"></img></button>
+    </form>
 
   </div>
 
@@ -32,20 +36,20 @@
 
     <div id ="french" class = "french"> <!--should b the first seen, with switch to english available through button-->
 
-        <div class = title ><h2><strong>La réalité augmentée</strong></h2></div>
+        <div class = "title" ><h2><strong>La réalité augmentée</strong></h2></div>
 
-        <div class = hemititle ><h2>Comment ça marche ?</h2></div>
+        <div class = "hemititle" ><h2>Comment ça marche ?</h2></div>
 
-        <p class  = main_text>
+        <p class  = "main_text">
 
             La visualisation de réactions chimiques dans l’espace 3D est un exercice difficile. La Réalité Virtuelle est un outil puissant pour pallier cette difficulté,
-            mais il est extrêmement coûteux. Le professeur Emmanuel Bettler a donc souhaité mettre à disposition de ses étudiants de licence la Réalité Augmentée (AR). 
+            mais il est extrêmement coûteux. Le professeur assistant Emmanuel Bettler a donc souhaité mettre à disposition de ses étudiants de licence la Réalité Augmentée (AR). 
             La Réalité Augmentée repose sur le principe de superposition à l’écran de la vue d’une caméra et d’objets virtuels. L’apparition, la transformation et le 
             maintien à l’écran de ces objets dépend de la visibilité par la caméra de marqueurs. Ceux-ci sont des motifs imprimés, connus par l’outil utilisé. En voici plusieurs exemples :
         </p>
-        <img class = marker src = "./assets/markers.png" alt = "Exemples de marqueurs utilisés"><img>
+        <img class = "marker" src = "./assets/markers.png" alt = "Exemples de marqueurs utilisés"></img>
 
-        <p class = main_text>
+        <p class = "main_text">
 
             Lorsque ces marqueurs apparaissent à la caméra, l’outil les reconnaît et leur superpose l’objet correspondant à l'écran. Dans notre cas, si deux marqueurs correspondent à 
             deux substrats d’une réaction et que la distance les séparant est inférieure à un certain seuil, alors la réaction à lieu et les produits remplacent les substrats. 
@@ -53,9 +57,14 @@
 
         </p>
 
-        <p class = main_text>Une illustration en vidéo :</p>
+        <p class = "main_text">Une illustration schématique :</p>
+        
+        <img class = "schematic" src = "./assets/schema_AR.png" alt = "schémas du fonctironnement de l'ar"></img>
+
+        <p class = "main_text">Une illustration en vidéo :</p>
 
         <iframe width="560" height="315" src="https://www.youtube.com/embed/-vkovOVkMp8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>    
+
 
     </div>
 
@@ -63,11 +72,11 @@
 
     <div id = "english" class = "english">
     
-        <div class = title ><h2><strong>Augmented Reality</strong></h2></div>
+        <div class = "title" ><h2><strong>Augmented Reality</strong></h2></div>
     
-        <div class = hemititle ><h2>How does it work ?</h2></div>
+        <div class = "hemititle" ><h2>How does it work ?</h2></div>
     
-        <p class  = main_text>
+        <p class  = "main_text">
     
           3D visualisation of chemical reactions is a difficult exercise. Virtual Reality is a powerful tool to remedy such difficulty, but it is very costly. Asst. Pr. Emmanuel Bettler decided to make available Augmented Reality (AR) to its bachelor students. 
 
@@ -75,15 +84,19 @@
           
         </p>
         
-        <img class = marker src = "./assets/markers.png" alt = "Exemples of used markers"><img>
+        <img class = "marker" src = "./assets/markers.png" alt = "Exemples of used markers"></img>
     
-        <p class = main_text>
+        <p class = "main_text">
     
           When these markers appear to the camera, the tool recognises them and overlays their corresponding object on the screen. In our case, if two markers correspond to two substrates of a reaction and they are at a distance inferior to a certain threshold, then the reaction takes place and the products replace the substrates. Markers for experimental conditions might be necessary. The principle summarized by a schematic:
     
         </p>
+
+        <p class = "main_text">Schematic to illustrate:</p>
+        
+        <img class = "schematic" src = "./assets/schema_AR.png" alt = "Schematic of the ar in use:"></img>
     
-        <p class = main_text>Illustrative video:</p>
+        <p class = "main_text">Illustrative video:</p>
     
         <iframe width="560" height="315" src="https://www.youtube.com/embed/-vkovOVkMp8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>    
 
@@ -94,11 +107,11 @@
 
   <div id = "italian" class = "italian">
 
-      <div class = title ><h2><strong>La realtà aumentata</strong></h2></div>
+      <div class = "title" ><h2><strong>La realtà aumentata</strong></h2></div>
 
-      <div class = hemititle ><h2>Come funziona?</h2></div>
+      <div class = "hemititle" ><h2>Come funziona?</h2></div>
 
-      <p class  = main_text>
+      <p class  = "main_text">
 
         La visualizzazione 3D di reazioni chimiche nello spazio est una prova difficile. La realtà virtuale è uno strumento che permette di superare questa difficoltà,
         ma sfortunatamente è una tecnologia troppo costosa per essere alla portata di tutti. Il professore Emmanuel Bettler ha quindi deciso di mettere a disposizione dei suoi studenti la Realtà Aumentata (AR).
@@ -107,16 +120,20 @@
         Qua sotto qualche esempio:
       </p>
       
-      <img class = marker src = "./assets/markers.png" alt = "Esempi di marcatori utilizzati"><img>
+      <img class = "marker" src = "./assets/markers.png" alt = "Esempi di marcatori utilizzati"></img>
 
-      <p class = main_text>
+      <p class = "main_text">
 
         Quando i segnalini appaiono nel campo visivo della fotocamera, il programma li riconosce e gli sovvrapone l'oggetto 3D corrispondente allo schermo. Nel nostro caso, se due segnalini corrispondono a
         due substrati di una reazione e che la distanza fra i due è inferiore a un certo valore soglia, allora la reazione può svolgersi e i prodotti rimpiazzano i reagenti.
         Dei segnalini di condizioni esperimentali possono essere necessari (temperatura, pH, etc.). Schema del principio base: 
       </p>
 
-      <p class = main_text>Video illustrattivo:</p>
+      <p class = "main_text">Un'illustrazione schematica:</p>
+        
+      <img class = "schematic" src = "./assets/schema_AR.png" alt = "Schemi di funzionamento dell'ar"></img>
+
+      <p class = "main_text">Video illustrattivo:</p>
 
       <iframe width="560" height="315" src="https://www.youtube.com/embed/-vkovOVkMp8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>    
 

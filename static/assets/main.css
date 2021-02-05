@@ -83,13 +83,19 @@ button:hover {
 .language2 {
     top: 40%;
     right: 5%;
-    padding: 28px 19px 28px 19px; /*english*/
+    padding: 27px 18px 27px 18px; /*english*/
 }
 
 .language3 {
     top: 50%;
     right: 5%;
-    padding: 27px 19px 27px 19px; /*italian*/
+    padding: 26px 19px 26px 19px; /*italian*/
+}
+
+.download {
+    top: 60%;
+    right: 6.5%;
+    padding:10px 10px 8px 10px;
 }
 
 .back_to_menu {
@@ -143,6 +149,15 @@ button:hover {
     margin-left: auto;
     margin-right: auto;
     height: 300px;
+    width: auto;
+    box-shadow: 0px 0px 10px #555454; /* for all pictures exept the one of esterification; which is too big */
+}
+
+.schematic {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 500px;
     width: auto;
     box-shadow: 0px 0px 10px #555454; /* for all pictures exept the one of esterification; which is too big */
 }
