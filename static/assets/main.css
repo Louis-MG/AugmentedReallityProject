@@ -9,6 +9,7 @@ body {
     background-size: 100%;
     background-position: 100%;
     display: block;
+    backdrop-filter: opacity(0.1);
 }
 
 
