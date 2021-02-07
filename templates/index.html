@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+
+<script src="https://aframe.io/releases/1.0.0/aframe.min.js"></script>
+<!-- a locale source in which a 'letterA' preset(a new marker) had been added -->
+<script src="/static/aframe-ar.js"></script>
+<script src="/static/hbondprotontransferclient.js"></script>
+<script type="module" src="/static/main.js"></script>
+<!--<script type="module" src="/static/module/h2o.js"></script>-->
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AR Website | Home</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<!-- main reaction page -->
+
+<video playsinline autoplay muted loop poster="/static/assets/molecule.png" id="bgvid">
+    <source src="/static/assets/molecule.mp4" type="video/mp4">
+</video>
+<div class="bigTitle">Choose a reaction</div>
+<div class="container1">
+    <div id="box1">
+        <div class="mediumTitle">Water</div>
+        <div class="descriptionText">For the exemple</div>
+        <button type="button" id="button1">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-arrow-right-short" viewBox="1 0 16 16">
+                <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"/>
+            </svg>
+        </button>
+        <img src="/static/assets/Water.png" id="imgBox1">
+    </div>
+    <div id="box2">
+        <div class="mediumTitle">Peptide bond</div>
+        <div class="descriptionText">The chemical bond between carboxyl groups and amino groups of neighboring amino acids, forming an amide group and constituting the primary linkage of all protein structures.</div>
+        <button type="button" id="button3">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-arrow-right-short" viewBox="1 0 16 16">
+                <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"/>
+            </svg>
+        </button>
+        <img src="/static/assets/Lpeptidique0000.png" id="imgBox2">
+    </div>
+    <div id="box3"></div>
+</div>
+<div class="links">
+    <ul class="links__list" style="--item-total:3">
+        <li class="links__item" style="--item-count:1">
+            <a class="links__link" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="links__icon" viewBox="0 0 16 16">
+                    <path d="M5 4a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1H5zm-.5 2.5A.5.5 0 0 1 5 6h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zM5 8a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1H5zm0 2a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1H5z"/>
+                    <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm10-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1z"/>
+                </svg>
+                <span class="links__text">Manual</span>
+            </a>
+        </li>
+        <li class="links__item" style="--item-count:2">
+            <a class="links__link" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="links__icon" viewBox="0 0 16 16">
+                    <path d="M9.972 2.508a.5.5 0 0 0-.16-.556l-.178-.129a5.009 5.009 0 0 0-2.076-.783C6.215.862 4.504 1.229 2.84 3.133H1.786a.5.5 0 0 0-.354.147L.146 4.567a.5.5 0 0 0 0 .706l2.571 2.579a.5.5 0 0 0 .708 0l1.286-1.29a.5.5 0 0 0 .146-.353V5.57l8.387 8.873A.5.5 0 0 0 14 14.5l1.5-1.5a.5.5 0 0 0 .017-.689l-9.129-8.63c.747-.456 1.772-.839 3.112-.839a.5.5 0 0 0 .472-.334z"/>
+                </svg>
+                <span class="links__text">Tools</span>
+            </a>
+        </li>
+        <li class="links__item" style="--item-count:3">
+            <a class="links__link" type="button" id="button2" href="#"><!--onclick="showReactionPage()-->
+                <img src="/static/assets/molec.svg" class="links__icon2" draggable="false"/>
+                <span class="links__text">Reactions</span>
+            </a>
+        </li>
+    </ul>
+    <div class="footer">
+        <p style="text-align: center;margin-top: 90px;">Made by Lyon M1 Bioinfo students © 30.01.2021 version</p>
+    </div>
+</div>
+
+<!-- reaction -->
+
+<div id="reaction"></div>
+
+</body>
+
+<div id="bugWorkaround"></div>
+
+</html>
