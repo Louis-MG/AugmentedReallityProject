@@ -19,6 +19,31 @@ const availableReactions = [
     }
     ]
 */
+/* Where, MODULE-API
+ - create(DivDOMELEMENT) => void
+*/
+
+// ########################################
+
+/*
+interface descriptionType {
+    'title'    : string,
+    'longText' : string,
+    'imgPath'  : string,
+    'create'  : (DivDOMELEMENT)=>void
+}
+
+const availableReactions_type2: descriptionType[] = [
+    H20.getDescription(),
+    peptideLink.getDescription(),
+    //Some other reaction
+    ]
+*/
+
+/* Where, MODULE-API
+ - getDescription() => descriptionType
+ - create(DivDOMELEMENT) => void
+*/
 
 function hideShow (elements, action) {
     // action can be none, block, hidden or visible
