@@ -7,8 +7,18 @@ const container1 = document.getElementsByClassName('container1')[0];
 const bigTitle = document.getElementsByClassName("bigTitle")[0];
 const reaction = document.getElementById('reaction');
 const documentation = document.getElementById('docu');
-
-
+/*
+const availableReactions = [
+    {'title' : "Water formation",
+      'module' : H2O
+    },
+    {
+    
+    //Some other reaction
+    
+    }
+    ]
+*/
 
 function hideShow (elements, action) {
     // action can be none, block, hidden or visible
@@ -123,12 +133,12 @@ button.addEventListener('click', loadH2O);
 
 const button3 = document.getElementById('button3');
 
-function loadPeptideLink(){
+function loadPeptideLink(){// LoadReaction()
     console.log("loading reaction...");
     hideReactionPage();
-    bigTitle.innerHTML = "peptide bond formation";
+    bigTitle.innerHTML = "peptide bond formation";// avaiableReaction[i].title;
     camera(true);
-    peptideLink(document.getElementById('reaction'));
+    peptideLink(document.getElementById('reaction')); // avaiableReaction[i].module.create(document.getElementById('reaction'));
 }
 
 button3.addEventListener('click', loadPeptideLink);
