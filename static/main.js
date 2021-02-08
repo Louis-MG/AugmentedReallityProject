@@ -7,6 +7,7 @@ const container1 = document.getElementsByClassName('container1')[0];
 const bigTitle = document.getElementsByClassName("bigTitle")[0];
 const reaction = document.getElementById('reaction');
 const documentation = document.getElementById('docu');
+
 /*
 const availableReactions = [
     {'title' : "Water formation",
