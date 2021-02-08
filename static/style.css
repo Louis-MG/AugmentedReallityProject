@@ -89,6 +89,10 @@ video {
     height: 100%;
 }
 
+#docu{
+
+}
+
 #infop{
     font-size: 15px;
     margin-left: 38px;
@@ -356,3 +360,5 @@ video {
         transform: scale(1) translateY(calc(var(--base-grid)*3.5));
     }
 }
+
+/* Documentation */
