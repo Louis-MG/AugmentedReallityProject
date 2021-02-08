@@ -64,12 +64,16 @@ function createScaffold(divRoot) {
           <a-asset-item id = "aa-obj" src = "static/assets/objAfinal.obj"></a-asset-item>
           <a-asset-item id = "aa-mtl" src = "static/assets/objAfinal.mtl"></a-asset-item>
         </a-assets>
+        <a-assets>
+          <a-asset-item id = "paa-obj" src = "static/assets/prova.obj"></a-asset-item>
+          <a-asset-item id = "paa-mtl" src = "static/assets/prova.mtl"></a-asset-item>
+        </a-assets>
 
       <a-marker preset = 'hiro' id = "hiroMarkerSelector">
-        <a-obj-model id = "aminoAcid1" src = "#aa-obj" mtl = "#aa-mtl" scale="20 20 20" visible = "false"></a-obj-model>
+        <a-obj-model id = "aminoAcid1" src = "#aa-obj" mtl = "#aa-mtl" scale = "20 20 20" visible = "false"></a-obj-model>
       </a-marker>
       <a-marker preset = 'kanji' id = "kanjiMarkerSelector">
-        <a-obj-model id = "aminoAcid2" src = "#aa-obj" mtl = "#aa-mtl" scale="20 20 20" visible = "false"></a-obj-model>
+        <a-obj-model id = "aminoAcid2" src = "#paa-obj" mtl = "#paa-mtl" scale = "0.2 0.2 0.2" visible = "false"></a-obj-model>
       </a-marker>
 
       <!--products-->
