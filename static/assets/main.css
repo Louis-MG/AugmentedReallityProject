@@ -9,7 +9,6 @@ body {
     background-size: 100%;
     background-position: 100%;
     display: block;
-    backdrop-filter: opacity(0.1);
 }
 
 
@@ -38,9 +37,9 @@ body {
 }
 
 .button_box {
-    position: fixed;  /* button sare in a fixed box on the right side, they saty as you scroll */
+    position: fixed ;  /* button sare in a fixed box on the right side, they stay as you scroll */
     right: 2.5%;
-    width: 10%;
+    width: 100px;
     height: 100%;
 }
 
@@ -75,22 +74,25 @@ button:hover {
 
 /* options for the 3 buttons they have diff paddings to obtain similar look hbecause of diff dimensions of flags */
 
-.language1 {
+.language1 {    /*french*/
     top: 30%;
     right: 5%;
-    padding: 26px 21px 26px 21px; /* french */
+    height: 85px;
+    width: 85px;
 }
 
-.language2 {
+.language2 {    /*english*/
     top: 40%;
     right: 5%;
-    padding: 27px 18px 27px 18px; /*english*/
+    height: 85px;
+    width: 85px;
 }
 
-.language3 {
+.language3 {    /*italian*/
     top: 50%;
     right: 5%;
-    padding: 26px 19px 26px 19px; /*italian*/
+    height: 85px;
+    width: 85px;
 }
 
 .download {
@@ -143,14 +145,16 @@ button:hover {
     font-size: 20px;
     font-family:  "helvetica"; /* for text in paragraphs */
     text-align: justify;
+    margin-left: 10%;
+    margin-right: 10%;
 }
 
 .marker {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    height: 300px;
-    width: auto;
+    width: 40%;
+    height: auto;
     box-shadow: 0px 0px 10px #555454; /* for all pictures exept the one of esterification; which is too big */
 }
 
@@ -158,8 +162,17 @@ button:hover {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    height: 500px;
-    width: auto;
+    width: 50%;
+    height: auto;
+    box-shadow: 0px 0px 10px #555454; /* for all pictures exept the one of esterification; which is too big */
+}
+
+.reaction {
+    display: block;
+    margin-left: auto;
+    margin-right: auto; 
+    height: auto;
+    width: 60%; 
     box-shadow: 0px 0px 10px #555454; /* for all pictures exept the one of esterification; which is too big */
 }
 
@@ -167,8 +180,16 @@ button:hover {
     display: block;
     margin-left: auto;
     margin-right: auto; /* specific to esterification, as the picture is too big */
-    height: 150px;
-    width: auto;
+    height: auto;
+    width: 60%;
+}
+
+.peptide {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    height: auto;
 }
 
 iframe {
