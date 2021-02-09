@@ -4,24 +4,25 @@
 <!-- a locale source in which a 'letterA' preset(a new marker) had been added -->
 <script src="/static/aframe-ar.js"></script>
 <script src="/static/hbondprotontransferclient.js"></script>
-<script type="module" src="/static/main.js"></script>
+<script type="module" src="../static/main.js"></script>
 <!--<script type="module" src="/static/module/h2o.js"></script>-->
 
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>AR Website | Home</title>
-    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="../static/style.css">
 </head>
 <body>
 
 <!-- main reaction page -->
-
+<div id = "menu">
 <video playsinline autoplay muted loop poster="/static/assets/molecule.png" id="bgvid">
     <source src="/static/assets/molecule.mp4" type="video/mp4">
 </video>
 <div class="bigTitle">Choose a reaction</div>
-<div class="container1">
+</div>
+<div class="container1" id ="container1">
     <div id="box1">
         <div class="mediumTitle">Water</div>
         <div class="descriptionText">For the exemple</div>
@@ -47,7 +48,7 @@
 <div class="links">
     <ul class="links__list" style="--item-total:3">
         <li class="links__item" style="--item-count:1">
-            <a class="links__link" href="#">
+            <a class="links__link" href="#" type = "button" id = "button4"> <!--onclick = "goDocu()"-->
                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="links__icon" viewBox="0 0 16 16">
                     <path d="M5 4a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1H5zm-.5 2.5A.5.5 0 0 1 5 6h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zM5 8a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1H5zm0 2a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1H5z"/>
                     <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm10-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1z"/>
@@ -71,9 +72,31 @@
         </li>
     </ul>
     <div class="footer">
-        <p style="text-align: center;margin-top: 90px;">Made by Lyon M1 Bioinfo students © 30.01.2021 version</p>
+        <p style="text-align: center;margin-top: 40px;">Made by Lyon M1 Bioinfo students © 30.01.2021 version</p>
     </div>
 </div>
+
+<!--buttons from LM, to changes languages-->
+
+<!--button to go back to the menu, must be changed-->
+  <button class = "back_to_menu" onclick = "goHome()"><svg class = "arrow_left" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+      <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/></svg>
+  </button>
+
+  <div class = "button_box"> <!--buttons to change languages-->
+
+    <button class = "language1" onclick="change_to_french()" ><img class = flag src = "../static/assets/french-flag.png" ></img></button>
+    <button class = "language2" onclick="change_to_english()" ><img class = flag src = "../static/assets/union-jack.jpg" ></img></button>
+    <button class = "language3" onclick="change_to_italian()" ><img class = flag src = "../static/assets/italian_flag.svg" ></img></button>
+
+    <form method="get" action="../static/assets/Markers.pdf">
+      <button class = "download" type = "submit" ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
+          <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
+          <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/></svg>
+      </button>
+    </form>
+  </div>
+
 
 <!-- reaction -->
 
@@ -81,84 +104,60 @@
 
 <!-- documentation -->
 
-<div id="docu">
+<div id="docu_ar">
 
-    <div id="docu_reac"> <!--button to go back to the menu, must be changed-->
-        <button class = "back_to_menu" onclick = "goHome()"><svg class = "arrow_left" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
-            <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
-        </svg>
-        </button>
+    <div id ="french" class = "french"> <!--should b the first seen, with switch to english available through button-->
 
-    <div class = "button_box"> <!--buttons to change languages-->
+      <div class = "title" ><h2><strong>La réalité augmentée</strong></h2></div>
+      <div class = "hemititle" ><h2>Comment ça marche ?</h2></div>
 
-        <button class = "language1" onclick="change_to_french()" ><img class = flag src = "./assets/french-flag.png" ></img></button>
-        <button class = "language2" onclick="change_to_english()" ><img class = flag src = "./assets/union-jack.jpg" ></img></button>
-        <button class = "language3" onclick="change_to_italian()" ><img class = flag src = "./assets/italian_flag.svg" ></img></button>
+        <p class  = "main_text">
+            La visualisation de réactions chimiques dans l’espace 3D est un exercice difficile. La Réalité Virtuelle est un outil puissant pour pallier cette difficulté,
+            mais il est extrêmement coûteux. Le professeur assistant Emmanuel Bettler a donc souhaité mettre à disposition de ses étudiants de licence la Réalité Augmentée (AR). 
+            La Réalité Augmentée repose sur le principe de superposition à l’écran de la vue d’une caméra et d’objets virtuels. L’apparition, la transformation et le 
+            maintien à l’écran de ces objets dépend de la visibilité par la caméra de marqueurs. Ceux-ci sont des motifs imprimés, connus par l’outil utilisé. En voici plusieurs exemples :
+        </p>
 
-        <form method="get" action="./assets/Markers.pdf">
-        <button class = "download" type = "submit" ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
-            <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
-            <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
-            </svg>
-        </button>
-        </form>
+        <img class = "marker" src = "../static/assets/markers.png" alt = "Exemples de marqueurs utilisés"></img>
+
+        <p class = "main_text">
+            Lorsque ces marqueurs apparaissent à la caméra, l’outil les reconnaît et leur superpose l’objet correspondant à l'écran. Dans notre cas, si deux marqueurs correspondent à 
+            deux substrats d’une réaction et que la distance les séparant est inférieure à un certain seuil, alors la réaction à lieu et les produits remplacent les substrats. 
+            Des marqueurs de conditions expérimentales peuvent être nécessaires. Le principe en schéma :
+        </p>
+
+        <p class = "main_text">Une illustration schématique :</p>
+        <img class = "schematic" src = "../static/assets/schema_AR.png" alt = "schémas du fonctironnement de l'ar"></img>
+
+        <p class = "main_text">Une illustration en vidéo :</p>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/-vkovOVkMp8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>    
 
     </div>
 
-        <div id ="french" class = "french"> <!--should b the first seen, with switch to english available through button-->
+      <!--English section, should be shown when clicking the button and vice-versa with the french one-->
+      <div id = "english" class = "english">
+      
+          <div class = "title" ><h2><strong>Augmented Reality</strong></h2></div>
+          <div class = "hemititle" ><h2>How does it work ?</h2></div>
 
-            <div class = "title" ><h2><strong>La réalité augmentée</strong></h2></div>
-            <div class = "hemititle" ><h2>Comment ça marche ?</h2></div>
+          <p class  = "main_text">
+          3D visualisation of chemical reactions is a difficult exercise. Virtual Reality is a powerful tool to remedy such difficulty, but it is very costly. Asst. Pr. Emmanuel Bettler decided to make available Augmented Reality (AR) to its bachelor students. 
+          AR is based on the principle of superposition on the screen of: a camera vue and virtual objects. The apparition, transformation and maintenance on the screen of these objects depends on the marker's visibility for the camera. These markers are printed motifs. Here is an example:
+          </p>
+          
+          <img class = "marker" src = "../static/assets/markers.png" alt = "Exemples of used markers"></img>
+      
+          <p class = "main_text">
+          When these markers appear to the camera, the tool recognises them and overlays their corresponding object on the screen. In our case, if two markers correspond to two substrates of a reaction and they are at a distance inferior to a certain threshold, then the reaction takes place and the products replace the substrates. Markers for experimental conditions might be necessary. The principle summarized by a schematic:
+          </p>
 
-            <p class  = "main_text">
-                La visualisation de réactions chimiques dans l’espace 3D est un exercice difficile. La Réalité Virtuelle est un outil puissant pour pallier cette difficulté,
-                mais il est extrêmement coûteux. Le professeur assistant Emmanuel Bettler a donc souhaité mettre à disposition de ses étudiants de licence la Réalité Augmentée (AR). 
-                La Réalité Augmentée repose sur le principe de superposition à l’écran de la vue d’une caméra et d’objets virtuels. L’apparition, la transformation et le 
-                maintien à l’écran de ces objets dépend de la visibilité par la caméra de marqueurs. Ceux-ci sont des motifs imprimés, connus par l’outil utilisé. En voici plusieurs exemples :
-            </p>
+          <p class = "main_text">Schematic to illustrate:</p>
+          <img class = "schematic" src = "../static/assets/schema_AR.png" alt = "Schematic of the ar in use:"></img>
+      
+          <p class = "main_text">Illustrative video:</p>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/-vkovOVkMp8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>    
 
-            <img class = "marker" src = "./assets/markers.png" alt = "Exemples de marqueurs utilisés"></img>
-
-            <p class = "main_text">
-                Lorsque ces marqueurs apparaissent à la caméra, l’outil les reconnaît et leur superpose l’objet correspondant à l'écran. Dans notre cas, si deux marqueurs correspondent à 
-                deux substrats d’une réaction et que la distance les séparant est inférieure à un certain seuil, alors la réaction à lieu et les produits remplacent les substrats. 
-                Des marqueurs de conditions expérimentales peuvent être nécessaires. Le principe en schéma :
-            </p>
-
-            <p class = "main_text">Une illustration schématique :</p>
-            <img class = "schematic" src = "./assets/schema_AR.png" alt = "schémas du fonctironnement de l'ar"></img>
-
-            <p class = "main_text">Une illustration en vidéo :</p>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/-vkovOVkMp8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>    
-
-
-        </div>
-
-        <!--English section, should be shown when clicking the button and vice-versa with the french one-->
-
-        <div id = "english" class = "english">
-        
-            <div class = "title" ><h2><strong>Augmented Reality</strong></h2></div>
-            <div class = "hemititle" ><h2>How does it work ?</h2></div>
-
-            <p class  = "main_text">
-            3D visualisation of chemical reactions is a difficult exercise. Virtual Reality is a powerful tool to remedy such difficulty, but it is very costly. Asst. Pr. Emmanuel Bettler decided to make available Augmented Reality (AR) to its bachelor students. 
-            AR is based on the principle of superposition on the screen of: a camera vue and virtual objects. The apparition, transformation and maintenance on the screen of these objects depends on the marker's visibility for the camera. These markers are printed motifs. Here is an example:
-            </p>
-            
-            <img class = "marker" src = "./assets/markers.png" alt = "Exemples of used markers"></img>
-        
-            <p class = "main_text">
-            When these markers appear to the camera, the tool recognises them and overlays their corresponding object on the screen. In our case, if two markers correspond to two substrates of a reaction and they are at a distance inferior to a certain threshold, then the reaction takes place and the products replace the substrates. Markers for experimental conditions might be necessary. The principle summarized by a schematic:
-            </p>
-
-            <p class = "main_text">Schematic to illustrate:</p>
-            <img class = "schematic" src = "./assets/schema_AR.png" alt = "Schematic of the ar in use:"></img>
-        
-            <p class = "main_text">Illustrative video:</p>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/-vkovOVkMp8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>    
-
-        </div>
+      </div>
 
 
     <!-- Italian version -->
@@ -176,7 +175,7 @@
             Qua sotto qualche esempio:
         </p>
         
-        <img class = "marker" src = "./assets/markers.png" alt = "Esempi di marcatori utilizzati"></img>
+        <img class = "marker" src = "../static/assets/markers.png" alt = "Esempi di marcatori utilizzati"></img>
 
         <p class = "main_text">
             Quando i segnalini appaiono nel campo visivo della fotocamera, il programma li riconosce e gli sovvrapone l'oggetto 3D corrispondente allo schermo. Nel nostro caso, se due segnalini corrispondono a
@@ -185,23 +184,16 @@
         </p>
 
         <p class = "main_text">Un'illustrazione schematica:</p>
-        <img class = "schematic" src = "./assets/schema_AR.png" alt = "Schemi di funzionamento dell'ar"></img>
+        <img class = "schematic" src = "../static/assets/schema_AR.png" alt = "Schemi di funzionamento dell'ar"></img>
 
         <p class = "main_text">Video illustrattivo:</p>
         <iframe width="560" height="315" src="https://www.youtube.com/embed/-vkovOVkMp8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>    
 
+</div>
+
+<div id = "docu_reac">
+
     <!-- Documentation about reactions -->
-
-    <button class = "back_to_menu" onclick = "goHome()"><img class = left_arrow src = "./assets/arrow-left.svg"></img></button>
-    <!-- https://icons.getbootstrap.com/icons/arrow-left/ -->
-
-    <div class = "button_box"> <!--buttons to changes languages-->
-
-      <button class = "language1" onclick="change_to_french()" ><img class = flag src = "./assets/french-flag.png" ></img></button>
-      <button class = "language2" onclick="change_to_english()" ><img class = flag src = "./assets/union-jack.jpg" ></img></button>
-      <button class = "language3" onclick="change_to_italian()" ><img class = flag src = "./assets/italian_flag.svg" ></img></button>
-
-    </div>
 
     <div id ="french" class = "french"> <!--should b the first seen, with switch to english available through button-->
 
@@ -212,7 +204,7 @@
           La réaction de saponification est une réaction chimique qui transforme un ester carboxylique (groupement de la forme R-COO-R’), ou un acide carboxylique (R’ est remplacé par un groupement hydroxyle) en un ion carboxylate et un alcool si la molécule de départ était un ester sinon une molécule d’eau si c'était un acide carboxylique. Pour permettre la transformation, l’ester ou l’acide carboxylique doivent réagir avec une base forte, comme par exemple la potasse KOH, qui en milieu aqueux se dissocie en K+ et OH-. 
           Le OH- libre dans l’eau sera donc capable de faire un attaque nucléophile sur le groupement R’ de l’ester ou le proton H du groupement carboxyle de l’acide gras.
         </p>
-        <img class = reaction src = "./assets/Saponification.PNG" alt = "La réaction de saponification"><img>
+        <img class = reaction src = "../static/assets/Saponification.PNG" alt = "La réaction de saponification"><img>
         <!--Par Original téléversé par Rhadamante sur Wikipédia français. — Transféré de fr.wikipedia à Commons par Bloody-libu utilisant CommonsHelper., CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=20534114-->
 
         <p class = main_text>
@@ -229,13 +221,12 @@
           La formation de liaisons peptidiques est une réaction biochimique très importante pour la vie car il s’agit de la réaction qui permet d'enchainer et relier les acides aminés qui constituent les protéines.
           La réaction qui mène à la formation de la liaison peptidique est une réaction de condensation entre  un groupement carboxylique -COOH et un groupement amine -NH2 avec la libération d’une molécule d’eau.
         </p>
-        <img class = reaction src = "./assets/AminoacidCondensation.svg" alt = "Formation d'une liaison peptidique"><img>
+        <img class = reaction src = "../static/assets/AminoacidCondensation.svg" alt = "Formation d'une liaison peptidique"><img>
         <!--By V8rik at English Wikipedia - Own work, Public Domain, https://commons.wikimedia.org/w/index.php?curid=7890768-->
+        
         <p class = main_text>
-
           La réaction mène à la formation d’une amide substituée où la résonance entre la liaison C=O et le doublet non liant de l’azote fait que la liaison peptidique soit un mélange entre une liaison simple et une liaison double.
           Apprenez-en plus sur <a href = "https://fr.wikipedia.org/wiki/Liaison_peptidique">Wikipedia</a>.
-
         </p>
 
         <div class = hemititle ><h2>Formation de la liaison ester:</h2></div>
@@ -245,7 +236,7 @@
           Cette réaction est une réaction lente.
         </p>
 
-        <img class = reaction src = "./assets/reac_ester.png" alt = "Formation d'une liaison ester"><img>
+        <img class = reaction src = "../static/assets/reac_ester.png" alt = "Formation d'une liaison ester"><img>
 
         <p class = main_text>
           Cette réaction donne lieu à la formation d'une amine substituée au lieu de la raisonnance entre la liaison double C=O et le doublet non liant de l'azote. Le produit final est ... le savon !
@@ -265,7 +256,7 @@
           Saponification reaction is a chemical reaction that transform a carboxylic ester (R-COO-R’ form) or a carboxylic acid (if R’ is replaced by OH) into a carboxylate ion and an alcohol (or water if R’ was a OH).To allow the transformation, the ester/carboxylic acid must react with a strong base like potash KOH, which dissolves in K+ and OH- in water. The free OH- will do a nucleophile attack on the R’ of the ester or H of the carboxylic group of the fatty acid.
         </p>
         
-        <img class = reaction src = "./assets/reac_sapo.png" alt = "Saponification"><img>
+        <img class = reaction src = "../static/assets/Saponification.PNG" alt = "Saponification"><img>
     
         <p class = main_text>
           Saponification has a cinetic order of 2 and can happen at ambient temperature. The reaction is total and exothermic. It also can be much more complex due to it happening with fatty acid esters of triglycerides. 
@@ -278,7 +269,7 @@
           The formation of peptidic bonds is a very important biochemical reaction for life as it chains amino acids to build proteins. More precisely it is the condensation of a carboxylic group (-COOH) and an amine group (-NH2), and it frees a water molecule. 
         </p>
         
-        <img class = reaction src = "./assets/reac_peptidic.png" alt = "Petpid bond formation"><img>
+        <img class = reaction src = "../static/assets/AminoacidCondensation.svg" alt = "Petpid bond formation"><img>
     
         <p class = main_text>
           That reaction leads to the formation of an amino substituted where the resonance between the C=O bond and the non-binding doublet is balanced between simple and double bond. The final product is ... soap !
@@ -291,7 +282,7 @@
           The formation of the ester bond, also called esterification consists in the condensation of a carboxylic acid group (or similar) with an alcohol group to give rise to the ester and a residue (water in case of a carboxylic).
         </p>
         
-        <img class = reaction src = "./assets/reac_ester.png" alt = "Ester formation"><img>
+        <img class = reaction src = "../static/assets/reac_ester.png" alt = "Ester formation"><img>
     
         <p class = main_text>
           That reaction leads to the formation of an amino substituted where the resonance between the C=O bond and the non-binding doublet is balanced between simple and double bond.
@@ -309,7 +300,7 @@
           La reazione di saponificazione è una reazione chimica che trasforma un estere carbossilico (gruppo chimico della forma R-COO-R'), o un acido carbossilico (con un -OH al posto di R') in un ione carbossilato e un alcool (se la molecola di partenza era un estere) o in una molecola d'acqua (se era un acido carbossilico).
           Per permettere la trasformazione, l'estere o l'acido carbossilico devono reagire con una base forte, come per esempio l'idrossido di potassio (KOH), che in acqua si dissocia in K+ e OH-. L'OH- libero può quindi effettuare un attacco nucleofilo su R' (per l'estere) o sull'idrogeno (per l'acido carbossilico).
         </p>
-        <img class = reaction src = "./assets/reac_sapo.png" alt = "La réaction de saponification"><img>
+        <img class = reaction src = "../static/assets/Saponification.PNG" alt = "La réaction de saponification"><img>
 
         <p class = main_text>
           La saponificazione è una reazione piuttosto lenta (reazione di ordine 2) ma che si produce però a temperatura ambiente. La reazione è totale quindi i reagenti (l'acido grasso e la base) sono completamente consumati alla fine e si tratta di una reazione esotermica (libera dell'energia termica).
@@ -327,7 +318,7 @@
           Per saperne di più su <a href = "https://it.wikipedia.org/wiki/Legame_peptidico">Wikipedia</a>.
         </p>
 
-        <img class = reaction src = "./assets/reac_peptidic.png" alt = "Formation d'une liaison peptidique"><img>
+        <img class = reaction src = "../static/assets/AminoacidCondensation.svg" alt = "Formation d'une liaison peptidique"><img>
 
         <p class = main_text>
           La reazione forma quello che viene chiamato ammide sostituta,dove la resonanza fra il legame C=O e il doppietto elettronico non condiviso dell'azoto fa che il legame peptidico sia in realtà un misto fra legame semplice e doppio.          
@@ -341,7 +332,7 @@
           La reazione è una reazione lenta.
         </p>
 
-        <img class = reaction src = "./assets/reac_ester.png" alt = "Formation d'une liaison ester"><img>
+        <img class = reaction src = "../static/assets/reac_ester.png" alt = "Formation d'une liaison ester"><img>
 
         <p class = main_text>
           Per saperne di più su <a href = "https://it.wikipedia.org/wiki/Esterificazione">Wikipedia</a>.

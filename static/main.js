@@ -6,7 +6,7 @@ const moleculeBackground = document.getElementById("bgvid");
 const container1 = document.getElementsByClassName('container1')[0];
 const bigTitle = document.getElementsByClassName("bigTitle")[0];
 const reaction = document.getElementById('reaction');
-const documentation = document.getElementById('docu');
+const documentation_ar = document.getElementById('docu_ar');
 /*
 const availableReactions = [
     {'title' : "Water formation",
@@ -91,6 +91,8 @@ const button2 = document.getElementById('button2');
 function showReactionPage(){
     console.log("showing reaction page...");
     killRunningReaction();
+    documentation_ar.style.display = "none" ;
+    document.getElementById("menu").style.display = "block";
     container1.style.display = 'block';
     footer.style.display= 'block';
     bigTitle.innerHTML = "Choose a reaction";
@@ -168,3 +170,98 @@ function loadPeptideLink(){// LoadReaction()
 
 button3.addEventListener('click', loadPeptideLink);
 
+// functions for Documentation
+
+// These functions change the div displayed: there is one for each language. French is default. Last one if for the top left arrow button:
+
+function change_to_english() {
+    var x = document.getElementById("english"); //looks for the english div
+    if (x.style.display === "none") {
+      x.style.display = "block"; //if not visible, changes the display to block
+      document.getElementById("french").style.display = "none"; //hides french and italian divs
+      document.getElementById("italian").style.display = "none"
+    } else {
+      x.style.display = "block"; //if it was visible
+      document.getElementById("french").style.display = "none"; // hides french and italian
+      document.getElementById("italian").style.display = "none"
+    }
+}
+
+// other functions follow the exact same structure
+// when looking for an element, careful with getElementByID and getElementsById (stupid s)
+
+function change_to_french() {
+    var x = document.getElementById("french");
+    if (x.style.display === "none") {
+      x.style.display = "block" ;
+      document.getElementById("english").style.display = "none";
+      document.getElementById("italian").style.display = "none";
+    } else {
+      x.style.display = "block";
+      document.getElementById("english").style.display = "none";
+      document.getElementById("italian").style.display = "none";
+    }
+}
+
+function change_to_italian() {
+  var x = document.getElementById("italian");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+    document.getElementById("french").style.display = "none";
+    document.getElementById("english").style.display = "none";
+  } else {
+    x.style.display = "block";
+    document.getElementById("french").style.display = "none";
+    document.getElementById("english").style.display = "none";
+
+  }
+}
+
+// gotta change that for a display change:
+
+function goHome() {
+    window.location.href = "home.html"; // sends the user back to the home menu
+}
+
+function goDocu_ar() {
+    var x = documentation_ar;
+    if (x.style.display === "none") {
+        document.getElementById("menu").style.display = "none";
+        document.getElementById("container1").style.display = "none";
+        x.style.display = "block";
+        document.getElementById("docu_reac").style.display = "none"
+        document.getElementById("english").style.display = "none";
+        document.getElementById("italian").style.display = "none";
+    } else {
+        x.style.display = "block"
+        document.getElementById("reaction").style.display = "none";
+        document.getElementById("menu").style.display = "none";
+        document.getElementById("container1").style.display = "none";
+        document.getElementById("english").style.display = "none";
+        document.getElementById("italian").style.display = "none";
+        document.getElementById("docu_reac").style.display = "none";
+    }
+}
+
+const button4 = document.getElementById('button4');
+button4.addEventListener('click', goDocu_ar);
+
+function goDocu_reac() {
+    var x = documentation_reac;
+    if (x.style.display === "none") {
+        document.getElementById("menu").style.display = "none";
+        document.getElementById("container1").style.display = "none";
+        x.style.display = "block";
+        document.getElementById("docu_ar").style.display = "none"
+        document.getElementById("english").style.display = "none";
+        document.getElementById("italian").style.display = "none";
+    } else {
+        x.style.display = "block"
+        document.getElementById("reaction").style.display = "none";
+        document.getElementById("menu").style.display = "none";
+        document.getElementById("container1").style.display = "none";
+        document.getElementById("docu_ar").style.display = "none";
+        document.getElementById("english").style.display = "none";
+        document.getElementById("italian").style.display = "none";
+    }
+}
