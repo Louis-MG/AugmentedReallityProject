@@ -362,3 +362,145 @@ video {
 }
 
 /* Documentation */
+
+#docu {
+    background-image: url("molecule_docu.png"); 
+    background-size: 100%;
+    background-position: 100%;
+    display: block;
+}
+
+/*language button's css: */
+
+.button_box {
+    position: fixed ;  /* button sare in a fixed box on the right side, they stay as you scroll */
+    right: 2.5%;
+    width: 100px;
+    height: 100%;
+}
+
+button {
+    border: none;   /* css for all buttons */
+    background-color: white;
+    position: absolute;
+    cursor: pointer;
+    border-radius: 50%;
+    box-shadow: 0px 0px 10px #555454;
+}
+
+.flag {
+    height : 30px ; /* css for the flags in the buttons */
+    width: auto;    
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.language1 {    /*french*/
+    top: 30%;
+    right: 5%;
+    height: 85px;
+    width: 85px;
+}
+
+.language2 {    /*english*/
+    top: 40%;
+    right: 5%;
+    height: 85px;
+    width: 85px;
+}
+
+.language3 {    /*italian*/
+    top: 50%;
+    right: 5%;
+    height: 85px;
+    width: 85px;
+}
+
+/*button for dowloading the pdf*/
+
+.download {
+    top: 60%;
+    right: 6.5%;
+    height: 40px;
+    width: 40px;
+}
+
+.download_pic {
+    height: 20px;
+    width: auto; 
+}
+
+/* button to change */
+
+.back_to_menu {
+    left: 5%;
+    position: fixed;
+    height: 40px;
+    width: 40px;
+}
+
+.arrow_left {
+    height: 25px;
+    width: auto;
+    padding-top: 3px;
+    padding-right: 10px;
+}
+
+/*css for the texts :*/
+
+.title {
+    font-size: 35px;
+    text-align: center;
+}
+
+.hemititle {
+    font-size: 25px;
+    text-align: left;
+}
+
+.main_text {
+    font-size: 20px;
+    text-align: justify;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+/* other pictures: */
+
+.marker {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+    height: auto;
+    box-shadow: 0px 0px 10px #555454; /* for all pictures exept the one of esterification; which is too big */
+}
+
+.schematic {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    height: auto;
+    box-shadow: 0px 0px 10px #555454; /* for all pictures exept the one of esterification; which is too big */
+}
+
+.reaction {
+    display: block;
+    margin-left: auto;
+    margin-right: auto; 
+    height: auto;
+    width: 60%; 
+    /* for all pictures exept the one of esterification; which is too big */
+}
+
+iframe {
+    display: block;
+    margin-left: auto;
+    margin-right: auto; /* for the youtube video */
+    width: 854px ;
+    height: 480px;
+}
