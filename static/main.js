@@ -1,5 +1,11 @@
-import { H2O } from "./module/h2o.js";
-import { peptideLink } from "./module/peptide-link.js";
+import * as reac_1 from "./module/h2o.js";
+import * as reac_2 from "./module/peptide-link.js";
+import * as reac_3 from "./module/test3.js";
+import * as reac_4 from "./module/test4.js";
+import * as reac_5 from "./module/test5.js";
+import * as reac_6 from "./module/test6.js";
+
+// Initialisation
 
 const footer = document.getElementsByClassName('footer')[0];
 const moleculeBackground = document.getElementById("bgvid");
@@ -8,53 +14,65 @@ const bigTitle = document.getElementsByClassName("bigTitle")[0];
 const reaction = document.getElementById('reaction');
 const documentation = document.getElementById('docu');
 
-/*
-const availableReactions = [
-    {'title' : "Water formation",
-      'module' : H2O
-    },
-    {
-    
-    //Some other reaction
-    
+function collection() {
+    let i = 1; // reactions counter
+    let height = 600; // reactions container height in pixel
+    let top = 0; // box y position in pixel
+    let previousPosition = 0; // 0:Start, 1:66%R, 2:Mid, 3:66%L  position de la box precedente
+    let scaffold = '';
+    let positionAttr = 'right: 66%';
+    let transformAttr = ';';
+    do{ // reaction div crafting
+        scaffold += `
+        <div id="box${i}" style="${positionAttr};top:${top}px;position: fixed;background-color: white;box-shadow: rgba(0, 0, 0, 0.3) 0 0 20px;border-collapse: collapse;border-radius: 20px;width: 350px;height: 230px${transformAttr}">
+            <div class="mediumTitle">${eval('reac_'+String(i)+".data['name'];")}</div>
+            <div class="descriptionText">${eval('reac_'+String(i)+".data['description'];")}</div>
+            <button type="button" class="buttonD" id="button${i}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-arrow-right-short" viewBox="1 0 16 16">
+                    <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"/>
+                </svg>
+            </button>
+            ${eval('reac_'+String(i)+".data['image'];")}
+        </div>
+        `;
+        scaffold + '\n';
+        if(previousPosition===3){ // next floor
+            previousPosition = 1;
+            positionAttr = 'right: 66%';
+            transformAttr = ';';
+            height += 300;
+            top += 263;
+            container1.style.height = `${height}px`;
+        }else{ // next box position
+            if(previousPosition===0){previousPosition=2}else{previousPosition++}
+            if(previousPosition===2){
+                positionAttr = 'left: 50%';
+                transformAttr = ';transform: translate(-50%, 0);';
+            }else{
+                positionAttr = 'left: 66%';
+                transformAttr = ';';
+            }
+        }
+        i++; // next import...
     }
-    ]
-*/
-/* Where, MODULE-API
- - create(DivDOMELEMENT) => void
-*/
+    while (eval('typeof reac_'+String(i)+';') !== 'undefined');
 
-// ########################################
+    container1.innerHTML = scaffold;
+    console.log(scaffold);
 
-/*
-interface descriptionType {
-    'title'    : string,
-    'longText' : string,
-    'imgPath'  : string,
-    'create'  : (DivDOMELEMENT)=>void
+    for(var j = 1; j<i; j++){ //click event for each button
+        console.log(j);
+        eval('const button'+j+"= document.getElementById('button"+j+"')");
+        eval('button'+j+".addEventListener('click', loadReaction, false);");
+        eval('button'+j+'.param='+j+';')
+    }
 }
 
-const availableReactions_type2: descriptionType[] = [
-    H20.getDescription(),
-    peptideLink.getDescription(),
-    //Some other reaction
-    ]
-*/
+collection();
 
-/* Where, MODULE-API
- - getDescription() => descriptionType
- - create(DivDOMELEMENT) => void
-*/
+// main functions
 
-function hideShow (elements, action) {
-    // action can be none, block, hidden or visible
-    elements = elements.length ? elements : [elements];
-    for (var index = 0; index < elements.length; index++) {
-        elements[index].style.display = action;
-    }
-}
-
-function camera(load){
+function camera(load){ // bug workaround script
     if (load===true){
         document.getElementById("bugWorkaround").innerHTML = `
     <script>
@@ -87,85 +105,30 @@ function hideReactionPage(){
     moleculeBackground.style.display = 'none';
 }
 
-const button2 = document.getElementById('button2');
+const buttonA = document.getElementById('buttonA');
 
 function showReactionPage(){
     console.log("showing reaction page...");
     killRunningReaction();
     container1.style.display = 'block';
-    footer.style.display= 'block';
+    footer.style.display = 'block';
     bigTitle.innerHTML = "Choose a reaction";
     moleculeBackground.style.display = 'block';
     camera(false);
     reaction.innerHTML = `
     <div id="child"></div>
     `;
+    if (document.getElementById("arjs-video") !== null){ // if camera
+        location.reload();
+    }
 }
 
-button2.addEventListener('click', showReactionPage);
+buttonA.addEventListener('click', showReactionPage);
 
-const button = document.getElementById('button1');
-
-function loadH2O(){
-    console.log("loading reaction...");
+function loadReaction(evt){
+    console.log(`loading ${eval('reac_'+evt.currentTarget.param+".data['name'];")} reaction...`);
     hideReactionPage();
-    bigTitle.innerHTML = "H2O formation";
-    reaction.innerHTML = `
-    
-    <!-- reaction information -->
-
-    <div class="mainText">
-        <p id="info"><b>Three atoms that transfer a proton: move markers around to create an H2O molecule</b></p>
-        <p id="infop"></p>
-    </div>
-
-    <!-- peptide bond reaction -->
-
-    <a-scene embedded artoolkit='patternRatio: 500; sourceType: webcam;' id="thescene">
-        <!-- handle hiro marker-->
-        <a-marker preset='hiro' id="lysmarker">
-            <!-- This is an hydrogen atom
-            All coordinates have been divided by 2, so any distance between two atoms must be multiplied by 2 to get the actual distance-->
-            <a-sphere id="hyd1" position="-1.0 0 -0.3" color="white" radius="0.25" visible="true"></a-sphere>
-        </a-marker>
-
-        <a-marker preset='letterA' id="promarker">
-            <!-- This is a second hydrogen atom
-            All coordinates have been divided by 2, so any distance between two atoms must be multiplied by 2 to get the actual distance-->
-            <a-sphere id="hyd2" position="-1.0 0 -0.3" color="white" radius="0.25" visible="true"></a-sphere>
-        </a-marker>
-
-        <!-- handle kanji marker -->
-        <a-marker preset='kanji' id="glumarker">
-            <!-- This is an H2O molecule with hydrogen bonds
-            The deal is to create H2O and to hide or not H and bonds -->
-            <a-sphere id="hoh1" position="0 0 0" color="red" radius="0.35" visible="true"></a-sphere>
-            <a-sphere id="hoh2" position="0 0 -0.8" color="white" radius="0.25" visible="true"></a-sphere>
-            <a-sphere id="hoh3" position="0 0 0.8" color="white" radius="0.25" visible="true"></a-sphere>
-            <a-box id="l1" position="0 0 -0.3" color="grey"  lenght="0.15" width="0.15" height="0.04" visible="true"></a-box>
-            <a-box id="l2" position="0 0 0.3" color="grey"  lenght="0.15" width="0.15" height="0.04" visible="true"></a-box>
-        </a-marker>
-
-        <!-- add a simple camera -->
-        <a-entity camera></a-entity>
-    </a-scene>
-    
-    `;
+    bigTitle.innerHTML = eval('reac_'+evt.currentTarget.param+".data['title'];");
     camera(true);
-    window.currentReaction = setInterval(function (){H2O();}, 200);
+    eval('reac_'+evt.currentTarget.param+'.load(reaction);');
 }
-
-button.addEventListener('click', loadH2O);
-
-const button3 = document.getElementById('button3');
-
-function loadPeptideLink(){// LoadReaction()
-    console.log("loading reaction...");
-    hideReactionPage();
-    bigTitle.innerHTML = "peptide bond formation";// avaiableReaction[i].title;
-    camera(true);
-    peptideLink(document.getElementById('reaction')); // avaiableReaction[i].module.create(document.getElementById('reaction'));
-}
-
-button3.addEventListener('click', loadPeptideLink);
-

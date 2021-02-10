@@ -1,4 +1,11 @@
-export function peptideLink (divRoot){
+export const data = {
+    name: "Peptide bond",
+    title: "Peptide bond formation",
+    description: "The chemical bond between carboxyl groups and amino groups of neighboring amino acids, forming an amide group and constituting the primary linkage of all protein structures.",
+    image: "<img src='/static/assets/Lpeptidique0000.png' style='width: 43%;position: relative; top:140px; left:30px'>"
+}
+
+export function load (divRoot){
     //create <a-scene> scaffold
     createScaffold(divRoot);
     //reaction

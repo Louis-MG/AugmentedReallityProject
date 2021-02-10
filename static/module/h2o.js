@@ -1,9 +1,22 @@
+export const data = {
+    name: "Water",
+    title: "H2O formation",
+    description: "For the exemple",
+    image: "<img src='/static/assets/Water.png' style='width: 22%;position: relative; top:149px; left:34px'>"
+}
+
 let hoh = 0; //counter
 let distOH1 = 0;
 let distOH2 = 0;
-console.dir(THREE);
 
-export function H2O(){
+export function load (divRoot){
+    //create <a-scene> scaffold
+    createScaffold(divRoot);
+    //reaction
+    window.currentReaction = setInterval(Reaction, 200);
+}
+
+function Reaction(){
     document.getElementById("thescene").object3D.updateMatrixWorld();
     let p1 = new THREE.Vector3(); p1.setFromMatrixPosition(document.getElementById("hoh1").object3D.matrixWorld);
     let p2 = new THREE.Vector3(); p2.setFromMatrixPosition(document.getElementById("hyd1").object3D.matrixWorld);
@@ -69,4 +82,47 @@ export function H2O(){
         document.getElementById("l2").setAttribute('visible',false);
         hoh=0;
         }
+}
+
+function createScaffold(divRoot) {
+    divRoot.innerHTML += `
+    
+    <!-- reaction information -->
+
+    <div class="mainText">
+        <p id="info"><b>Three atoms that transfer a proton: move markers around to create an H2O molecule</b></p>
+        <p id="infop"></p>
+    </div>
+
+    <!-- peptide bond reaction -->
+
+    <a-scene embedded artoolkit='patternRatio: 500; sourceType: webcam;' id="thescene">
+        <!-- handle hiro marker-->
+        <a-marker preset='hiro' id="lysmarker">
+            <!-- This is an hydrogen atom
+            All coordinates have been divided by 2, so any distance between two atoms must be multiplied by 2 to get the actual distance-->
+            <a-sphere id="hyd1" position="-1.0 0 -0.3" color="white" radius="0.25" visible="true"></a-sphere>
+        </a-marker>
+
+        <a-marker preset='letterA' id="promarker">
+            <!-- This is a second hydrogen atom
+            All coordinates have been divided by 2, so any distance between two atoms must be multiplied by 2 to get the actual distance-->
+            <a-sphere id="hyd2" position="-1.0 0 -0.3" color="white" radius="0.25" visible="true"></a-sphere>
+        </a-marker>
+
+        <!-- handle kanji marker -->
+        <a-marker preset='kanji' id="glumarker">
+            <!-- This is an H2O molecule with hydrogen bonds
+            The deal is to create H2O and to hide or not H and bonds -->
+            <a-sphere id="hoh1" position="0 0 0" color="red" radius="0.35" visible="true"></a-sphere>
+            <a-sphere id="hoh2" position="0 0 -0.8" color="white" radius="0.25" visible="true"></a-sphere>
+            <a-sphere id="hoh3" position="0 0 0.8" color="white" radius="0.25" visible="true"></a-sphere>
+            <a-box id="l1" position="0 0 -0.3" color="grey"  lenght="0.15" width="0.15" height="0.04" visible="true"></a-box>
+            <a-box id="l2" position="0 0 0.3" color="grey"  lenght="0.15" width="0.15" height="0.04" visible="true"></a-box>
+        </a-marker>
+
+        <!-- add a simple camera -->
+        <a-entity camera></a-entity>
+    </a-scene>
+  `
 }
