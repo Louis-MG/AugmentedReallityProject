@@ -179,45 +179,77 @@ button3.addEventListener('click', loadPeptideLink);
 
 function change_to_english() {
     var x = document.getElementById("english"); //looks for the english div
+    var y = document.getElementById("english1");
     document.getElementById("french").style.display = "none"; // hides french and italian
-    document.getElementById("italian").style.display = "none"
+    document.getElementById("french1").style.display = "none";
+    document.getElementById("italian").style.display = "none";
+    document.getElementById("italian1").style.display = "none";
     if (x.style.display === "none") {
-      x.style.display = "block"; //if not visible, changes the display to block
-    } else {
-      x.style.display = "block"; //if it was visible
-    }
+        x.style.display = "block" ;
+      } else {
+        x.style.display = "block";
+      }
+      if (y.style.display === "none") {
+          y.style.display = "block" ;
+      } else {
+          y.style.display = "block";
+      }
 }
 
-// other functions follow the exact same structure
 // when looking for an element, careful with getElementByID and getElementsById (stupid s)
 
 function change_to_french() {
     var x = document.getElementById("french");
+    var y = document.getElementById("french1");
     document.getElementById("english").style.display = "none";
+    document.getElementById("english1").style.display = "none";
     document.getElementById("italian").style.display = "none";
+    document.getElementById("italian1").style.display = "none";
     if (x.style.display === "none") {
       x.style.display = "block" ;
     } else {
       x.style.display = "block";
     }
+    if (y.style.display === "none") {
+        y.style.display = "block" ;
+    } else {
+        y.style.display = "block";
+    }
 }
 
 function change_to_italian() {
-  var x = document.getElementById("italian");
-  document.getElementById("french").style.display = "none";
-  document.getElementById("english").style.display = "none";
-  if (x.style.display === "none") {
-    x.style.display = "block";
-  } else {
-    x.style.display = "block";
-  }
+    var x = document.getElementById("italian");
+    var y = document.getElementById("italian1");
+    document.getElementById("french").style.display = "none";
+    document.getElementById("french1").style.display = "none";
+    document.getElementById("english").style.display = "none";
+    document.getElementById("english1").style.display = "none";
+    if (y.style.display === "none") {
+        y.style.display = "block" ;
+    } else {
+        y.style.display = "block";
+    }
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "block";
+    }
 }
+
+const button_french = document.getElementById("language1")
+button_french.addEventListener('click', change_to_french)
+
+const button_english = document.getElementById("language2")
+button_english.addEventListener('click', change_to_english)
+
+const button_italian = document.getElementById("language3")
+button_italian.addEventListener('click', change_to_italian)
 
 // gotta change that for a display change:
 
-function goHome() {
-    window.location.href = "home.html"; // sends the user back to the home menu
-}
+// function goHome() {
+//     window.location.href = "home.html"; // sends the user back to the home menu
+// }
 
 function goDocu_ar() {
     var x = documentation_ar;
@@ -251,11 +283,4 @@ function goDocu_reac() {
 const button5 = document.getElementById("button5");
 button5.addEventListener('click', goDocu_reac)
 
-const button_french = document.getElementById("language1")
-button_french.addEventListener('click', change_to_french)
 
-const button_english = document.getElementById("language2")
-button_english.addEventListener('click', change_to_english)
-
-const button_italian = document.getElementById("language3")
-button_italian.addEventListener('click', change_to_italian)

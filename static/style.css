@@ -199,16 +199,6 @@ video {
     background-color: #105ba7;
 }
 
-.footer{
-    bottom: 0;
-    left: 50%;
-    background-color: #EEF7FC;
-    transform: translate(-50%, 0);
-    position: fixed;
-    width: 100%;
-    height: 85px;
-}
-
 
 /* ------- MENU ------- */
 
@@ -383,9 +373,10 @@ video {
 
 .button_box {
     position: fixed ;  /* button sare in a fixed box on the right side, they stay as you scroll */
-    right: 2.5%;
+    right: 2%;
+    top: 8%;
     width: 100px;
-    height: 100%;
+    height: 1000px;
 }
 
 button {
@@ -464,13 +455,11 @@ button {
 .title {
     font-size: 35px;
     text-align: center;
-    margin-top: 60px;
 }
 
 .hemititle {
     font-size: 25px;
     text-align: left;
-    margin-top: 50px;
 }
 
 .main_text {
@@ -478,12 +467,10 @@ button {
     text-align: justify;
     margin-left: 10%;
     margin-right: 10%;
-    margin-top: 50px;
 }
 
 .french {
     margin-left: 10%;
-    margin-top: 4%;
     margin-right: 10%;
     margin-bottom: auto;
     display: block;     /*the only one visible by deflaut*/
@@ -491,7 +478,6 @@ button {
 
 .english {
     margin-left: 10%;
-    margin-top: 4%;
     margin-right: 10%;
     margin-bottom: auto;
     display: none;  /* not visible by default */
@@ -499,7 +485,6 @@ button {
 
 .italian {
     margin-left: 10%;
-    margin-top: 4%;
     margin-right: 10%;
     margin-bottom: auto;
     display: none;    /* not visible by default */
@@ -531,8 +516,6 @@ button {
     margin-right: auto; 
     height: auto;
     width: 60%; 
-    padding-bottom: 20px;
-    padding-top: 20px;
 }
 
 /* for the youtube video */
@@ -546,9 +529,14 @@ iframe {
     height: 480px;
 }
 
+img {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    display: block;
+}
+
 footer {
     text-align: center;
-    position: sticky;
-    left: 0;
-    bottom: 0;
+    left: 0px;
+    bottom: 0px;
 }
