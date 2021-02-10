@@ -48,7 +48,7 @@
 <div class="links">
     <ul class="links__list" style="--item-total:3">
         <li class="links__item" style="--item-count:1">
-            <a class="links__link" href="#" type = "button" id = "button4"> <!--onclick = "goDocu()"-->
+            <a class="links__link" href="#" type = "button" id = "button4"> 
                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="links__icon" viewBox="0 0 16 16">
                     <path d="M5 4a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1H5zm-.5 2.5A.5.5 0 0 1 5 6h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zM5 8a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1H5zm0 2a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1H5z"/>
                     <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm10-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1z"/>
@@ -57,7 +57,7 @@
             </a>
         </li>
         <li class="links__item" style="--item-count:2">
-            <a class="links__link" href="#">
+            <a class="links__link" href="#" type = "button" id = "button5">
                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="links__icon" viewBox="0 0 16 16">
                     <path d="M9.972 2.508a.5.5 0 0 0-.16-.556l-.178-.129a5.009 5.009 0 0 0-2.076-.783C6.215.862 4.504 1.229 2.84 3.133H1.786a.5.5 0 0 0-.354.147L.146 4.567a.5.5 0 0 0 0 .706l2.571 2.579a.5.5 0 0 0 .708 0l1.286-1.29a.5.5 0 0 0 .146-.353V5.57l8.387 8.873A.5.5 0 0 0 14 14.5l1.5-1.5a.5.5 0 0 0 .017-.689l-9.129-8.63c.747-.456 1.772-.839 3.112-.839a.5.5 0 0 0 .472-.334z"/>
                 </svg>
@@ -65,7 +65,7 @@
             </a>
         </li>
         <li class="links__item" style="--item-count:3">
-            <a class="links__link" type="button" id="button2" href="#"><!--onclick="showReactionPage()-->
+            <a class="links__link" type="button" id="button2" href="#">
                 <img src="/static/assets/molec.svg" class="links__icon2" draggable="false"/>
                 <span class="links__text">Reactions</span>
             </a>
@@ -85,9 +85,9 @@
 
   <div class = "button_box"> <!--buttons to change languages-->
 
-    <button class = "language1" onclick="change_to_french()" ><img class = flag src = "../static/assets/french-flag.png" ></img></button>
-    <button class = "language2" onclick="change_to_english()" ><img class = flag src = "../static/assets/union-jack.jpg" ></img></button>
-    <button class = "language3" onclick="change_to_italian()" ><img class = flag src = "../static/assets/italian_flag.svg" ></img></button>
+    <button id = language1 class = "language1" ><img class = flag src = "../static/assets/french-flag.png" ></img></button>
+    <button id = language2 class = "language2" ><img class = flag src = "../static/assets/union-jack.jpg" ></img></button>
+    <button id = language3 class = "language3" ><img class = flag src = "../static/assets/italian_flag.svg" ></img></button>
 
     <form method="get" action="../static/assets/Markers.pdf">
       <button class = "download" type = "submit" ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
@@ -104,7 +104,7 @@
 
 <!-- documentation -->
 
-<div id="docu_ar">
+<div id = "docu_ar" classe = "docu_ar">
 
     <div id ="french" class = "french"> <!--should b the first seen, with switch to english available through button-->
 
@@ -191,7 +191,7 @@
 
 </div>
 
-<div id = "docu_reac">
+<div id = "docu_reac" class = "docu_reac">
 
     <!-- Documentation about reactions -->
 

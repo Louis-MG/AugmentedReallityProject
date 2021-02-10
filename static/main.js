@@ -7,6 +7,9 @@ const container1 = document.getElementsByClassName('container1')[0];
 const bigTitle = document.getElementsByClassName("bigTitle")[0];
 const reaction = document.getElementById('reaction');
 const documentation_ar = document.getElementById('docu_ar');
+const documentation_reac = document.getElementById('docu_reac');
+
+
 /*
 const availableReactions = [
     {'title' : "Water formation",
@@ -176,14 +179,12 @@ button3.addEventListener('click', loadPeptideLink);
 
 function change_to_english() {
     var x = document.getElementById("english"); //looks for the english div
+    document.getElementById("french").style.display = "none"; // hides french and italian
+    document.getElementById("italian").style.display = "none"
     if (x.style.display === "none") {
       x.style.display = "block"; //if not visible, changes the display to block
-      document.getElementById("french").style.display = "none"; //hides french and italian divs
-      document.getElementById("italian").style.display = "none"
     } else {
       x.style.display = "block"; //if it was visible
-      document.getElementById("french").style.display = "none"; // hides french and italian
-      document.getElementById("italian").style.display = "none"
     }
 }
 
@@ -192,28 +193,23 @@ function change_to_english() {
 
 function change_to_french() {
     var x = document.getElementById("french");
+    document.getElementById("english").style.display = "none";
+    document.getElementById("italian").style.display = "none";
     if (x.style.display === "none") {
       x.style.display = "block" ;
-      document.getElementById("english").style.display = "none";
-      document.getElementById("italian").style.display = "none";
     } else {
       x.style.display = "block";
-      document.getElementById("english").style.display = "none";
-      document.getElementById("italian").style.display = "none";
     }
 }
 
 function change_to_italian() {
   var x = document.getElementById("italian");
+  document.getElementById("french").style.display = "none";
+  document.getElementById("english").style.display = "none";
   if (x.style.display === "none") {
     x.style.display = "block";
-    document.getElementById("french").style.display = "none";
-    document.getElementById("english").style.display = "none";
   } else {
     x.style.display = "block";
-    document.getElementById("french").style.display = "none";
-    document.getElementById("english").style.display = "none";
-
   }
 }
 
@@ -225,21 +221,14 @@ function goHome() {
 
 function goDocu_ar() {
     var x = documentation_ar;
+    document.getElementById("menu").style.display = "none";
+    document.getElementById("container1").style.display = "none";
+    document.getElementById("reaction").style.display = "none";
+    documentation_reac.style.display = "none"
     if (x.style.display === "none") {
-        document.getElementById("menu").style.display = "none";
-        document.getElementById("container1").style.display = "none";
         x.style.display = "block";
-        document.getElementById("docu_reac").style.display = "none"
-        document.getElementById("english").style.display = "none";
-        document.getElementById("italian").style.display = "none";
     } else {
         x.style.display = "block"
-        document.getElementById("reaction").style.display = "none";
-        document.getElementById("menu").style.display = "none";
-        document.getElementById("container1").style.display = "none";
-        document.getElementById("english").style.display = "none";
-        document.getElementById("italian").style.display = "none";
-        document.getElementById("docu_reac").style.display = "none";
     }
 }
 
@@ -248,20 +237,25 @@ button4.addEventListener('click', goDocu_ar);
 
 function goDocu_reac() {
     var x = documentation_reac;
+    document.getElementById("menu").style.display = "none";
+    document.getElementById("container1").style.display = "none";
+    document.getElementById("reaction").style.display = "none";
+    documentation_ar.style.display = "none"
     if (x.style.display === "none") {
-        document.getElementById("menu").style.display = "none";
-        document.getElementById("container1").style.display = "none";
         x.style.display = "block";
-        document.getElementById("docu_ar").style.display = "none"
-        document.getElementById("english").style.display = "none";
-        document.getElementById("italian").style.display = "none";
     } else {
         x.style.display = "block"
-        document.getElementById("reaction").style.display = "none";
-        document.getElementById("menu").style.display = "none";
-        document.getElementById("container1").style.display = "none";
-        document.getElementById("docu_ar").style.display = "none";
-        document.getElementById("english").style.display = "none";
-        document.getElementById("italian").style.display = "none";
     }
 }
+
+const button5 = document.getElementById("button5");
+button5.addEventListener('click', goDocu_reac)
+
+const button_french = document.getElementById("language1")
+button_french.addEventListener('click', change_to_french)
+
+const button_english = document.getElementById("language2")
+button_english.addEventListener('click', change_to_english)
+
+const button_italian = document.getElementById("language3")
+button_italian.addEventListener('click', change_to_italian)

@@ -200,9 +200,9 @@ video {
 
 .footer{
     bottom: 0;
-    /* left: 50%; */
+    left: 50%;
     background-color: #EEF7FC;
-    /* transform: translate(-50%, 0); */
+    transform: translate(-50%, 0);
     position: fixed;
     width: 100%;
     height: 85px;
@@ -365,14 +365,14 @@ video {
 /* Documentation */
 
 #docu_ar {
-    background-image: url("molecule_docu.png"); 
+    background-image: url("./assets/molecule_docu.png"); 
     background-size: 100%;
     background-position: 100%;
     display: none;
 }
 
 #docu_reac {
-    background-image: url("molecule_docu.png"); 
+    background-image: url("./assets/molecule_docu.png"); 
     background-size: 100%;
     background-position: 100%;
     display: none;
@@ -397,7 +397,7 @@ button {
 }
 
 .flag {
-    height : 30px ; /* css for the flags in the buttons */
+    height : 25px ; /* css for the flags in the buttons */
     width: auto;    
     display: block;
     margin-left: auto;
@@ -407,30 +407,30 @@ button {
 }
 
 .language1 {    /*french*/
-    top: 30%;
+    top: 31%;
     right: 5%;
-    height: 60px;
-    width: 60px;
+    height: 70px;
+    width: 70px;
 }
 
 .language2 {    /*english*/
     top: 40%;
     right: 5%;
-    height: 80px;
-    width: 80px;
+    height: 70px;
+    width: 70px;
 }
 
 .language3 {    /*italian*/
-    top: 50%;
+    top: 49%;
     right: 5%;
-    height: 80px;
-    width: 80px;
+    height: 70px;
+    width: 70px;
 }
 
 /*button for dowloading the pdf*/
 
 .download {
-    top: 60%;
+    top: 58%;
     right: 6.5%;
     height: 40px;
     width: 40px;
@@ -445,7 +445,7 @@ button {
 
 .back_to_menu { /*not correctly positioned in the menu*/
     left: 5%;
-    top: 50%;
+    top: 5%;
     position: fixed;
     height: 40px;
     width: 40px;
@@ -482,7 +482,7 @@ button {
     margin-top: 4%;
     margin-right: 10%;
     margin-bottom: auto;
-    display: none;     /*the only one visible by deflaut*/
+    display: block;     /*the only one visible by deflaut*/
 }
 
 .english {
@@ -521,8 +521,6 @@ button {
     box-shadow: rgba(0, 0, 0, 0.3) 0 0 20px;
 }
 
-/* for all pictures exept the one of esterification; which is too big */
-
 .reaction {
     display: block;
     margin-left: auto;
@@ -537,6 +535,7 @@ iframe {
     display: block;
     margin-left: auto;
     margin-right: auto; 
+    margin-bottom: 10%;
     width: 854px ;
     height: 480px;
 }
