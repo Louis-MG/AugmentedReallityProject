@@ -224,11 +224,11 @@ function goDocu_ar() {
     document.getElementById("menu").style.display = "none";
     document.getElementById("container1").style.display = "none";
     document.getElementById("reaction").style.display = "none";
-    documentation_reac.style.display = "none"
+    documentation_reac.style.display = "none";
     if (x.style.display === "none") {
         x.style.display = "block";
     } else {
-        x.style.display = "block"
+        x.style.display = "block";
     }
 }
 
@@ -240,11 +240,11 @@ function goDocu_reac() {
     document.getElementById("menu").style.display = "none";
     document.getElementById("container1").style.display = "none";
     document.getElementById("reaction").style.display = "none";
-    documentation_ar.style.display = "none"
+    documentation_ar.style.display = "none";
     if (x.style.display === "none") {
         x.style.display = "block";
     } else {
-        x.style.display = "block"
+        x.style.display = "block";
     }
 }
 

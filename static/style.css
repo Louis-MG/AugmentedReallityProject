@@ -1,8 +1,10 @@
+
+
 html {
     /*background-image: linear-gradient(-170deg,#064997 20%,#105ba7);*/
     background-position: 100%;
-    margin: 0;
-    padding: 0;
+    margin: 0px;
+    padding: 0px;
 }
 
 body {
@@ -11,7 +13,6 @@ body {
     font-family: Josefin Sans, sans-serif;
     margin: 0;
     padding: 0;
-    display: block;
 }
 
 canvas {
@@ -463,11 +464,13 @@ button {
 .title {
     font-size: 35px;
     text-align: center;
+    margin-top: 60px;
 }
 
 .hemititle {
     font-size: 25px;
     text-align: left;
+    margin-top: 50px;
 }
 
 .main_text {
@@ -475,6 +478,7 @@ button {
     text-align: justify;
     margin-left: 10%;
     margin-right: 10%;
+    margin-top: 50px;
 }
 
 .french {
@@ -527,6 +531,8 @@ button {
     margin-right: auto; 
     height: auto;
     width: 60%; 
+    padding-bottom: 20px;
+    padding-top: 20px;
 }
 
 /* for the youtube video */
@@ -535,7 +541,14 @@ iframe {
     display: block;
     margin-left: auto;
     margin-right: auto; 
-    margin-bottom: 10%;
+    padding-bottom: 50px;
     width: 854px ;
     height: 480px;
+}
+
+footer {
+    text-align: center;
+    position: sticky;
+    left: 0;
+    bottom: 0;
 }
