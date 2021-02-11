@@ -4,8 +4,8 @@
 export const data {
     name: "Esterification",
     title: "Esterification",
-    description: "Condensation of two chains R and R' linked by the carboxylic acid of R reacting with an alcohol on R' ."
-    image : ""
+    description: "Condensation of two chains R and R' linked by the carboxylic acid of R reacting with an alcohol on R' .",
+    image : "<img src = '../assets/ester.png' style = 'width = 40%; position = relative; left = 30pc; top = 140px'></img>"
 }
 
 
@@ -53,7 +53,7 @@ function esterification() {
         document.getElementById("alcohol").setAttribute('visible', false)
     }
 
-    // if the maarker supporting the ester isnt visible anymore then set the molecule to not visible:
+    // if the marker supporting the ester isnt visible anymore then set the molecule to not visible:
 
     if (ester = 1 && document.querySelector("CarboxySelectorName").object3D.visible== false) {
         document.getElementById("ester").setAttribute('visible', true)

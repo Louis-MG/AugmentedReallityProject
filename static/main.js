@@ -254,10 +254,13 @@ function goDocu_ar() {
     if (x.style.display === "none") {
         x.style.display = "block";
         if (english1.style.display === "block") {
+            english1.style.display = "none"
             english.style.display = "block";
         } else if (french1.style.display === "block") {
+            french1.style.display = "none";
             french.style.display = "block";
         } else if (italian1.style.display === "block") {
+            italian1.style.display = "none";
             italian.style.display = "block";
         }
     } else {
