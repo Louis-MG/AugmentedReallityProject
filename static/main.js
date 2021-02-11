@@ -8,7 +8,12 @@ const bigTitle = document.getElementsByClassName("bigTitle")[0];
 const reaction = document.getElementById('reaction');
 const documentation_ar = document.getElementById('docu_ar');
 const documentation_reac = document.getElementById('docu_reac');
-
+const english = document.getElementById("english");
+const english1 = document.getElementById("english1");
+const french = document.getElementById("french");
+const french1 = document.getElementById("french1");
+const italian = document.getElementById("italian");
+const italian1 = document.getElementById("italian1");
 
 /*
 const availableReactions = [
@@ -180,59 +185,48 @@ button3.addEventListener('click', loadPeptideLink);
 function change_to_english() {
     var x = document.getElementById("english"); //looks for the english div
     var y = document.getElementById("english1");
-    document.getElementById("french").style.display = "none"; // hides french and italian
-    document.getElementById("french1").style.display = "none";
-    document.getElementById("italian").style.display = "none";
-    document.getElementById("italian1").style.display = "none";
-    if (x.style.display === "none") {
-        x.style.display = "block" ;
-      } else {
-        x.style.display = "block";
-      }
-      if (y.style.display === "none") {
-          y.style.display = "block" ;
-      } else {
-          y.style.display = "block";
-      }
+    french.style.display = "none"; 
+    french1.style.display = "none";
+    italian.style.display = "none";
+    italian1.style.display = "none";
+    if (documentation_ar.style.display === "block") {
+        english1.style.display = "none";
+        english.style.display = "block";
+    } else {
+        english.style.display = "none";
+        english1.style.display = "block";
+    }
 }
-
 // when looking for an element, careful with getElementByID and getElementsById (stupid s)
 
 function change_to_french() {
     var x = document.getElementById("french");
     var y = document.getElementById("french1");
-    document.getElementById("english").style.display = "none";
-    document.getElementById("english1").style.display = "none";
-    document.getElementById("italian").style.display = "none";
-    document.getElementById("italian1").style.display = "none";
-    if (x.style.display === "none") {
-      x.style.display = "block" ;
+    english.style.display = "none";
+    english1.style.display = "none";
+    italian.style.display = "none";
+    italian1.style.display = "none";
+    if (documentation_ar.style.display === "block") {
+    french1.style.display = "none";
+    french.style.display = "block";
     } else {
-      x.style.display = "block";
-    }
-    if (y.style.display === "none") {
-        y.style.display = "block" ;
-    } else {
-        y.style.display = "block";
+    french.style.display = "none";
+    french1.style.display = "block";
     }
 }
-
 function change_to_italian() {
     var x = document.getElementById("italian");
     var y = document.getElementById("italian1");
-    document.getElementById("french").style.display = "none";
-    document.getElementById("french1").style.display = "none";
-    document.getElementById("english").style.display = "none";
-    document.getElementById("english1").style.display = "none";
-    if (y.style.display === "none") {
-        y.style.display = "block" ;
+    french.style.display = "none";
+    french1.style.display = "none";
+    english.style.display = "none";
+    english1.style.display = "none";
+    if (documentation_ar.style.display === "block") {
+        italian1.style.display = "none";
+        italian.style.display = "block";
     } else {
-        y.style.display = "block";
-    }
-    if (x.style.display === "none") {
-        x.style.display = "block";
-    } else {
-        x.style.display = "block";
+        italian.style.display = "none";
+        italian1.style.display = "block";
     }
 }
 
@@ -254,11 +248,18 @@ button_italian.addEventListener('click', change_to_italian)
 function goDocu_ar() {
     var x = documentation_ar;
     document.getElementById("menu").style.display = "none";
-    document.getElementById("container1").style.display = "none";
-    document.getElementById("reaction").style.display = "none";
+    container1.style.display = "none";
+    reaction.style.display = "none";
     documentation_reac.style.display = "none";
     if (x.style.display === "none") {
         x.style.display = "block";
+        if (english1.style.display === "block") {
+            english.style.display = "block";
+        } else if (french1.style.display === "block") {
+            french.style.display = "block";
+        } else if (italian1.style.display === "block") {
+            italian.style.display = "block";
+        }
     } else {
         x.style.display = "block";
     }
@@ -270,11 +271,18 @@ button4.addEventListener('click', goDocu_ar);
 function goDocu_reac() {
     var x = documentation_reac;
     document.getElementById("menu").style.display = "none";
-    document.getElementById("container1").style.display = "none";
-    document.getElementById("reaction").style.display = "none";
+    container1.style.display = "none";
+    reaction.style.display = "none";
     documentation_ar.style.display = "none";
     if (x.style.display === "none") {
         x.style.display = "block";
+        if (english.style.display === "block") {
+            english1.style.display = "block";
+        } else if (french.style.display === "block") {
+            french1.style.display = "block";
+        } else if (italian.style.display === "block") {
+            italian1.style.display = "block";
+        }
     } else {
         x.style.display = "block";
     }
