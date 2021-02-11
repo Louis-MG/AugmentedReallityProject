@@ -10,54 +10,56 @@ export const data {
 
 
 function esterification() { 
-    // need constants to work with the html injection:
     const scene = document.getElementById("thescene");
     const carboxy = document.getElementById("carboxy");
     const alcohol = document.getElementById("alcohol");
-    var ester  = 0 ;
+    const residue = document.getElementById("residue");
+    const ester = document.getElementById("ester");
+    var esterification  = 0 ;
 
     document.getElementById("thescene").object3D.updateMatrixWorld(); // select the scene by id in the html, the attribute object3D and the function updateMatrixWorld
-    var p1 = new THREE.Vector3(); p1.setFromMatrixPosition(document.getElementById("alcohol").object3D.matrixWorld); // H2O : the object will be partialy visible or not depending on distances
-    var p2 = new THREE.Vector3(); p2.setFromMatrixPosition(document.getElementById("carboxy").object3D.matrixWorld); // H1
-    distCarboxyAlco = 2 * Math.sqrt( Math.pow(p1.x - p2.x, 2) + Math.pow(p1.y - p2.y, 2)) ; // calculate the distance between the two substrates 
+    var p1 = new THREE.Vector3(); p1.setFromMatrixPosition(alcohol.object3D.matrixWorld); // sets posiiton of the alcohol
+    var p2 = new THREE.Vector3(); p2.setFromMatrixPosition(carboxy.object3D.matrixWorld); // sets position of the carboxy (fatty acid obj)
+    distCarboxyAlco = 2 * Math.sqrt( Math.pow(p1.x - p2.x, 2) + Math.pow(p1.y - p2.y, 2)) ; // calculate the distance between the two molecules 
     document.getElementById("infop").innerHTML="<p>" + distCarboxyAlco + "</p>" ; // shows distance
 
 
-    if (distCarboxyAlco > 2 && ester < 1) {
-        document.getElementById("carboxy").setAttribute('visible', true)
-        document.getElementById("alcohol").setAttribute('visible', true)
-        document.getElementById("ester").setAttribute('visible', false)
-        document.getElementById("residue").setAttribute('visible', false)
+    if (distCarboxyAlco > 2 && esterification < 1) { //if distance is too big and the reaction did not happened yet
+        carboxy.setAttribute('visible', true)   // shows the carboxy
+        alcohol.setAttribute('visible', true)   // shows the alcohol
+        ester.setAttribute('visible', false)    // hides the ester
+        residue.setAttribute('visible', false)  //hides the residue
     }
 
-    else if (distCarboxyAlco < 2 && ester < 1) {
-        document.getElementById("carboxy").setAttribute('visible', false)
-        document.getElementById("alcohol").setAttribute('visible', false)
-        document.getElementById("ester").setAttribute('visible', true)
-        document.getElementById("residue").setAttribute('visible', true)
-        ester = 1
+    else if (distCarboxyAlco < 2 && esterification < 1) { //if the distance is inferior to the threshold and the reaction did not happened yet
+        carboxy.setAttribute('visible', false)  // hide the substrates
+        alcohol.setAttribute('visible', false)
+        ester.setAttribute('visible', true)     // shows the products
+        residue.setAttribute('visible', true)
+        esterification = 1                      // sets reaction indicator to "happened"
     }
 
     // now if the marker if the carboxy disappears after the reaction the others stay visible:
 
-    if (ester = 1 && document.querySelector("carboxy").object3D.visible== false) {
-        document.getElementById("ester").setAttribute('visible', true)
-        document.getElementById("carboxy").setAttribute('visible', false)
-        document.getElementById("alcohol").setAttribute('visible', false)
+    if (esterification = 1 && document.querySelector("carboxy").object3D.visible == false) {
+        ester.setAttribute('visible', false)
+        carboxy.setAttribute('visible', false) // the carboxy and ester are on the same marker, and the carboxy was used
+        alcohol.setAttribute('visible', false) // alcohol was used
+        residue.setAttribute('visible', true)  // only the residue remains visible
     }
 
     // if the alcohol marker disappears the residue does so:  
-    if (ester = 1 && document.querySelector("carboxy").object3D.visible== false) {
-        document.getElementById("ester").setAttribute('visible', true)
-        document.getElementById("carboxy").setAttribute('visible', false)
-        document.getElementById("alcohol").setAttribute('visible', false)
+    if (esterification = 1 && document.querySelector("#lysmarker").object3D.visible== false) {
+        residue.setAttribute('visible', false)       
+        alcohol.setAttribute('visible', false)
     }
 
     // if the marker supporting the ester isnt visible anymore then set the molecule to not visible:
 
-    if (ester = 1 && document.querySelector("CarboxySelectorName").object3D.visible== false) {
-        document.getElementById("ester").setAttribute('visible', true)
-        ester = 0 
+    if (esterification = 1 && document.querySelector("#promarker").object3D.visible== false) {
+        ester.setAttribute('visible', false)
+        carboxy.setAttribute('visible', false)
+        esterification = 0 
     }
 
 }
