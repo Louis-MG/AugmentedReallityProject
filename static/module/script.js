@@ -8,6 +8,7 @@ export const data {
     image : "<img src = '../assets/ester.png' style = 'width = 40%; position = relative; left = 30pc; top = 140px'></img>"
 }
 
+// changer tout ce qui est document par une divroot ou injection 
 
 function esterification() { 
     // need constants to work with the html injection:

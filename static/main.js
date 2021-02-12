@@ -183,8 +183,6 @@ button3.addEventListener('click', loadPeptideLink);
 // These functions change the div displayed: there is one for each language. French is default. Last one if for the top left arrow button:
 
 function change_to_english() {
-    var x = document.getElementById("english"); //looks for the english div
-    var y = document.getElementById("english1");
     french.style.display = "none"; 
     french1.style.display = "none";
     italian.style.display = "none";
@@ -200,8 +198,6 @@ function change_to_english() {
 // when looking for an element, careful with getElementByID and getElementsById (stupid s)
 
 function change_to_french() {
-    var x = document.getElementById("french");
-    var y = document.getElementById("french1");
     english.style.display = "none";
     english1.style.display = "none";
     italian.style.display = "none";
@@ -215,8 +211,6 @@ function change_to_french() {
     }
 }
 function change_to_italian() {
-    var x = document.getElementById("italian");
-    var y = document.getElementById("italian1");
     french.style.display = "none";
     french1.style.display = "none";
     english.style.display = "none";
@@ -280,10 +274,13 @@ function goDocu_reac() {
     if (x.style.display === "none") {
         x.style.display = "block";
         if (english.style.display === "block") {
+            english.style.display = "none";
             english1.style.display = "block";
         } else if (french.style.display === "block") {
+            french.style.display = "none";
             french1.style.display = "block";
         } else if (italian.style.display === "block") {
+            italian.style.display = "none";
             italian1.style.display = "block";
         }
     } else {
@@ -293,5 +290,3 @@ function goDocu_reac() {
 
 const button5 = document.getElementById("button5");
 button5.addEventListener('click', goDocu_reac)
-
-
