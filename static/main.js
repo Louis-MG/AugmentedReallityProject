@@ -183,6 +183,7 @@ button3.addEventListener('click', loadPeptideLink);
 // These functions change the div displayed: there is one for each language. French is default. Last one if for the top left arrow button:
 
 function change_to_english() {
+    // changes the language div displayed in function of the documentation the user is in
     french.style.display = "none"; 
     french1.style.display = "none";
     italian.style.display = "none";
@@ -195,14 +196,14 @@ function change_to_english() {
         english1.style.display = "block";
     }
 }
-// when looking for an element, careful with getElementByID and getElementsById (stupid s)
 
 function change_to_french() {
+    // changes the language div displayed in function of the documentation the user is in
     english.style.display = "none";
     english1.style.display = "none";
     italian.style.display = "none";
     italian1.style.display = "none";
-    if (documentation_ar.style.display === "block") {
+    if (documentation_ar.style.display === "block") {   
     french1.style.display = "none";
     french.style.display = "block";
     } else {
@@ -210,7 +211,9 @@ function change_to_french() {
     french1.style.display = "block";
     }
 }
+
 function change_to_italian() {
+    // changes the language div displayed in function of the documentation the user is in
     french.style.display = "none";
     french1.style.display = "none";
     english.style.display = "none";
@@ -241,13 +244,13 @@ button_italian.addEventListener('click', change_to_italian)
 
 function goDocu_ar() {
     var x = documentation_ar;
-    document.getElementById("menu").style.display = "none";
+    document.getElementById("menu").style.display = "none"; //hides the menu
     container1.style.display = "none";
-    reaction.style.display = "none";
-    documentation_reac.style.display = "none";
+    reaction.style.display = "none";  //hides reaction page 
+    documentation_reac.style.display = "none"; //hides the other documentation
     if (x.style.display === "none") {
         x.style.display = "block";
-        if (english1.style.display === "block") {
+        if (english1.style.display === "block") {  // conditional display of languages
             english1.style.display = "none"
             english.style.display = "block";
         } else if (french1.style.display === "block") {
@@ -266,8 +269,9 @@ const button4 = document.getElementById('button4');
 button4.addEventListener('click', goDocu_ar);
 
 function goDocu_reac() {
+    //see goDocu_ar for comments
     var x = documentation_reac;
-    document.getElementById("menu").style.display = "none";
+    document.getElementById("menu").style.display = "none"; 
     container1.style.display = "none";
     reaction.style.display = "none";
     documentation_ar.style.display = "none";
