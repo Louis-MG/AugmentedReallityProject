@@ -120,6 +120,7 @@ video {
     color: white;
     text-align: center;
     text-decoration: none;
+    cursor: pointer;
     font-size: 0;
     position: fixed;
     margin-left: 267px;
@@ -295,3 +296,180 @@ video {
 }
 
 /* Documentation */
+
+/* Documentation */
+
+#docu_ar {
+    background-image: url("./assets/molecule_docu.png");
+    background-size: 100%;
+    background-position: 100%;
+    display: none;
+}
+
+#docu_reac {
+    background-image: url("./assets/molecule_docu.png");
+    background-size: 100%;
+    background-position: 100%;
+    display: none;
+}
+
+/*language button's css: */
+
+.buttonLanguage {
+    border: none;   /* css for all buttons */
+    background-color: white;
+    position: absolute;
+    cursor: pointer;
+    border-radius: 50%;
+    box-shadow: 0px 0px 10px #555454;
+}
+
+.button_box {
+    display: none;
+    position: fixed ;  /* button sare in a fixed box on the right side, they stay as you scroll */
+    right: 2%;
+    top: 8%;
+    width: 100px;
+    height: 1000px;
+}
+
+
+.flag {
+    height : 25px ; /* css for the flags in the buttons */
+    width: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.language1 {    /*french*/
+    top: 31%;
+    right: 5%;
+    height: 70px;
+    width: 70px;
+}
+
+.language2 {    /*english*/
+    top: 40%;
+    right: 5%;
+    height: 70px;
+    width: 70px;
+}
+
+.language3 {    /*italian*/
+    top: 49%;
+    right: 5%;
+    height: 70px;
+    width: 70px;
+}
+
+/*button for dowloading the pdf*/
+
+.download {
+    top: 58%;
+    right: 6.5%;
+    height: 40px;
+    width: 40px;
+}
+
+.download_pic {
+    height: 20px;
+    width: auto;
+}
+
+/* button to change */
+
+.back_to_menu { /*not correctly positioned in the menu*/
+    left: 5%;
+    top: 5%;
+    position: fixed;
+    height: 40px;
+    width: 40px;
+}
+
+.arrow_left {
+    height: 25px;
+    width: auto;
+    padding-top: 3px;
+    padding-right: 10px;
+}
+
+/*css for the texts :*/
+
+.title {
+    font-size: 35px;
+    text-align: center;
+    padding-top: 1px;
+}
+
+.hemititle {
+    font-size: 25px;
+    text-align: left;
+}
+
+.main_text {
+    font-size: 20px;
+    text-align: justify;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.french {
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-bottom: auto;
+    display: block;     /*the only one visible by deflaut*/
+}
+
+.english {
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-bottom: auto;
+    display: none;  /* not visible by default */
+}
+
+.italian {
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-bottom: auto;
+    display: none;    /* not visible by default */
+}
+
+/* other pictures: */
+
+.marker {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+    height: auto;
+    box-shadow: rgba(0, 0, 0, 0.3) 0 0 20px;
+}
+
+.schematic {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    height: auto;
+    box-shadow: rgba(0, 0, 0, 0.3) 0 0 20px;
+}
+
+.docuImg {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    display: block;
+}
+
+/* for the youtube video */
+
+iframe {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 50px;
+    width: 854px ;
+    height: 480px;
+}
