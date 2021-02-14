@@ -120,6 +120,7 @@ function showReactionPage(){
     killRunningReaction();
     container1.style.display = 'block';
     languageButtons.style.display = "none";
+    bigTitle.style.display = 'block';
     //footer.style.display = 'block';
     bigTitle.innerHTML = "Choose a reaction";
     moleculeBackground.style.display = 'block';
