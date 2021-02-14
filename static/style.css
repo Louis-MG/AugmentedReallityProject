@@ -379,16 +379,6 @@ video {
     width: auto;
 }
 
-/* button to change */
-
-.back_to_menu { /*not correctly positioned in the menu*/
-    left: 5%;
-    top: 5%;
-    position: fixed;
-    height: 40px;
-    width: 40px;
-}
-
 .arrow_left {
     height: 25px;
     width: auto;
@@ -419,21 +409,18 @@ video {
 .french {
     margin-left: 10%;
     margin-right: 10%;
-    margin-bottom: auto;
     display: block;     /*the only one visible by deflaut*/
 }
 
 .english {
     margin-left: 10%;
     margin-right: 10%;
-    margin-bottom: auto;
     display: none;  /* not visible by default */
 }
 
 .italian {
     margin-left: 10%;
     margin-right: 10%;
-    margin-bottom: auto;
     display: none;    /* not visible by default */
 }
 
@@ -455,6 +442,14 @@ video {
     width: 50%;
     height: auto;
     box-shadow: rgba(0, 0, 0, 0.3) 0 0 20px;
+}
+
+.reaction {
+    display: block;
+    margin-left: auto;
+    margin-right: auto; 
+    height: auto;
+    width: 60%; 
 }
 
 .docuImg {
