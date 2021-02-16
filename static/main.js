@@ -1,9 +1,6 @@
 import * as reac_1 from "./module/h2o.js";
 import * as reac_2 from "./module/peptide-link.js";
-import * as reac_3 from "./module/test3.js";
-import * as reac_4 from "./module/test4.js";
-import * as reac_5 from "./module/test5.js";
-import * as reac_6 from "./module/test6.js";
+import * as reac_3 from "./module/Saponification..js";
 
 // Initialisation
 
