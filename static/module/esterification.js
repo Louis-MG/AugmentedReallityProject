@@ -22,7 +22,6 @@ function Reaction() {
     const residue = document.getElementById("residue");
     const ester = document.getElementById("ester");
     const divInfop = document.getElementById("infop");
-    var esterification  = 0 ;
 
     scene.object3D.updateMatrixWorld(); // select the scene by id in the html, the attribute object3D and the function updateMatrixWorld
     var p1 = new THREE.Vector3(); p1.setFromMatrixPosition(alcohol.object3D.matrixWorld); // sets posiiton of the alcohol
@@ -31,42 +30,34 @@ function Reaction() {
     divInfop.innerHTML="<p>" + distCarboxyAlco + "</p>" ; // shows distance
 
 
-    if (distCarboxyAlco > 2 && esterification < 1) { //if distance is too big and the reaction did not happened yet
-        carboxy.setAttribute('visible', true)   // shows the carboxy
-        alcohol.setAttribute('visible', true)   // shows the alcohol
-        ester.setAttribute('visible', false)    // hides the ester
-        residue.setAttribute('visible', false)  //hides the residue
+    if (distCarboxyAlco > 2 ) { //if distance is too big and the reaction did not happened yet
+        if (document.querySelector("#hiroMarkerSelector").object3D.visible === true){
+            alcohol.setAttribute('visible',true)
+          }
+          if (document.querySelector("#kanjiMarkerSelector").object3D.visible === true){
+            carboxy.setAttribute('visible',true)
+          }
+          if (document.querySelector("#letterAMarkerSelector").object3D.visible === true){
+            residue.setAttribute('visible',false)
+          } 
+          if (document.querySelector("#letterBMarkerSelector").object3D.visible === true){
+            ester.setAttribute('visible',false)
+          }
     }
 
-    else if (distCarboxyAlco < 2 && esterification < 1) { //if the distance is inferior to the threshold and the reaction did not happened yet
-        carboxy.setAttribute('visible', false)  // hide the substrates
-        alcohol.setAttribute('visible', false)
-        ester.setAttribute('visible', true)     // shows the products
-        residue.setAttribute('visible', true)
-        esterification = 1                      // sets reaction indicator to "happened"
-    }
-
-    // now if the marker of the carboxy disappears after the reaction the others stay visible:
-
-    if (esterification = 1 && document.querySelector("#kanjiMarkerSelector").object3D.visible == false) {
-        ester.setAttribute('visible', false)
-        carboxy.setAttribute('visible', false) // the carboxy and ester are on the same marker, and the carboxy was used
-        alcohol.setAttribute('visible', false) // alcohol was used
-        residue.setAttribute('visible', true)  // only the residue remains visible
-    }
-
-    // if the alcohol marker disappears the residue does so:  
-    if (esterification = 1 && document.querySelector("#hiroMarkerSelector").object3D.visible== false) {
-        residue.setAttribute('visible', false)       
-        alcohol.setAttribute('visible', false)
-    }
-
-    // if the marker supporting the ester isnt visible anymore then set the molecule to not visible:
-
-    if (esterification = 1 && document.querySelector("#kanjiMarkerSelector").object3D.visible== false) {
-        ester.setAttribute('visible', false)
-        carboxy.setAttribute('visible', false)
-        esterification = 0 
+    else if (distCarboxyAlco < 2 ) { //if the distance is inferior to the threshold and the reaction did not happened yet
+        if (document.querySelector("#hiroMarkerSelector").object3D.visible === true){
+            alcohol.setAttribute('visible',false)
+        }
+        if (document.querySelector("#kanjiMarkerSelector").object3D.visible === true){
+            carboxy.setAttribute('visible',false)
+        }
+        if (document.querySelector("#letterAMarkerSelector").object3D.visible === false){
+            residue.setAttribute('visible',true)
+        } 
+        if (document.querySelector("#letterBMarkerSelector").object3D.visible === false){
+            ester.setAttribute('visible',true)
+        }
     }
 
 }
@@ -93,13 +84,19 @@ function createScaffold(divRoot) {
         </a-assets>
 
         <a-marker preset='hiro' id="hiroMarkerSelector">
-            <a-obj-model id = "alcohol" src = "#alcohol_obj" mtl = "#alcohol_mtl" visible = "false" scale = "23 23 23"></a-obj-model> 
-            <a-obj-model id = "residue" src = "#residue_obj" mtl = "#residue_mtl" visible = "false" scale = "23 23 23"></a-obj-model>
+            <a-obj-model id = "alcohol" src = "#alcohol_obj" mtl = "#alcohol_mtl" visible = "false" scale = "2 2 2"></a-obj-model> 
         </a-marker>
 
         <a-marker preset  = "kanji" id = "kanjiMarkerSelector">
-            <a-obj-model id = "carboxy" src = "#carboxy_obj" mtl = "#carboxy_mtl" visible = "false" scale = "23 23 23"></a-obj-model>  
-            <a-obj-model id = "ester" src = "#ester_obj" mtl = "#ester_mtl" visible = "false" scale = "23 23 23"></a-obj-model>  
+            <a-obj-model id = "carboxy" src = "#carboxy_obj" mtl = "#carboxy_mtl" visible = "false" scale = "2 2 2"></a-obj-model>  
+        </a-marker>
+
+        <a-marker preset = 'letterA' id = "letterAMarkerSelector">
+            <a-obj-model id = "residue" src = "#residue_obj" mtl = "#residue_mtl" visible = "false" scale = "2 2 2"></a-obj-model>
+        </a-marker>
+
+        <a-marker preset = 'letterB' id = "letterBMarkerSelector">
+            <a-obj-model id = "ester" src = "#ester_obj" mtl = "#ester_mtl" visible = "false" scale = "2 2 2"></a-obj-model>  
         </a-marker>
 
         <a-entity camera></a-entity>

@@ -28,7 +28,7 @@ function Reaction() {
     let distTwo = 2 * Math.sqrt( Math.pow(p3.x - p1.x, 2) + Math.pow(p3.y - p1.y, 2) + Math.pow(p3.z-p1.z,2));
     divInfop.innerHTML = "<p>" + distAa1Aa2 + "</p>"; //shows distance
 
-    if (distAa1Aa2 > 2.5){
+    if (distAa1Aa2 > 2.5){ //shows substrates only
         if (document.querySelector("#hiroMarkerSelector").object3D.visible === true){
           aminoAcid1.setAttribute('visible',true)
         }
@@ -38,7 +38,7 @@ function Reaction() {
         if (document.querySelector("#letterAMarkerSelector").object3D.visible === true){
             products.setAttribute('visible',false)
         }
-    }else if (distAa1Aa2 < 2.5 && distOne < 3 && distTwo < 3){
+    }else if (distAa1Aa2 < 2.5 && distOne < 3 && distTwo < 3){ //shows product
         if (document.querySelector("#hiroMarkerSelector").object3D.visible === true){
             aminoAcid1.setAttribute('visible',false)
         }
