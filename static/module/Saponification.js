@@ -109,7 +109,7 @@ function createScaffold(divRoot) {
 
       <a-marker preset = 'letterA' id = "letterAMarkerSelector">
         <a-obj-model id = "product-soap" src = '#prod-soap-obj' mtl = '#prod-soap-mtl' scale = "1 1 1" visible = "false"></a-obj-model>
-      <a-marker preset ='letterB' id =" letterBMarkerSelector">
+      <a-marker type='pattern' url='static/assets/pattern-Bletter.patt' id =" letterBMarkerSelector">
         <a-obj-model id = "product-alcohol" src  ='#prod-alcohol-obj' mtl ='#prod-alcohol-mtl' scale = "1 1 1" visible = "false"></a-obj-model>	
       </a-marker>
 
