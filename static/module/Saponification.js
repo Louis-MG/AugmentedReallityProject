@@ -92,10 +92,10 @@ function createScaffold(divRoot) {
         </a-assets>
 
       <a-marker preset = 'hiro' id = "hiroMarkerSelector">
-        <a-obj-model id = "ester" src = "#ester-obj" mtl = "#ester-mtl" scale="20 20 20" visible = "false"></a-obj-model>
+        <a-obj-model id = "ester" src = "#ester-obj" mtl = "#ester-mtl" scale="1 1 1" visible = "false"></a-obj-model>
       </a-marker>
       <a-marker preset = 'kanji' id = "kanjiMarkerSelector">
-        <a-obj-model id = "koh" src = "#koh-obj" mtl = "#koh-mtl" scale="20 20 20" visible = "false"></a-obj-model>
+        <a-obj-model id = "koh" src = "#koh-obj" mtl = "#koh-mtl" scale="1 1 1" visible = "false"></a-obj-model>
       </a-marker>
 
       <!--products-->
@@ -108,9 +108,9 @@ function createScaffold(divRoot) {
       </a-assets>
 
       <a-marker preset = 'letterA' id = "letterAMarkerSelector">
-        <a-obj-model id = "product-soap" src = '#prod-soap-obj' mtl = '#prod-soap-mtl' scale = "20 20 20" visible = "false"></a-obj-model>
+        <a-obj-model id = "product-soap" src = '#prod-soap-obj' mtl = '#prod-soap-mtl' scale = "1 1 1" visible = "false"></a-obj-model>
       <a-marker preset ='letterB' id =" letterBMarkerSelector">
-        <a-obj-model id = "product-alcohol" src  ='#prod-alcohol-obj' mtl ='#prod-alcohol-mtl' scale = "20 20 20" visible = "false"></a-obj-model>	
+        <a-obj-model id = "product-alcohol" src  ='#prod-alcohol-obj' mtl ='#prod-alcohol-mtl' scale = "1 1 1" visible = "false"></a-obj-model>	
       </a-marker>
 
 
