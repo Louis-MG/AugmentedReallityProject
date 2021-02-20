@@ -4,7 +4,7 @@ export const data = {
     name: "Esterification",
     title: "Esterification",
     description: "Condensation of two chains R and R' linked by the carboxylic acid of R reacting with an alcohol on R'.",
-    image : "<img src = '/static/assets/ester.png' style='width: 43%;position: relative; top:128px; left:8px'></img>"
+    image : "<img src = '/static/assets/ester.png' style='width: 43%;position: relative; top:128px; left:8px'>"
 }
 
 
