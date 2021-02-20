@@ -3,13 +3,19 @@
 export const data = {
     name: "Esterification",
     title: "Esterification",
-    description: "Condensation of two chains R and R' linked by the carboxylic acid of R reacting with an alcohol on R' .",
-    image : "<img src = '../assets/ester.png' style = 'width = 40%; position = relative; left = 30pc; top = 140px'></img>"
+    description: "Condensation of two chains R and R' linked by the carboxylic acid of R reacting with an alcohol on R'.",
+    image : "<img src = '/static/assets/ester.png' sstyle='width: 43%;position: relative; top:128px; left:8px'></img>"
 }
 
-// changer tout ce qui est document par une divroot ou injection 
 
-function esterification() { 
+export function load (divRoot){
+    //create <a-scene> scaffold
+    createScaffold(divRoot);
+    //reaction
+    window.currentReaction = setInterval(Reaction, 200);
+}
+
+function Reaction() { 
     const scene = document.getElementById("thescene");
     const carboxy = document.getElementById("carboxy");
     const alcohol = document.getElementById("alcohol");
@@ -63,14 +69,9 @@ function esterification() {
     }
 
 }
-//function restarts every 200 ms to update :
 
-function setInterval() {
-    esterification, 200
-}
-
-function AddaScene() {
-    document.getElementById("InjectSite").innerHTML += `
+function createScaffold(divRoot) {
+    divRoot.innerHTML += `
 
     <a-scene embedded artoolkit='patternRatio: 500; sourceType: webcam;' id="thescene">
 
@@ -111,14 +112,3 @@ function AddaScene() {
     ` ;
 }
 
-function load() {
-    AddaScene()    
-    // Workaround for an AR.js bug (https://github.com/jeromeetienne/AR.js/issues/410)
-    const sceneEl = document.querySelector('a-scene');
-    sceneEl.addEventListener('loaded', () => {
-    sceneEl.camera = new THREE.PerspectiveCamera();
-    });
-    setInterval(esterification, 200)
-}
-
-export { load };
