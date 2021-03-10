@@ -9,8 +9,6 @@ body {
     /*background-image: linear-gradient(270deg,#2b67ac 3px,transparent 0),linear-gradient(#2b67ac 3px,transparent 0),linear-gradient(270deg,rgba(43,103,172,.4) 1px,transparent 0),linear-gradient(#2b67ac 1px,transparent 0),linear-gradient(270deg,rgba(43,103,172,.4) 1px,transparent 0),linear-gradient(#2b67ac 1px,transparent 0);*/
     /*background-size: 112px 112px,112px 112px,56px 56px,56px 56px,28px 28px,28px 28px;*/
     font-family: Josefin Sans, sans-serif;
-    margin: 0;
-    padding: 0;
 }
 
 canvas {
@@ -101,13 +99,11 @@ video {
     position: absolute;
 }
 
-.container1{
+#container1{
     top: 240px;
     left: 50%;
     transform: translate(-50%, 0);
     position: relative;
-    width: 1300px;
-    height: 600px;
     z-index: 1;
 }
 

@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 
-<script src="https://aframe.io/releases/1.0.0/aframe.min.js"></script>
-<!-- a locale source in which a 'letterA' preset(a new marker) had been added -->
-<script src="/static/aframe-ar.js"></script>
-<script src="/static/hbondprotontransferclient.js"></script>
-<script type="module" src="/static/main.js"></script>
-<!--<script type="module" src="/static/module/h2o.js"></script>-->
-
 <html lang="en">
 <head>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="/static/materialize.css"  media="screen,projection"/>
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta charset="UTF-8">
     <title>AR Website | Home</title>
     <link rel="stylesheet" href="/static/style.css">
@@ -21,7 +20,7 @@
     <source src="/static/assets/molecule.mp4" type="video/mp4">
 </video>
 <div class="bigTitle">Choose a reaction</div>
-<div class="container1"></div>
+<div class="row" id="container1"></div>
 <div class="links">
     <ul class="links__list" style="--item-total:3">
         <li class="links__item" style="--item-count:1">
@@ -251,5 +250,13 @@
 </body>
 
 <div id="bugWorkaround"></div>
+
+<script type="text/javascript" src="/static/materialize.min.js"></script>
+<script src="https://aframe.io/releases/1.0.0/aframe.min.js"></script>
+<!-- a locale source in which a 'letterA' preset(a new marker) had been added -->
+<script src="/static/aframe-ar.js"></script>
+<script src="/static/hbondprotontransferclient.js"></script>
+<script type="module" src="/static/main.js"></script>
+<!--<script type="module" src="/static/module/h2o.js"></script>-->
 
 </html>
