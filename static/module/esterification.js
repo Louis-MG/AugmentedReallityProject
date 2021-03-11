@@ -12,16 +12,16 @@ export function load (divRoot){
     //create <a-scene> scaffold
     createScaffold(divRoot);
     //reaction
-    window.currentReaction = setInterval(Reaction, 200);
+    window.currentReaction = setInterval(Reaction(divRoot), 200);
 }
 
-function Reaction() { 
-    const scene = document.getElementById("thescene");
-    const carboxy = document.getElementById("carboxy");
-    const alcohol = document.getElementById("alcohol");
-    const residue = document.getElementById("residue");
-    const ester = document.getElementById("ester");
-    const divInfop = document.getElementById("infop");
+function Reaction(divRoot) { 
+    const scene = divRoot.getElementById("thescene");
+    const carboxy = divRoot.getElementById("carboxy");
+    const alcohol = divRoot.getElementById("alcohol");
+    const residue = divRoot.getElementById("residue");
+    const ester = divRoot.getElementById("ester");
+    const divInfop = divRoot.getElementById("infop");
 
     scene.object3D.updateMatrixWorld(); // select the scene by id in the html, the attribute object3D and the function updateMatrixWorld
     var p1 = new THREE.Vector3(); p1.setFromMatrixPosition(alcohol.object3D.matrixWorld); // sets posiiton of the alcohol
@@ -31,31 +31,31 @@ function Reaction() {
 
 
     if (distCarboxyAlco > 2 ) { //if distance is too big and the reaction did not happened yet
-        if (document.querySelector("#hiroMarkerSelector").object3D.visible === true){
+        if (divRoot.querySelector("#hiroMarkerSelector").object3D.visible === true){
             alcohol.setAttribute('visible',true)
           }
-          if (document.querySelector("#kanjiMarkerSelector").object3D.visible === true){
+          if (divRoot.querySelector("#kanjiMarkerSelector").object3D.visible === true){
             carboxy.setAttribute('visible',true)
           }
-          if (document.querySelector("#letterAMarkerSelector").object3D.visible === true){
+          if (divRoot.querySelector("#letterAMarkerSelector").object3D.visible === true){
             residue.setAttribute('visible',false)
           } 
-          if (document.querySelector("#letterBMarkerSelector").object3D.visible === true){
+          if (divRoot.querySelector("#letterBMarkerSelector").object3D.visible === true){
             ester.setAttribute('visible',false)
           }
     }
 
     else if (distCarboxyAlco < 2 ) { //if the distance is inferior to the threshold and the reaction did not happened yet
-        if (document.querySelector("#hiroMarkerSelector").object3D.visible === true){
+        if (divRoot.querySelector("#hiroMarkerSelector").object3D.visible === true){
             alcohol.setAttribute('visible',false)
         }
-        if (document.querySelector("#kanjiMarkerSelector").object3D.visible === true){
+        if (divRoot.querySelector("#kanjiMarkerSelector").object3D.visible === true){
             carboxy.setAttribute('visible',false)
         }
-        if (document.querySelector("#letterAMarkerSelector").object3D.visible === false){
+        if (divRoot.querySelector("#letterAMarkerSelector").object3D.visible === false){
             residue.setAttribute('visible',true)
         } 
-        if (document.querySelector("#letterBMarkerSelector").object3D.visible === false){
+        if (divRoot.querySelector("#letterBMarkerSelector").object3D.visible === false){
             ester.setAttribute('visible',true)
         }
     }

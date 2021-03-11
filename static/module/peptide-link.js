@@ -9,15 +9,15 @@ export function load (divRoot){
     //create <a-scene> scaffold
     createScaffold(divRoot);
     //reaction
-    window.currentReaction = setInterval(Reaction, 200);
+    window.currentReaction = setInterval(Reaction(divRoot), 200);
 }
 
-function Reaction() {
-    const aminoAcid1 = document.getElementById("aminoAcid1");
-    const aminoAcid2 = document.getElementById("aminoAcid2");
-    const products = document.getElementById("products");
-    const divInfop = document.getElementById("infop");
-    const scene = document.getElementById("thescene");
+function Reaction(divRoot) {
+    const aminoAcid1 = divRoot.getElementById("aminoAcid1");
+    const aminoAcid2 = divRoot.getElementById("aminoAcid2");
+    const products = divRoot.getElementById("products");
+    const divInfop = divRoot.getElementById("infop");
+    const scene = divRoot.getElementById("thescene");
 
     scene.object3D.updateMatrixWorld(); //select the scene
     var p1 = new THREE.Vector3(); p1.setFromMatrixPosition(aminoAcid1.object3D.matrixWorld); //set the object aminoacid1 in the scene
@@ -29,30 +29,30 @@ function Reaction() {
     divInfop.innerHTML = "<p>" + distAa1Aa2 + "</p>"; //shows distance
 
     if (distAa1Aa2 > 2.5){ //shows substrates only
-        if (document.querySelector("#hiroMarkerSelector").object3D.visible === true){
+        if (divRoot.querySelector("#hiroMarkerSelector").object3D.visible === true){
           aminoAcid1.setAttribute('visible',true)
         }
-        if (document.querySelector("#kanjiMarkerSelector").object3D.visible === true){
+        if (divRoot.querySelector("#kanjiMarkerSelector").object3D.visible === true){
           aminoAcid2.setAttribute('visible',true)
         }
-        if (document.querySelector("#letterAMarkerSelector").object3D.visible === true){
+        if (divRoot.querySelector("#letterAMarkerSelector").object3D.visible === true){
             products.setAttribute('visible',false)
         }
     }else if (distAa1Aa2 < 2.5 && distOne < 3 && distTwo < 3){ //shows product
-        if (document.querySelector("#hiroMarkerSelector").object3D.visible === true){
+        if (divRoot.querySelector("#hiroMarkerSelector").object3D.visible === true){
             aminoAcid1.setAttribute('visible',false)
         }
-        if (document.querySelector("#kanjiMarkerSelector").object3D.visible === true){
+        if (divRoot.querySelector("#kanjiMarkerSelector").object3D.visible === true){
             aminoAcid2.setAttribute('visible',false)
         }
-        if (document.querySelector("#letterAMarkerSelector").object3D.visible === true){
+        if (divRoot.querySelector("#letterAMarkerSelector").object3D.visible === true){
           products.setAttribute('visible', true)
         }
     }else{
-      if (document.querySelector("#hiroMarkerSelector").object3D.visible === true){
+      if (divRoot.querySelector("#hiroMarkerSelector").object3D.visible === true){
         aminoAcid1.setAttribute('visible',true)
       }
-      if (document.querySelector("#kanjiMarkerSelector").object3D.visible === true){
+      if (divRoot.querySelector("#kanjiMarkerSelector").object3D.visible === true){
         aminoAcid2.setAttribute('visible',true)
       }
     }

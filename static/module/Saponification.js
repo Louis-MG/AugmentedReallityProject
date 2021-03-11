@@ -9,16 +9,16 @@ export function load (divRoot){
     //create <a-scene> scaffold
     createScaffold(divRoot);
     //reaction
-    window.currentReaction = setInterval(Reaction, 200);
+    window.currentReaction = setInterval(Reaction(divRoot), 200);
 }
 
-function Reaction() {
-    const ester = document.getElementById("ester");
-    const koh = document.getElementById("koh");
-    const productSoap = document.getElementById("product-soap");
-    const productAlcohol = document.getElementById("product-alcohol")
-    const divInfop = document.getElementById("infop");
-    const scene = document.getElementById("thescene");
+function Reaction(divRoot) {
+    const ester = divRoot.getElementById("ester");
+    const koh = divRoot.getElementById("koh");
+    const productSoap = divRoot.getElementById("product-soap");
+    const productAlcohol = divRoot.getElementById("product-alcohol")
+    const divInfop = divRoot.getElementById("infop");
+    const scene = divRoot.getElementById("thescene");
 
     scene.object3D.updateMatrixWorld(); //select the scene
     var p1 = new THREE.Vector3(); p1.setFromMatrixPosition(ester.object3D.matrixWorld); //set the object ester in the scene
@@ -34,37 +34,37 @@ function Reaction() {
     divInfop.innerHTML = "<p>" + distEsterKoh + "</p>"; //shows distance
 
     if (distEsterKoh > 2.5) { // if the two markers are close enough
-        if (document.querySelector("#hiroMarkerSelector").object3D.visible === true){ // if the HiroMarker is visible
+        if (divRoot.querySelector("#hiroMarkerSelector").object3D.visible === true){ // if the HiroMarker is visible
           ester.setAttribute('visible',true)
         }
-        if (document.querySelector("#kanjiMarkerSelector").object3D.visible === true){ // if the kanjiMarker is visible
+        if (divRoot.querySelector("#kanjiMarkerSelector").object3D.visible === true){ // if the kanjiMarker is visible
           koh.setAttribute('visible',true)
         }
-        if (document.querySelector("#letterAMarkerSelector").object3D.visible === true){ // if the LetterAMarker is visible
+        if (divRoot.querySelector("#letterAMarkerSelector").object3D.visible === true){ // if the LetterAMarker is visible
             productSoap.setAttribute('visible',false)
         }
-        if ( document.querySelector("#letterBMarkerSelector").object3D.visible === true){ // if the LetterBMarker is visible
+        if ( divRoot.querySelector("#letterBMarkerSelector").object3D.visible === true){ // if the LetterBMarker is visible
         	productAlcohol.setAttribute('visible',false)
         }
     }else if (distEsterKoh < 2.5 && distEsterA < 3 && distEsterB < 3 && distKohA < 3 && distKohB ){
-        if (document.querySelector("#hiroMarkerSelector").object3D.visible === true){
+        if (divRoot.querySelector("#hiroMarkerSelector").object3D.visible === true){
             ester.setAttribute('visible',false)
         }
-        if (document.querySelector("#kanjiMarkerSelector").object3D.visible === true){
+        if (divRoot.querySelector("#kanjiMarkerSelector").object3D.visible === true){
             koh.setAttribute('visible',false)
         }
-        if (document.querySelector("#letterAMarkerSelector").object3D.visible === true){
+        if (divRoot.querySelector("#letterAMarkerSelector").object3D.visible === true){
           product-soap.setAttribute('visible', true)
         }
-        if (document.querySelector("letterBMarkerSelector").object3D.visible === true){
+        if (divRoot.querySelector("letterBMarkerSelector").object3D.visible === true){
         	product-alcohol.setAttribute('visible',true)
         }
 
     }else{
-      if (document.querySelector("#hiroMarkerSelector").object3D.visible === true){
+      if (divRoot.querySelector("#hiroMarkerSelector").object3D.visible === true){
         ester.setAttribute('visible',true)
       }
-      if (document.querySelector("#kanjiMarkerSelector").object3D.visible === true){
+      if (divRoot.querySelector("#kanjiMarkerSelector").object3D.visible === true){
         koh.setAttribute('visible',true)
       }
     }
