@@ -42,7 +42,14 @@ function collection() {
     while (eval('typeof reac_'+String(i)+';') !== 'undefined');
 
     container1.innerHTML = scaffold;
-    console.log(scaffold);
+    console.log('scaffold built');
+
+    for(var j = 1; j<i; j++){ //click event for each button
+        console.log(j);
+        eval('const button'+j+"= document.getElementById('button"+j+"')");
+        eval('button'+j+".addEventListener('click', loadReaction, false);");
+        eval('button'+j+'.param='+j+';')
+    }
 }
 
 collection();
