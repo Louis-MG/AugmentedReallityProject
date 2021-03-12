@@ -19,8 +19,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2011a926-b223-453b-8fd3-cfc4a49f2b16" name="Default Changelist" comment="dynamic import by tommaso">
+    <list default="true" id="2011a926-b223-453b-8fd3-cfc4a49f2b16" name="Default Changelist" comment="missing ressources">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,6 +87,7 @@
       <workItem from="1615302543656" duration="425000" />
       <workItem from="1615304392224" duration="5327000" />
       <workItem from="1615477801729" duration="5523000" />
+      <workItem from="1615545042334" duration="2589000" />
     </task>
     <task id="LOCAL-00001" summary="ajout d'un selecteur customisable pour choisir ses réactions">
       <created>1611433371857</created>
@@ -135,7 +138,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615483087747</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="missing ressources">
+      <created>1615545077898</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1615545077898</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -159,7 +169,8 @@
     <MESSAGE value="materialize responsive grids &amp; icons integration" />
     <MESSAGE value="scaffold built bug" />
     <MESSAGE value="dynamic import by tommaso" />
-    <option name="LAST_COMMIT_MESSAGE" value="dynamic import by tommaso" />
+    <MESSAGE value="missing ressources" />
+    <option name="LAST_COMMIT_MESSAGE" value="missing ressources" />
   </component>
   <component name="WindowStateProjectService">
     <state x="345" y="230" key="MultipleFileMergeDialog" timestamp="1611433447003">
@@ -172,11 +183,11 @@
     <state x="764" y="278" key="SettingsEditor/-1920.23.1920.1057/0.23.1920.1057@0.23.1920.1057" timestamp="1610986930098" />
     <state x="443" y="106" key="SettingsEditor/0.23.1440.877@0.23.1440.877" timestamp="1611406496626" />
     <state x="591" y="123" key="SettingsEditor/0.23.1920.1057/-1920.23.1920.1057@0.23.1920.1057" timestamp="1615373691013" />
-    <state x="409" y="238" key="Vcs.Push.Dialog.v2" timestamp="1615483097367">
+    <state x="409" y="238" key="Vcs.Push.Dialog.v2" timestamp="1615545080233">
       <screen x="0" y="23" width="1920" height="1057" />
     </state>
     <state x="307" y="201" key="Vcs.Push.Dialog.v2/0.23.1440.877@0.23.1440.877" timestamp="1613829046208" />
-    <state x="409" y="238" key="Vcs.Push.Dialog.v2/0.23.1920.1057/-1920.23.1920.1057@0.23.1920.1057" timestamp="1615483097367" />
+    <state x="409" y="238" key="Vcs.Push.Dialog.v2/0.23.1920.1057/-1920.23.1920.1057@0.23.1920.1057" timestamp="1615545080233" />
     <state x="691" y="456" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1615478102469">
       <screen x="0" y="23" width="1920" height="1057" />
     </state>

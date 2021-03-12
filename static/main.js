@@ -37,6 +37,7 @@ async function collectData() {
             module = await import(moduleSpecifier);
             moduleArray.push(module);
         }catch{
+            console.log('total number of module: '+String(moduleNumber - 1))
             break;
         }
         moduleNumber++;
@@ -124,9 +125,8 @@ function showReactionPage(){
     reaction.innerHTML = `
     <div id="child"></div>
     `;
-    if (document.getElementById("arjs-video") !== null){ // if camera
-        location.reload();
-    }
+    //if (document.getElementById("arjs-video") !== null){ // to force kill the video flux
+    //location.reload(); // only way I found is too reload the page
 }
 
 buttonA.addEventListener('click', showReactionPage);
@@ -304,9 +304,9 @@ function createScaffold(divRoot, nbReaction) {
     let sizeProducts = Object.keys(table['products']).length;
     let sizeConditions = Object.keys(table['conditions']).length;
 
-    if ( sizeReagents == 2 && sizeProducts == 2 && sizeConditions == 0) {  //bimolecular reaction
+    if ( sizeReagents === 2 && sizeProducts === 2 && sizeConditions === 0) {  //bimolecular reaction
         scaffoldType1(aFrameScene, table);
-    }else if (sizeReagents == 3 && sizeProducts == 1 && sizeConditions == 0) { //ex. water formation
+    }else if (sizeReagents === 3 && sizeProducts === 1 && sizeConditions === 0) { //ex. water formation
         scaffoldType2(aFrameScene, table);
     }
 }
@@ -324,9 +324,9 @@ function Reaction(nbReaction) {
     setInterval(function() {
         scene.object3D.updateMatrixWorld(); //select the scene
 
-        if ( sizeReagents == 2 && sizeProducts == 2 && sizeConditions == 0 ) {
+        if ( sizeReagents === 2 && sizeProducts === 2 && sizeConditions === 0 ) {
             reactionType1(table);
-        }else if (sizeReagents == 3 && sizeProducts == 1 && sizeConditions == 0) {
+        }else if (sizeReagents === 3 && sizeProducts === 1 && sizeConditions === 0) {
             reactionType2(table);
         }
     }, 200);
@@ -415,17 +415,17 @@ function scaffoldType1 (aFrameScene, table) {       // create scaffold for react
     }
 }
 
-function scaffoldType2 (aFrameScene, table) {
+function scaffoldType2 (aFrameScene, table) { // for H20 molecule...
     for (let element in table){
         for (let object in table[element]) {        //create a specified div for every reagent, product and condition
             let marker = (table[element][object][2]);
-            if (element == 'reagents'){
+            if (element === 'reagents'){
                 aFrameScene.innerHTML += `
                 <a-marker preset = '${marker}' id = "${marker}MarkerSelector" material="" arjs-anchor="" arjs-hit-testing=""> 
                     <a-obj-model id = "${object}" src = "#obj-${table[element][object][0]}" mtl = "#mtl-${table[element][object][1]}" visible = "false"></a-obj-model>
                 </a-marker>
                 `
-            } else if (element == 'products'){
+            } else if (element === 'products'){
                 let markerNode = document.getElementById(marker+"MarkerSelector");
                 markerNode.innerHTML += `
                     <a-obj-model id = "${object}" src = "#obj-${table[element][object][0]}" mtl = "#mtl-${table[element][object][1]}" visible = "false"></a-obj-model>
