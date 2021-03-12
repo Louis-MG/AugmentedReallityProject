@@ -19,35 +19,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2011a926-b223-453b-8fd3-cfc4a49f2b16" name="Default Changelist" comment="scaffold built bug">
+    <list default="true" id="2011a926-b223-453b-8fd3-cfc4a49f2b16" name="Default Changelist" comment="dynamic import by tommaso">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/assets/AminoacidCondensation.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/assets/Markers.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/assets/Saponification.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/assets/alcohol.mtl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/assets/alcohol.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/assets/ester.mtl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/assets/ester.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/assets/ester.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/assets/fatty_acid.mtl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/assets/fatty_acid.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/assets/hoh.mtl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/assets/hoh.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/assets/ioncarbo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/assets/italian_flag.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/assets/koh.mtl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/assets/koh.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/assets/molec.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/assets/molec.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/assets/molecule_docu.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/assets/pattern-Bletter.patt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/assets/schema_AR.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/assets/soap.mtl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/assets/soap.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/module/Saponification.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/module/esterification.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/module/h2o.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/module/peptide-link.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,7 +84,7 @@
       <workItem from="1615294340870" duration="3633000" />
       <workItem from="1615302543656" duration="425000" />
       <workItem from="1615304392224" duration="5327000" />
-      <workItem from="1615477801729" duration="4835000" />
+      <workItem from="1615477801729" duration="5523000" />
     </task>
     <task id="LOCAL-00001" summary="ajout d'un selecteur customisable pour choisir ses réactions">
       <created>1611433371857</created>
@@ -155,7 +128,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615478356476</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="dynamic import by tommaso">
+      <created>1615483087747</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1615483087747</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -178,7 +158,8 @@
     <MESSAGE value="modifs" />
     <MESSAGE value="materialize responsive grids &amp; icons integration" />
     <MESSAGE value="scaffold built bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="scaffold built bug" />
+    <MESSAGE value="dynamic import by tommaso" />
+    <option name="LAST_COMMIT_MESSAGE" value="dynamic import by tommaso" />
   </component>
   <component name="WindowStateProjectService">
     <state x="345" y="230" key="MultipleFileMergeDialog" timestamp="1611433447003">
@@ -191,11 +172,11 @@
     <state x="764" y="278" key="SettingsEditor/-1920.23.1920.1057/0.23.1920.1057@0.23.1920.1057" timestamp="1610986930098" />
     <state x="443" y="106" key="SettingsEditor/0.23.1440.877@0.23.1440.877" timestamp="1611406496626" />
     <state x="591" y="123" key="SettingsEditor/0.23.1920.1057/-1920.23.1920.1057@0.23.1920.1057" timestamp="1615373691013" />
-    <state x="409" y="238" key="Vcs.Push.Dialog.v2" timestamp="1615481434491">
+    <state x="409" y="238" key="Vcs.Push.Dialog.v2" timestamp="1615483097367">
       <screen x="0" y="23" width="1920" height="1057" />
     </state>
     <state x="307" y="201" key="Vcs.Push.Dialog.v2/0.23.1440.877@0.23.1440.877" timestamp="1613829046208" />
-    <state x="409" y="238" key="Vcs.Push.Dialog.v2/0.23.1920.1057/-1920.23.1920.1057@0.23.1920.1057" timestamp="1615481434491" />
+    <state x="409" y="238" key="Vcs.Push.Dialog.v2/0.23.1920.1057/-1920.23.1920.1057@0.23.1920.1057" timestamp="1615483097367" />
     <state x="691" y="456" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1615478102469">
       <screen x="0" y="23" width="1920" height="1057" />
     </state>
