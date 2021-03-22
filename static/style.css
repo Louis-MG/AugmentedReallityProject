@@ -9,8 +9,6 @@ body {
     /*background-image: linear-gradient(270deg,#2b67ac 3px,transparent 0),linear-gradient(#2b67ac 3px,transparent 0),linear-gradient(270deg,rgba(43,103,172,.4) 1px,transparent 0),linear-gradient(#2b67ac 1px,transparent 0),linear-gradient(270deg,rgba(43,103,172,.4) 1px,transparent 0),linear-gradient(#2b67ac 1px,transparent 0);*/
     /*background-size: 112px 112px,112px 112px,56px 56px,56px 56px,28px 28px,28px 28px;*/
     font-family: Josefin Sans, sans-serif;
-    margin: 0;
-    padding: 0;
 }
 
 canvas {
@@ -35,6 +33,12 @@ video {
     left: 0;
 }
 
+footer{
+    position: absolute;
+    width: 100%;
+    margin-top: 300px;
+}
+
 .mainText{
     position: fixed;
     top: 10px;
@@ -43,8 +47,6 @@ video {
     z-index: 1;
     background-color: rgba(255, 255, 255, 0.6);
     border-radius: 20px;
-    width: 400px;
-    height: 160px;
 }
 
 .bigTitle{
@@ -78,7 +80,10 @@ video {
 
 #info{
     top: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
     font-size: 18px;
+    padding-bottom: 30px;
     width: 350px;
     position: relative;
     left: 50%;
@@ -101,13 +106,10 @@ video {
     position: absolute;
 }
 
-.container1{
-    top: 240px;
+#container1{
+    margin-top: 240px;
+    width: 100%;
     left: 50%;
-    transform: translate(-50%, 0);
-    position: relative;
-    width: 1300px;
-    height: 600px;
     z-index: 1;
 }
 
@@ -120,26 +122,131 @@ video {
     color: white;
     text-align: center;
     text-decoration: none;
+    cursor: pointer;
     font-size: 0;
     position: fixed;
     margin-left: 267px;
     margin-top: 160px;
 }
 
+#buttonE{
+    background-color: white;
+    border-radius: 10%;
+    width: 60px;
+    height: 30px;
+    border: none;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 0;
+    position: relative;
+    margin-bottom: 18px;
+}
+
+#infoImage{
+    display: none;
+}
+
 .buttonD:hover { /* quand on survole le bouton */
     background-color: #105ba7;
 }
 
-.footer{
-    bottom: 0;
-    left: 50%;
-    background-color: #EEF7FC;
-    transform: translate(-50%, 0);
+.slideContainer {
     position: fixed;
-    width: 100%;
-    height: 100px;
+    bottom: 10px;
+    left: 30px;
+    text-align: center;
+    z-index: 1;
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 5px;
 }
 
+.range-slider {
+    height: 80px;
+    width: 380px;
+    border-radius: 10px;
+    padding: 0 65px 0 45px;
+}
+
+.range-slider .sliderValue {
+    position: relative;
+    width: 100%;
+}
+
+.range-slider .sliderValue span {
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    text-align: center;
+    font-weight: 600;
+    color:rgb(255, 255, 255);
+    transform: translateX(-50%) scale(0);
+    transform-origin: bottom;
+    transition: transform 0.3s ease-in-out;
+    line-height: 37px;
+    z-index: 2;
+}
+
+.range-slider .sliderValue span.show {
+    transform: translateX(-50%) scale(1);
+}
+
+.range-slider .sliderValue span:after {
+    position: absolute;
+    content: "";
+    height: 35px;
+    width: 35px;
+    background: dodgerblue;
+    left: 50%; 
+    transform: translateX(-50%) rotate(45deg);
+    border: 3px solid #fff;
+    z-index: -1;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    border-bottom-left-radius: 50%;
+}
+
+.range-slider .field {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.range-slider .field .value {
+    position: absolute;
+    font-size: 18px;
+    font-weight: 600;
+    color: rgb(30, 64, 255);
+}
+
+.range-slider .field .value.left {
+    left: -22px;
+}
+
+.range-slider .field .value.right {
+    right: -43px;
+}
+
+.range-slider .field input{
+    -webkit-appearance: none;
+    height: 3px;
+    width: 100%;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+}
+
+.range-slider .field input::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 20px;
+    width: 20px;
+    background: rgb(30, 64, 255);
+    border: 1px solid #fff;
+    cursor: pointer;
+}
 
 /* ------- MENU ------- */
 
@@ -295,3 +402,175 @@ video {
 }
 
 /* Documentation */
+
+/* Documentation */
+
+#docu_ar {
+    background-image: url("./assets/molecule_docu.png");
+    background-size: 100%;
+    background-position: 100%;
+    display: none;
+}
+
+#docu_reac {
+    background-image: url("./assets/molecule_docu.png");
+    background-size: 100%;
+    background-position: 100%;
+    display: none;
+}
+
+/*language button's css: */
+
+.buttonLanguage {
+    border: none;   /* css for all buttons */
+    background-color: white;
+    position: absolute;
+    cursor: pointer;
+    border-radius: 50%;
+    box-shadow: 0px 0px 10px #555454;
+}
+
+.button_box {
+    display: none;
+    position: fixed ;  /* button sare in a fixed box on the right side, they stay as you scroll */
+    right: 2%;
+    top: 8%;
+    width: 100px;
+    height: 1000px;
+}
+
+
+.flag {
+    height : 25px ; /* css for the flags in the buttons */
+    width: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.language1 {    /*french*/
+    top: 31%;
+    right: 5%;
+    height: 70px;
+    width: 70px;
+}
+
+.language2 {    /*english*/
+    top: 40%;
+    right: 5%;
+    height: 70px;
+    width: 70px;
+}
+
+.language3 {    /*italian*/
+    top: 49%;
+    right: 5%;
+    height: 70px;
+    width: 70px;
+}
+
+/*button for dowloading the pdf*/
+
+.download {
+    top: 58%;
+    right: 6.5%;
+    height: 40px;
+    width: 40px;
+}
+
+.download_pic {
+    height: 20px;
+    width: auto;
+}
+
+.arrow_left {
+    height: 25px;
+    width: auto;
+    padding-top: 3px;
+    padding-right: 10px;
+}
+
+/*css for the texts :*/
+
+.title {
+    font-size: 35px;
+    text-align: center;
+    padding-top: 1px;
+}
+
+.hemititle {
+    font-size: 25px;
+    text-align: left;
+}
+
+.main_text {
+    font-size: 20px;
+    text-align: justify;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.french {
+    margin-left: 10%;
+    margin-right: 10%;
+    display: block;     /*the only one visible by deflaut*/
+}
+
+.english {
+    margin-left: 10%;
+    margin-right: 10%;
+    display: none;  /* not visible by default */
+}
+
+.italian {
+    margin-left: 10%;
+    margin-right: 10%;
+    display: none;    /* not visible by default */
+}
+
+/* other pictures: */
+
+.marker {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+    height: auto;
+    box-shadow: rgba(0, 0, 0, 0.3) 0 0 20px;
+}
+
+.schematic {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    height: auto;
+    box-shadow: rgba(0, 0, 0, 0.3) 0 0 20px;
+}
+
+.reaction {
+    display: block;
+    margin-left: auto;
+    margin-right: auto; 
+    height: auto;
+    width: 60%; 
+}
+
+.docuImg {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    display: block;
+}
+
+/* for the youtube video */
+
+iframe {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 50px;
+    width: 854px ;
+    height: 480px;
+}
