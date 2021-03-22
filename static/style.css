@@ -306,9 +306,8 @@ footer{
     }
 }
 
-/* Documentation */
+/* ------- DOCUMENTATION ------- */
 
-/* Documentation */
 
 #docu_ar {
     background-image: url("./assets/molecule_docu.png");
@@ -415,6 +414,8 @@ footer{
     text-align: justify;
     margin-left: 10%;
     margin-right: 10%;
+    margin-bottom: 0px;
+    padding-bottom: 10px;
 }
 
 .french {
