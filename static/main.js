@@ -69,7 +69,7 @@ function collection() {
     console.log('scaffold built');
     i--;
     while (i > -1) {
-        eval('const button'+i+" = document.getElementById('button"+i+"')");
+        eval('const button'+i+" = document.getElementById('button"+i+"');");
         eval('button'+i+".addEventListener('click', loadReaction, false);");
         eval('button'+i+'.param='+i+';');
         i--;
@@ -203,27 +203,28 @@ function createScaffold(divRoot, nbReaction) {
     }
 
     const sliders = document.getElementById("sliders")
+
     for (let i in moduleReaction.data['conditions']) {
         sliders.innerHTML += `
             <div class="range-slider" id="${i}">
                 <div class="sliderValue">
-                    <span id="span-${i}" class="span-slider">100</span>
+                    <span id="span-${i}" class="span-slider"></span>
                 </div>
                 <div class="field">
                     <div class="value left">0</div>
-                    <input id="input-${i}" class="input-slider" type="range" min="0" max="200" value="100" steps="1">
+                
+                    <input id="input-${i}" class="input-slider" type="range" min="0" max="200" value="100" steps="1" >
                     <div class="value right">200</div>
                 </div>
             </div>
-        `;  
-
-        let slideValue  = document.getElementById("span-"+i);
-        let inputSlider = document.getElementById("input-"+i);
-
-        sliderWork(slideValue, inputSlider);
-    }
-
-
+        `;        
+    };
+    for (let i in moduleReaction.data['conditions']) {
+        eval("const slider"+i+" = document.getElementById('input-"+i+"');");
+        eval('slider'+i+".addEventListener('input', prova, false);");
+        eval('button'+i+".param="+i+";");
+    };
+    // oninput="sliderWork('input-${i}','span-${i}')"
     let sizeReagents = Object.keys(table['reagents']).length;
     let sizeProducts = Object.keys(table['products']).length;
 
@@ -234,15 +235,26 @@ function createScaffold(divRoot, nbReaction) {
     }
 }
 
-function sliderWork(slideValue, inputSlider) {
-    inputSlider.oninput = (() => {
-        let value = inputSlider.value;
-        slideValue.textContent = value;
-        slideValue.style.left = (value/2) + "%";
-        slideValue.classList.add("show");
-    });    
-    inputSlider.onblur = (() => {
-        slideValue.classList.remove("show");
+function prova (evt) {
+    let value = evt.currentTarget.value;
+    console.log(value);
+    let cond = evt.currentTarget.param;
+    console.log(cond);
+    // output.innerHTML = value;
+    // output.style.left = (value/2) + '%';
+    // output.classList.add("show");
+}
+function sliderWork(inputID, outputID) {    
+    let input = document.getElementById(inputID);
+    let output = document.getElementById(outputID);
+    input.addEventListener('input', function () {
+    let value = input.value;
+    output.innerHTML = value;
+    output.style.left = (value/2) + '%';
+    output.classList.add("show");
+}, false);   
+    input.onblur = (() => {
+        output.classList.remove("show");
     }); 
 }
 
