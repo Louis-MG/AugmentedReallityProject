@@ -20,10 +20,9 @@ export const data = {
             product1: ["ester.obj", "ester.mtl", "letterA"],
             product2: ["hoh.obj", "hoh.mtl", "kanji"]
         },
+    },
+    // list of condition
+    conditions: {
 
-        // list of condition
-        conditions: {
-
-        }
-    }
+    },
 };

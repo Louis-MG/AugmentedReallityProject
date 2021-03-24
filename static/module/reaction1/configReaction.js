@@ -9,8 +9,9 @@ export const data = {
     For the reagents, products and experimental condition,
     please indicate a .obj file, a .mtl file and a preset marker.
     */
+   
     type: {
-    // list of reagents
+        // list of reagents
         reagents: {
             reagent1: ["aminoacid.obj", "aminoacid.mtl", "letterA"],
             reagent2: ["aminoacid.obj", "aminoacid.mtl", "kanji"],
@@ -21,11 +22,24 @@ export const data = {
             product1: ["hoh.obj", "hoh.mtl", "letterA"],
             product2: ["dipeptide.obj", "dipeptide.mtl", "kanji"]
         },
-
     },
     // list of condition
     conditions: {
-        pH: [],
-        temp: [],
-    }
+        pH: {
+            name: "pH",
+            min: 0,
+            max: 14,
+            step: 1,
+            cutoffMin: 6,
+            cutoffMax: 8
+        },
+        temp: {
+            name: "temperature",
+            min: -170,
+            max: 300,
+            step: 1,
+            cutoffMin: 30,
+            cutoffMax: 70
+        },
+    },
 };

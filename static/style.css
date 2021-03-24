@@ -156,7 +156,7 @@ footer{
     position: fixed;
     bottom: 10px;
     left: 30px;
-    text-align: center;
+    text-align: left;
     z-index: 1;
     background-color: rgba(255, 255, 255, 0.6);
     border-radius: 5px;
@@ -164,9 +164,17 @@ footer{
 
 .range-slider {
     height: 80px;
-    width: 380px;
+    width: 390px;
     border-radius: 10px;
     padding: 0 65px 0 45px;
+}
+
+.slider-name {
+    position: absolute;
+    width: 390px;
+    font-size: 15px;
+    font-weight: 900;
+    color: rgb(30, 64, 255);
 }
 
 .range-slider .sliderValue {
@@ -223,7 +231,7 @@ footer{
 }
 
 .range-slider .field .value.left {
-    left: -22px;
+    left: -40px;
 }
 
 .range-slider .field .value.right {
