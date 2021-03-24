@@ -13,18 +13,25 @@ export const data = {
     type: {
     // list of reagents
         reagents: {
-            reagent1: ["fatty_acid.obj", "fatty_acid.mtl", "letterA"],
+            reagent1: ["ester.obj", "ester.mtl", "letterA"],
             reagent2: ["koh.obj", "koh.mtl", "kanji"],
         },
 
         // list of products
         products: {
             product1: ["soap.obj", "soap.mtl", "letterA"],
-            product2: ["hoh.obj", "hoh.mtl", "kanji"],
+            product2: ["alcohol.obj", "alcohol.mtl", "kanji"],
         },
     },
     // list of condition
     conditions: {
-
+        temp: {
+            name: "temperature",
+            min: 0,
+            max: 150,
+            step: 1,
+            cutoffMin: 100,
+            cutoffMax: 150
+        },
     },
 };

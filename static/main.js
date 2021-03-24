@@ -293,7 +293,7 @@ function expCondition (conditionData) {
     } else {
         let counter = 0;
         for (let i in conditionData) {
-            eval("const slider"+i+" = document.getElementById('input"+i+"'); if (slider"+i+".value < conditionData[i]['cutoffMax'] && slider"+i+".value > conditionData[i]['cutoffMin']) {counter ++;};");
+            eval("const slider"+i+" = document.getElementById('input"+i+"'); if (slider"+i+".value <= conditionData[i]['cutoffMax'] && slider"+i+".value >= conditionData[i]['cutoffMin']) {counter ++;};");
         }
         console.log(Object.keys(conditionData).length);
         if (counter == Object.keys(conditionData).length) {
