@@ -20,7 +20,7 @@ export const data = {
             product1: ["soap.obj", "soap.mtl", "COOH"],
             product2: ["hoh.obj", "hoh.mtl", "OH"],
         },
->
+
         // list of condition
         conditions: {
 
