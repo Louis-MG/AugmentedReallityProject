@@ -11,13 +11,13 @@ export const data = {
     type: {
     // list of reagents
         reagents: {
-            reagent1: ["fatty_acid.obj", "fatty_acid.mtl", "CO-O"],
+            reagent1: ["fatty_acid.obj", "fatty_acid.mtl", "COOH"],
             reagent2: ["alcohol.obj", "alcohol.mtl", "OH"]
         },
 
         // list of products
         products: {
-            product1: ["ester.obj", "ester.mtl", "CO-O"],
+            product1: ["ester.obj", "ester.mtl", "COOH"],
             product2: ["hoh.obj", "hoh.mtl", "OH"]
         },
 
