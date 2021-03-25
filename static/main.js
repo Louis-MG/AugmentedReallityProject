@@ -146,9 +146,9 @@ function loadReaction(evt){ //event triggered when clicking on a reaction tile f
 
 }
 
-function load (divRoot, nbReaction){ //injects html code for reaction display
+function load (divRoot, nbReaction){ 
     //create <a-scene> scaffold
-    createScaffold(divRoot, nbReaction);
+    createScaffold(divRoot, nbReaction);//injects html code for reaction display
     //reaction
     window.currentReaction = Reaction(nbReaction);
 }
@@ -172,8 +172,12 @@ function createScaffold(divRoot, nbReaction) {
     <a-scene id="theScene" embedded = "" artoolkit='patternRatio: 500; sourceType: webcam;' inspector = "" keyboard-shortcuts = "" screenshot = "">
 
     </a-scene>
+
+    <!-- sliders -->
+    <div id="sliders" class="slideContainer">
+        
+    </div>
   `
-    console.log(moduleReaction.data['infoImage'])
     if(typeof moduleReaction.data['infoImage']!=='undefined'){ // if an 2d reac image is provided
         const buttonE = document.getElementById("buttonE"); // click to see 2D reaction infos
         buttonE.addEventListener('click', display2Dreaction)
@@ -196,13 +200,39 @@ function createScaffold(divRoot, nbReaction) {
         }
     }
 
+    const sliders = document.getElementById("sliders")
+
+    let conditions = moduleReaction.data['conditions'];
+    for (let i in conditions) {
+        let min = conditions[i]['min'];
+        let max = conditions[i]['max'];
+        let val = (min+max)/2;
+        let step = conditions[i]['step'];
+        sliders.innerHTML += `
+            <div class="range-slider" id="${i}">
+                <span class="slider-name">${conditions[i]['name']}</span>
+                <div class="sliderValue">
+                    <span id="span${i}" class="span-slider"></span>
+                </div>
+                <div class="field">
+                    <div class="value left">${min}</div>
+                
+                    <input id="input${i}" class="input-slider" type="range" min="${min}" max="${max}" value="${val}" steps="${step}">
+                    <div class="value right">${max}</div>
+                </div>
+            </div>
+        `;    
+    };
+    for (let i in conditions) {
+        eval("const slider"+i+" = document.getElementById('input"+i+"'); slider"+i+".addEventListener('input', handleInput); slider"+i+".param= span"+i+";");
+    }
+
     let sizeReagents = Object.keys(table['reagents']).length;
     let sizeProducts = Object.keys(table['products']).length;
-    let sizeConditions = Object.keys(table['conditions']).length;
 
-    if ( sizeReagents === 2 && sizeProducts === 2 && sizeConditions === 0) {  //bimolecular reaction
+    if ( sizeReagents === 2 && sizeProducts === 2) {  //bimolecular reaction
         scaffoldType1(aFrameScene, table);
-    }else if (sizeReagents === 3 && sizeProducts === 1 && sizeConditions === 0) { //ex. water formation
+    }else if (sizeReagents === 3 && sizeProducts === 1) { //ex. water formation
         scaffoldType2(aFrameScene, table);
     }
 }
@@ -223,48 +253,81 @@ function display2Dreaction(){
 
 function Reaction(nbReaction) {
     let moduleReaction = moduleArray[nbReaction]
-    let table = moduleReaction.data["type"];
+    let reactionData = moduleReaction.data["type"];
+    let conditionData = moduleReaction.data["conditions"];
     let scene = document.getElementById("theScene");
 
     //
-    let sizeReagents = Object.keys(table['reagents']).length;
-    let sizeProducts = Object.keys(table['products']).length;
-    let sizeConditions = Object.keys(table['conditions']).length;
+    let sizeReagents = Object.keys(reactionData['reagents']).length;
+    let sizeProducts = Object.keys(reactionData['products']).length;
 
     setInterval(function() {
         scene.object3D.updateMatrixWorld(); //select the scene
 
-        if ( sizeReagents === 2 && sizeProducts === 2 && sizeConditions === 0 ) {
-            reactionType1(table);
-        }else if (sizeReagents === 3 && sizeProducts === 1 && sizeConditions === 0) {
-            reactionType2(table);
+        if ( sizeReagents === 2 && sizeProducts === 2) {
+            reactionType1(reactionData, conditionData);
+        }else if (sizeReagents === 3 && sizeProducts === 1) {
+            reactionType2(reactionData, conditionData);
         }
     }, 200);
 }
 
-function reactionType1 (table) { //2 reagents, 2 products, 0 conditions with only 2 markers
-    let reagentOne = Object.keys(table['reagents'])[0];
+function handleInput (evt) {
+    let input = evt.currentTarget;
+    let value = parseInt(input.value);
+    let max = parseInt(input.max);
+    let min = Math.abs(parseInt(input.min));
+    let size = (max+min)/100;
+    let output = evt.currentTarget.param;
+    output.innerHTML = value;
+    output.style.left = ((value+min)/size) + '%';
+    output.classList.add("show");
+    input.onblur = (() => {
+        output.classList.remove("show");
+    });
+}
+
+function expCondition (conditionData) {
+    if (Object.keys(conditionData).length == 0) {
+        return true;
+    } else {
+        let counter = 0;
+        for (let i in conditionData) {
+            eval("const slider"+i+" = document.getElementById('input"+i+"'); if (slider"+i+".value <= conditionData[i]['cutoffMax'] && slider"+i+".value >= conditionData[i]['cutoffMin']) {counter ++;};");
+        }
+        if (counter == Object.keys(conditionData).length) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+}
+
+function reactionType1 (reactionData, conditionData) { //2 reagents, 2 products, with only 2 markers
+    let reagentOne = Object.keys(reactionData['reagents'])[0];
     let reagentOneSelector = document.getElementById(reagentOne);
     let p1 = new THREE.Vector3(); p1.setFromMatrixPosition(reagentOneSelector.object3D.matrixWorld);
 
-    let reagentTwo = Object.keys(table['reagents'])[1];
+    let reagentTwo = Object.keys(reactionData['reagents'])[1];
     let reagentTwoSelector = document.getElementById(reagentTwo);
     let p2 = new THREE.Vector3(); p2.setFromMatrixPosition(reagentTwoSelector.object3D.matrixWorld);
 
-    let productOne = Object.keys(table['products'])[0];
+    let productOne = Object.keys(reactionData['products'])[0];
     let productOneSelector = document.getElementById(productOne);
 
-    let productTwo = Object.keys(table['products'])[1];
+    let productTwo = Object.keys(reactionData['products'])[1];
     let productTwoSelector = document.getElementById(productTwo);
 
     let distReagents = 2 * Math.sqrt( Math.pow(p1.x - p2.x, 2) + Math.pow(p1.y - p2.y, 2) + Math.pow(p1.z-p2.z,2));//distance between reagents markers
 
-    if (distReagents > 3 ) {
+    let cond = expCondition(conditionData);
+
+    if (distReagents > 3 || cond == false) {
         productOneSelector.setAttribute('visible',false);
         reagentOneSelector.setAttribute('visible',true);
         productTwoSelector.setAttribute('visible',false);
         reagentTwoSelector.setAttribute('visible',true);
-    }else if (distReagents < 3 ) {
+    }else if (distReagents < 3  && cond == true) {
         productTwoSelector.setAttribute('visible',true);
         productOneSelector.setAttribute('visible',true);
         reagentOneSelector.setAttribute('visible',false);
@@ -272,31 +335,33 @@ function reactionType1 (table) { //2 reagents, 2 products, 0 conditions with onl
     }
 }
 
-function reactionType2 (table) {
-    let reagentOne = Object.keys(table['reagents'])[0];
+function reactionType2 (reactionData, conditionData) {
+    let reagentOne = Object.keys(reactionData['reagents'])[0];
     let reagentOneSelector = document.getElementById(reagentOne);
     let p1 = new THREE.Vector3(); p1.setFromMatrixPosition(reagentOneSelector.object3D.matrixWorld);
 
-    let reagentTwo = Object.keys(table['reagents'])[1];
+    let reagentTwo = Object.keys(reactionData['reagents'])[1];
     let reagentTwoSelector = document.getElementById(reagentTwo);
     let p2 = new THREE.Vector3(); p2.setFromMatrixPosition(reagentTwoSelector.object3D.matrixWorld);
 
-    let reagentThree = Object.keys(table['reagents'])[2];
+    let reagentThree = Object.keys(reactionData['reagents'])[2];
     let reagentThreeSelector = document.getElementById(reagentThree);
     let p3 = new THREE.Vector3(); p3.setFromMatrixPosition(reagentThreeSelector.object3D.matrixWorld);
 
-    let productOne = Object.keys(table['products'])[0];
+    let productOne = Object.keys(reactionData['products'])[0];
     let productOneSelector = document.getElementById(productOne);
 
     let distp1p2 = 2 * Math.sqrt( Math.pow(p1.x - p2.x, 2) + Math.pow(p1.y - p2.y, 2) + Math.pow(p1.z-p2.z,2));
     let distp2p3 = 2 * Math.sqrt( Math.pow(p2.x - p3.x, 2) + Math.pow(p2.y - p3.y, 2) + Math.pow(p2.z-p3.z,2));
 
-    if(distp1p2 > 2 && distp2p3 > 2){
+    let cond = expCondition(conditionData);
+
+    if(distp1p2 > 2 && distp2p3 > 2 || cond == false){
         productOneSelector.setAttribute('visible',false);
         reagentOneSelector.setAttribute('visible',true);
         reagentTwoSelector.setAttribute('visible',true);
         reagentThreeSelector.setAttribute('visible',true);
-    }else if (distp1p2 < 2 && distp2p3 <2) {
+    }else if (distp1p2 < 2 && distp2p3 <2 && cond == true) {
         productOneSelector.setAttribute('visible',true);
         reagentOneSelector.setAttribute('visible',false);
         reagentTwoSelector.setAttribute('visible',false);
@@ -463,5 +528,3 @@ function goDocu_reac() {  // diplays chemistry documentation
 
 const buttonC = document.getElementById("buttonC");
 buttonC.addEventListener('click', goDocu_reac)
-
-

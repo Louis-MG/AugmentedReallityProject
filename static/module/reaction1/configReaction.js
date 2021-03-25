@@ -21,10 +21,23 @@ export const data = {
             product1: ["hoh.obj", "hoh.mtl", "AAI"],
             product2: ["dipeptide.obj", "dipeptide.mtl", "AAII"]
         },
-
-        // list of condition
-        conditions: {
-
-        }
-    }
+    },
+    conditions: {
+        pH: {
+            name: "pH",
+            min: 0,
+            max: 14,
+            step: 1,
+            cutoffMin: 6,
+            cutoffMax: 8
+        },
+        temp: {
+            name: "temperature",
+            min: -170,
+            max: 300,
+            step: 1,
+            cutoffMin: 30,
+            cutoffMax: 70
+        },
+    },
 };
