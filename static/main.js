@@ -312,7 +312,7 @@ function scaffoldType1 (aFrameScene, table) {       // create scaffold for react
 
             if (!markerNode){      // if <a-marker> doesn't exist yet
                 aFrameScene.innerHTML += `
-                    <a-marker type = 'pattern' url = './markers/pattern-${marker}.patt' id = "${marker}MarkerSelector" material="" arjs-anchor="" arjs-hit-testing=""> 
+                    <a-marker type = 'pattern' url = 'static/markers/pattern-${marker}.patt' id = "${marker}MarkerSelector" material="" arjs-anchor="" arjs-hit-testing=""> 
                         <a-obj-model id = "${object}" src = "#obj-${table[element][object][0]}" mtl = "#mtl-${table[element][object][1]}" visible = "false"></a-obj-model> <!-- ptetre remplacer par un entity vers l'objet -->
                     </a-marker>
                 `
@@ -332,7 +332,7 @@ function scaffoldType2 (aFrameScene, table) { // for H20 molecule...
             let marker = (table[element][object][2]);
             if (element === 'reagents'){
                 aFrameScene.innerHTML += `
-                <a-marker type = 'pattern' url = './markers/pattern-${marker}.patt' id = "${marker}MarkerSelector" material="" arjs-anchor="" arjs-hit-testing=""> 
+                <a-marker type = 'pattern' url = 'static/markers/pattern-${marker}.patt' id = "${marker}MarkerSelector" material="" arjs-anchor="" arjs-hit-testing=""> 
                     <a-obj-model id = "${object}" src = "#obj-${table[element][object][0]}" mtl = "#mtl-${table[element][object][1]}" visible = "false"></a-obj-model> <!-- ptetre remplacer par un entity vers l'objet -->
                 </a-marker>
                 `
