@@ -2,8 +2,8 @@ export const data = {
     name: "Esterification",
     title: "Esterification reaction",
     description: "Condensation of two chains R and R' linked by the carboxylic acid of R reacting with an alcohol on R'.",
-    image: "<img src='/static/module/reaction3/icon.png' style='width: 43%;position: relative; top:140px; left:30px'>",
-    infoImage: "<img src='/static/module/reaction3/infoImage.png'>",//max weight : 500px
+    image: "<img src='/static/module/reaction3/icon.png' style='width: 38%;position: relative; top:134px; left:10px'>",
+    infoImage: "<img src='/static/module/reaction3/infoImage.png'>",//max width : 500px
     
     /*
     For the reagents, products and experimental condition,

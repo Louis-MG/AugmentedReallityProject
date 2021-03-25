@@ -2,7 +2,7 @@ export const data = {
     name: "Saponification",
     title: "Saponification reaction",
     description: "Saponification is a process that involves the conversion of fat, oil, or lipid, into soap and alcohol by the action of heat in the presence of aqueous alkali.",
-    image: "<img src='/static/module/reaction2/icon.png' style='width: 43%;position: relative; top:140px; left:30px'>",
+    image: "<img src='/static/module/reaction2/icon.png' style='width: 48%;position: relative; top:145px; left:8px'>",
     infoImage: "<img src='/static/module/reaction2/infoImage.png'>",//max weight : 500px
 
     /*

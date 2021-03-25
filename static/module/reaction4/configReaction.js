@@ -2,7 +2,7 @@ export const data = {
     name: "Disulfide bridge",
     title: "Disulfide bridge formation",
     description: "Disulfide bridges formed between thiol groups in two cysteine residues are an important component of the secondary and tertiary structure of proteins.",
-    image: "<img src='/static/module/reaction4/icon.png' style='width: 43%;position: relative; top:140px; left:30px'>",
+    image: "<img src='/static/module/reaction4/icon.png' style='width: 90%;position: relative; top:110px; left:-30px'>",
     infoImage: "<img src='/static/module/reaction4/infoImage.png'>",//max weight : 500px
     
     /*

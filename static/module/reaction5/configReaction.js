@@ -2,7 +2,7 @@ export const data = {
     name: "Reduction of aldoses to alditols",
     title: "Alditol formation",
     description: "Alditols are organic compounds, typically derived from sugars, containing one hydroxyle group attached to each carbon atom.",
-    image: "<img src='/static/module/reaction5/icon.png' style='width: 43%;position: relative; top:140px; left:30px'>",
+    image: "<img src='/static/module/reaction5/icon.png' style='width: 100%;position: relative; top:80px; left:-80px'>",
     infoImage: "<img src='/static/module/reaction5/infoImage.png'>",//max weight : 500px
     
     /*
