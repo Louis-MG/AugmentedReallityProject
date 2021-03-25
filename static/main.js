@@ -1,6 +1,5 @@
 // Initialisation
 
-//const footer = document.getElementsByClassName('footer')[0];
 const moleculeBackground = document.getElementById("bgvid");
 const container1 = document.getElementById('container1');
 const bigTitle = document.getElementsByClassName("bigTitle")[0];
@@ -46,7 +45,7 @@ async function collectData() {
     return moduleArray;
 }
 
-function collection() {
+function collection() { // creates the grid of reaction tiles
     let scaffold = '';
     let i = 0; // reactions counter
     for (let reactionModule of moduleArray){ // reaction div crafting
@@ -104,7 +103,7 @@ function killRunningReaction() {
     }
 }
 
-function hideReactionPage(){
+function hideReactionPage(){ // self explanatory
     console.log("hiding reaction page...");
     container1.style.display = 'none';
     //footer.style.display= 'none';
@@ -113,18 +112,17 @@ function hideReactionPage(){
 
 const buttonA = document.getElementById('buttonA');
 
-function showReactionPage(){
+function showReactionPage(){ // shows reaction menu: tiles, title, 
     console.log("showing reaction page...");
     killRunningReaction();
     container1.style.display = 'block';
     languageButtons.style.display = "none";
     bigTitle.style.display = 'block';
-    //footer.style.display = 'block';
     bigTitle.innerHTML = "Choose a reaction";
     moleculeBackground.style.display = 'block';
     footer.style.marginTop = '300px';
-    documentation_ar.style.display = "none"
-    documentation_reac.style.display = "none"
+    documentation_ar.style.display = "none";
+    documentation_reac.style.display = "none";
     camera(false);
     reaction.innerHTML = `
     <div id="child"></div>
@@ -136,7 +134,7 @@ function showReactionPage(){
 
 buttonA.addEventListener('click', showReactionPage);
 
-function loadReaction(evt){
+function loadReaction(evt){ //event triggered when clicking on a reaction tile from the menu
     let nbReaction = evt.currentTarget.param;
     let moduleReaction = moduleArray[nbReaction]
     console.log('loading '+moduleReaction.data['title']+' reaction...');
@@ -148,7 +146,7 @@ function loadReaction(evt){
 
 }
 
-function load (divRoot, nbReaction){
+function load (divRoot, nbReaction){ //injects html code for reaction display
     //create <a-scene> scaffold
     createScaffold(divRoot, nbReaction);
     //reaction
@@ -314,8 +312,8 @@ function scaffoldType1 (aFrameScene, table) {       // create scaffold for react
 
             if (!markerNode){      // if <a-marker> doesn't exist yet
                 aFrameScene.innerHTML += `
-                    <a-marker preset = '${marker}' id = "${marker}MarkerSelector" material="" arjs-anchor="" arjs-hit-testing=""> 
-                        <a-obj-model id = "${object}" src = "#obj-${table[element][object][0]}" mtl = "#mtl-${table[element][object][1]}" visible = "false"></a-obj-model>
+                    <a-marker type = 'pattern' url = 'markers/pattern-${marker}.patt' id = "${marker}MarkerSelector" material="" arjs-anchor="" arjs-hit-testing=""> 
+                        <a-obj-model id = "${object}" src = "#obj-${table[element][object][0]}" mtl = "#mtl-${table[element][object][1]}" visible = "false"></a-obj-model> <!-- ptetre remplacer par un entity vers l'objet -->
                     </a-marker>
                 `
             }else{
@@ -327,14 +325,15 @@ function scaffoldType1 (aFrameScene, table) {       // create scaffold for react
     }
 }
 
+
 function scaffoldType2 (aFrameScene, table) { // for H20 molecule...
     for (let element in table){
         for (let object in table[element]) {        //create a specified div for every reagent, product and condition
             let marker = (table[element][object][2]);
             if (element === 'reagents'){
                 aFrameScene.innerHTML += `
-                <a-marker preset = '${marker}' id = "${marker}MarkerSelector" material="" arjs-anchor="" arjs-hit-testing=""> 
-                    <a-obj-model id = "${object}" src = "#obj-${table[element][object][0]}" mtl = "#mtl-${table[element][object][1]}" visible = "false"></a-obj-model>
+                <a-marker type = 'pattern' url = 'markers/pattern-${marker}.patt' id = "${marker}MarkerSelector" material="" arjs-anchor="" arjs-hit-testing=""> 
+                    <a-obj-model id = "${object}" src = "#obj-${table[element][object][0]}" mtl = "#mtl-${table[element][object][1]}" visible = "false"></a-obj-model> <!-- ptetre remplacer par un entity vers l'objet -->
                 </a-marker>
                 `
             } else if (element === 'products'){
@@ -405,15 +404,9 @@ button_english.addEventListener('click', change_to_english)
 const button_italian = document.getElementById("language3")
 button_italian.addEventListener('click', change_to_italian)
 
-// gotta change that for a display change:
-
-// function goHome() {
-//     window.location.href = "home.html"; // sends the user back to the home menu
-// }
-
 const buttonB = document.getElementById('buttonB');
 
-function goDocu_ar() {
+function goDocu_ar() { // displays AR documentation
     var x = documentation_ar;
     hideReactionPage();
     reaction.style.display = "none";  //hides reaction page
@@ -441,19 +434,19 @@ function goDocu_ar() {
 
 buttonB.addEventListener('click', goDocu_ar);
 
-function goDocu_reac() {
+function goDocu_reac() {  // diplays chemistry documentation
     //see goDocu_ar for comments
     var x = documentation_reac;
     hideReactionPage();
-    reaction.style.display = "none";
+    reaction.style.display = "none";  //hides reaction page
     killRunningReaction();
     bigTitle.style.display = 'none';
-    documentation_ar.style.display = "none";
+    documentation_ar.style.display = "none"; //hides the other documentation
     languageButtons.style.display = "block";
     footer.style.marginTop = '0';
-    if (x.style.display === "none") {
+    if (x.style.display === "none") { 
         x.style.display = "block";
-        if (english.style.display === "block") {
+        if (english.style.display === "block") {  // conditional display of languages
             english.style.display = "none";
             english1.style.display = "block";
         } else if (french.style.display === "block") {
@@ -470,3 +463,5 @@ function goDocu_reac() {
 
 const buttonC = document.getElementById("buttonC");
 buttonC.addEventListener('click', goDocu_reac)
+
+

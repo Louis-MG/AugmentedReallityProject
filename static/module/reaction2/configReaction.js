@@ -11,14 +11,14 @@ export const data = {
     type: {
     // list of reagents
         reagents: {
-            reagent1: ["fatty_acid.obj", "fatty_acid.mtl", "letterA"],
-            reagent2: ["koh.obj", "koh.mtl", "kanji"],
+            reagent1: ["fatty_acid.obj", "fatty_acid.mtl", "CoO-O"],
+            reagent2: ["koh.obj", "koh.mtl", "OH"],
         },
 
         // list of products
         products: {
-            product1: ["soap.obj", "soap.mtl", "letterA"],
-            product2: ["hoh.obj", "hoh.mtl", "kanji"],
+            product1: ["soap.obj", "soap.mtl", "CO-O"],
+            product2: ["hoh.obj", "hoh.mtl", "OH"],
         },
 
         // list of condition
