@@ -152,6 +152,21 @@ footer{
     background-color: #105ba7;
 }
 
+/* legend stuff */
+
+#legendContainer{
+    position: fixed;
+    bottom: 60px;
+    right: 30px;
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    width: 170px;
+    min-height: 370px;
+    border-radius: 20px;
+}
+
+/* slider stuff */
+
 .slideContainer {
     position: fixed;
     bottom: 10px;

@@ -175,6 +175,16 @@ function createScaffold(divRoot, nbReaction) {
 
     <!-- sliders -->
     <div id="sliders" class="slideContainer">
+    
+    <!--legend-->
+    <div id="legendContainer">
+        <div id="atoms" style="padding-left: 15px">
+            <p style="color: white;font-weight: bold;font-size: 16px;">atoms</p>
+        </div>
+        <div id="markers2use" style="padding-left: 15px">
+            <p style="color: white;font-weight: bold;font-size: 16px;">markers to use</p>
+        </div>
+    </div>
         
     </div>
   `
@@ -222,9 +232,30 @@ function createScaffold(divRoot, nbReaction) {
                 </div>
             </div>
         `;    
-    };
+    }
     for (let i in conditions) {
         eval("const slider"+i+" = document.getElementById('input"+i+"'); slider"+i+".addEventListener('input', handleInput); slider"+i+".param= span"+i+";");
+    }
+
+    const divAtoms = document.getElementById("atoms");
+    const divMarkers = document.getElementById("markers2use");
+    let legend = moduleReaction.data['legend'];
+    for (let i in legend['atoms']) {
+        //console.log(legend['atoms'][i])
+        divAtoms.innerHTML+=`
+        <div>
+            <p style="width: 100px;color: white"><img src="/static/assets/legend/atoms/${legend['atoms'][i]}.png" style="width: 30%;float: left;margin-top: -3px;">${legend['atoms'][i]}</p>
+        </div>
+        `;
+    }
+    const m_keys = Object.keys(legend['markers'])
+    for (let i in m_keys){
+        console.log(m_keys[i])
+        divMarkers.innerHTML+=`
+        <div>
+            <p style="width: 300px;color: white;"><img src="/static/assets/legend/markers/${m_keys[i]}.png" style="width: 10%;float: left;margin-top: -3px;">&nbsp;&nbsp;${legend['markers'][m_keys[i]]}</p>
+        </div>
+        `;
     }
 
     let sizeReagents = Object.keys(table['reagents']).length;
@@ -249,6 +280,10 @@ function display2Dreaction(){
         infoImage.style.display = 'block'; // show 2D reaction image
         info.style.display = 'none'; // hide the text
     }
+}
+
+function displayLegend(){
+    console.log("loading legend...")
 }
 
 function Reaction(nbReaction) {
