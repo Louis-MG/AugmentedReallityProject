@@ -33,4 +33,12 @@ export const data = {
             cutoffMax: 150
         },
     },
+    /* legend stuff */
+    legend : {
+        atoms : ["carbon","hydrogen","sulfure","oxygen","Rchain"],//goes with a 1024x1024 image in assets/legend/ for each element, for exemple carbon.png for carbon
+        markers : {
+            "COOH" : "ester & soap",
+            "OH" : "alcohol",
+        },
+    },
 };

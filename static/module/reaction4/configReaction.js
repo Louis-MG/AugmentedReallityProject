@@ -34,4 +34,12 @@ export const data = {
             cutoffMax: 1
         },
     },
+    // legend stuff
+    legend : {
+        atoms : ["carbon","hydrogen","oxygen","proton/electron??","Rchain"],//goes with a 1024x1024 image in assets/legend/ for each element, for exemple carbon.png for carbon
+        markers : {
+            "A" : "di-cysteine", // A CHANGER
+            "kanji" : "cysteine & proton/electron", // A CHANGER
+        },
+    },
 };

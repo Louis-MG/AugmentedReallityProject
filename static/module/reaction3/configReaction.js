@@ -26,4 +26,12 @@ export const data = {
     conditions: {
 
     },
+    /* legend stuff */
+    legend : {
+        atoms : ["carbon","hydrogen","oxygen","Rchain"],//goes with a 1024x1024 image in assets/legend/ for each element, for exemple carbon.png for carbon
+        markers : {
+            "COOH" : "fatty acid & ester",
+            "OH" : "alcohol & water",
+        },
+    },
 };

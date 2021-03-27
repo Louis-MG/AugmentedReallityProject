@@ -26,4 +26,11 @@ export const data = {
     // list of condition
     conditions: {
     },
+    legend : {
+        atoms : ["carbon","hydrogen","oxygen"],//goes with a 1024x1024 image in assets/legend/ for each element, for exemple carbon.png for carbon
+        markers : {
+            "A" : "Glycer/itol/aldheyde", // A CHANGER
+            "kanji" : "NaBH4", // A CHANGER
+        },
+    },
 };
