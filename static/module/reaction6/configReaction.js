@@ -1,9 +1,9 @@
 export const data = {
-    name: "Oxydation of aldoses to aldonic acid",
+    name: "Oxydation of aldoses",
     title: "Aldonic acid formation",
     description: "Alditols are organic compounds, typically derived from sugars, containing one hydroxyle group attached to each carbon atom.",
-    image: "<img src='/static/module/reaction6/icon.png' style='width: 100%;position: relative; top:80px; left:-80px'>",
-    infoImage: "<img src='/static/module/reaction6/infoImage.png'>",//max weight : 500px
+    image: "<img src='/static/module/reaction6/icon.png' style='width: 50%;position: relative; top:120px; left:40px'>",
+    infoImage: "<img src='/static/module/reaction6/infoImage.png'>",
     
     /*
     For the reagents, products and experimental condition,
@@ -13,25 +13,23 @@ export const data = {
     type: {
         // list of reagents
         reagents: {
-            reagent1: ["Dgluc.obj", "Dgluc.mtl", "letterA"],
-            reagent2: ["NitricAcid.obj", "NitricAcid.mtl", "kanji"],
+            reagent1: ["Dgluc.obj", "Dgluc.mtl", "OSE"],
+            reagent2: ["NitricAcid.obj", "NitricAcid.mtl", "AH"],
         },
 
         // list of products
         products: {
-            product1: ["DglucAcid.obj", "DglucAcid.mtl", "letterA"],
-            product2: ["NitricAcid.obj", "NitricAcid.mtl", "kanji"]
+            product1: ["DglucAcid.obj", "DglucAcid.mtl", "OSE"],
+            product2: ["NitricAcid.obj", "NitricAcid.mtl", "AH"]
         },
     },
     // list of condition
     conditions: {
-
     },
-
     legend : {
         atoms : ['carbon', 'oxygen', 'hydrogen', 'nitrogen'],
         markers : {
-            "OSE" : "D-glucose"
+            "OSE" : "D-glucose",
             "AH" : "Nitric Acid"
         }
     }
