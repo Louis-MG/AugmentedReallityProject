@@ -25,5 +25,14 @@ export const data = {
     },
     // list of condition
     conditions: {
+
     },
+
+    legend : {
+        atoms : ['carbon', 'oxygen', 'hydrogen', 'nitrogen'],
+        markers : {
+            "OSE" : "D-glucose"
+            "AH" : "Nitric Acid"
+        }
+    }
 };
