@@ -13,13 +13,13 @@ export const data = {
     type: {
         // list of reagents
         reagents: {
-            reagent1: ["Glyceraldheyde.obj", "Glyceraldheyde.mtl", "letterA"],
+            reagent1: ["Glyceraldheyde.obj", "Glyceraldheyde.mtl", "OSE"],
             reagent2: ["NaBH4.obj", "NaBH4.mtl", "kanji"],
         },
 
         // list of products
         products: {
-            product1: ["Glyceritol.obj", "Glyceritol.mtl", "letterA"],
+            product1: ["Glyceritol.obj", "Glyceritol.mtl", "OSE"],
             product2: ["NaBH4.obj", "NaBH4.mtl", "kanji"]
         },
     },
@@ -29,7 +29,7 @@ export const data = {
     legend : {
         atoms : ["carbon","hydrogen","oxygen"],//goes with a 1024x1024 image in assets/legend/ for each element, for exemple carbon.png for carbon
         markers : {
-            "A" : "Glycer/itol/aldheyde", // A CHANGER
+            "OSE" : "Glycer/itol/aldheyde", // A CHANGER
             "kanji" : "NaBH4", // A CHANGER
         },
     },

@@ -2,8 +2,8 @@ export const data = {
     name: "Soft aldose oxidation",
     title: "Oxidation of aldose by iodine",
     description: "An aldonic acid is any of a family of sugar acids obtained by oxidation of the aldehyde functional group of an aldose to form a carboxylic acid functional group.",
-    image: "<img src='/static/module/reaction6/icon.png' style='width: 43%;position: relative; top:140px; left:30px'>",
-    infoImage: "<img src='/static/module/reaction6/infoImage.png'>",//max weight : 500px
+    image: "<img src='/static/module/reaction8/icon.png' style='width: 43%;position: relative; top:140px; left:30px'>",
+    infoImage: "<img src='/static/module/reaction8/infoImage.png'>",//max weight : 500px
     
     /*
     For the reagents, products and experimental condition,
