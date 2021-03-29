@@ -2,7 +2,7 @@ export const data = {
     name: "Disulfide bridge",
     title: "Disulfide bridge formation",
     description: "Disulfide bridges formed between thiol groups in two cysteine residues are an important component of the secondary and tertiary structure of proteins.",
-    image: "<img src='/static/module/reaction4/icon.png' style='width: 43%;position: relative; top:140px; left:30px'>",
+    image: "<img src='/static/module/reaction4/icon.png' style='width: 90%;position: relative; top:110px; left:-30px'>",
     infoImage: "<img src='/static/module/reaction4/infoImage.png'>",//max weight : 500px
     
     /*
@@ -32,6 +32,14 @@ export const data = {
             step: 1,
             cutoffMin: 1,
             cutoffMax: 1
+        },
+    },
+    // legend stuff
+    legend : {
+        atoms : ["carbon","hydrogen","oxygen","proton+e-","sulfure","Rchain"],//goes with a 1024x1024 image in assets/legend/ for each element, for exemple carbon.png for carbon
+        markers : {
+            "letterA" : "di-cysteine", // A CHANGER
+            "kanji" : "cysteine & proton/electron", // A CHANGER
         },
     },
 };

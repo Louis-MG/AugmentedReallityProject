@@ -152,6 +152,21 @@ footer{
     background-color: #105ba7;
 }
 
+/* legend stuff */
+
+#legendContainer{
+    position: fixed;
+    bottom: 60px;
+    right: 30px;
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    width: 170px;
+    min-height: 370px;
+    border-radius: 20px;
+}
+
+/* slider stuff */
+
 .slideContainer {
     position: fixed;
     bottom: 10px;
@@ -159,22 +174,23 @@ footer{
     text-align: left;
     z-index: 1;
     background-color: rgba(255, 255, 255, 0.6);
-    border-radius: 5px;
+    border-radius: 20px;
 }
 
 .range-slider {
     height: 80px;
-    width: 390px;
+    width: 350px;
     border-radius: 10px;
-    padding: 0 65px 0 45px;
+    padding: 0 65px 0 65px;
+    padding-top: 6px;
 }
 
 .slider-name {
-    position: absolute;
-    width: 390px;
+    position: fixed;
+    width: 350px;
     font-size: 15px;
     font-weight: 900;
-    color: rgb(30, 64, 255);
+    color: black;
 }
 
 .range-slider .sliderValue {
@@ -188,7 +204,7 @@ footer{
     width: 30px;
     text-align: center;
     font-weight: 600;
-    color:rgb(255, 255, 255);
+    color:black;
     transform: translateX(-50%) scale(0);
     transform-origin: bottom;
     transition: transform 0.3s ease-in-out;
@@ -205,10 +221,10 @@ footer{
     content: "";
     height: 35px;
     width: 35px;
-    background: dodgerblue;
+    background: white;
     left: 50%; 
     transform: translateX(-50%) rotate(45deg);
-    border: 3px solid #fff;
+    box-shadow: rgba(0, 0, 0, 0.3) 0 0 20px;
     z-index: -1;
     border-top-left-radius: 50%;
     border-top-right-radius: 50%;
@@ -227,7 +243,7 @@ footer{
     position: absolute;
     font-size: 18px;
     font-weight: 600;
-    color: rgb(30, 64, 255);
+    color: black;
 }
 
 .range-slider .field .value.left {
@@ -251,8 +267,8 @@ footer{
     -webkit-appearance: none;
     height: 20px;
     width: 20px;
-    background: rgb(30, 64, 255);
-    border: 1px solid #fff;
+    background: black;
+    border: 2px solid #fff;
     cursor: pointer;
 }
 
@@ -409,9 +425,8 @@ footer{
     }
 }
 
-/* Documentation */
+/* ------- DOCUMENTATION ------- */
 
-/* Documentation */
 
 #docu_ar {
     background-image: url("./assets/molecule_docu.png");
@@ -518,6 +533,8 @@ footer{
     text-align: justify;
     margin-left: 10%;
     margin-right: 10%;
+    margin-bottom: 0px;
+    padding-bottom: 10px;
 }
 
 .french {

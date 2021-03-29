@@ -9,21 +9,19 @@ export const data = {
     For the reagents, products and experimental condition,
     please indicate a .obj file, a .mtl file and a preset marker.
     */
-   
     type: {
-        // list of reagents
+    // list of reagents
         reagents: {
-            reagent1: ["aminoacid.obj", "aminoacid.mtl", "letterA"],
-            reagent2: ["aminoacid.obj", "aminoacid.mtl", "kanji"],
+            reagent1: ["aminoacid.obj", "aminoacid.mtl", "AAI"],
+            reagent2: ["aminoacid.obj", "aminoacid.mtl", "AAII"],
         },
 
         // list of products
         products: {
-            product1: ["hoh.obj", "hoh.mtl", "letterA"],
-            product2: ["dipeptide.obj", "dipeptide.mtl", "kanji"]
+            product1: ["hoh.obj", "hoh.mtl", "AAI"],
+            product2: ["dipeptide.obj", "dipeptide.mtl", "AAII"]
         },
     },
-    // list of condition
     conditions: {
         pH: {
             name: "pH",
@@ -40,6 +38,15 @@ export const data = {
             step: 1,
             cutoffMin: 30,
             cutoffMax: 70
+        },
+    },
+
+    /* legend stuff */
+    legend : {
+        atoms : ["carbon","nitrogen","hydrogen","oxygen"],//goes with a 1024x1024 image in assets/legend/ for each element, for exemple carbon.png for carbon
+        markers : {
+            "AAI" : "amino acid 1",
+            "AAII" : "amino acid 2",
         },
     },
 };

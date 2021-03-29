@@ -1,6 +1,5 @@
 // Initialisation
 
-//const footer = document.getElementsByClassName('footer')[0];
 const moleculeBackground = document.getElementById("bgvid");
 const container1 = document.getElementById('container1');
 const bigTitle = document.getElementsByClassName("bigTitle")[0];
@@ -46,7 +45,7 @@ async function collectData() {
     return moduleArray;
 }
 
-function collection() {
+function collection() { // creates the grid of reaction tiles
     let scaffold = '';
     let i = 0; // reactions counter
     for (let reactionModule of moduleArray){ // reaction div crafting
@@ -69,7 +68,7 @@ function collection() {
     console.log('scaffold built');
     i--;
     while (i > -1) {
-        eval('const button'+i+" = document.getElementById('button"+i+"');");
+        eval('const button'+i+" = document.getElementById('button"+i+"')");
         eval('button'+i+".addEventListener('click', loadReaction, false);");
         eval('button'+i+'.param='+i+';');
         i--;
@@ -104,7 +103,7 @@ function killRunningReaction() {
     }
 }
 
-function hideReactionPage(){
+function hideReactionPage(){ // self explanatory
     console.log("hiding reaction page...");
     container1.style.display = 'none';
     //footer.style.display= 'none';
@@ -113,18 +112,17 @@ function hideReactionPage(){
 
 const buttonA = document.getElementById('buttonA');
 
-function showReactionPage(){
+function showReactionPage(){ // shows reaction menu: tiles, title, 
     console.log("showing reaction page...");
     killRunningReaction();
     container1.style.display = 'block';
     languageButtons.style.display = "none";
     bigTitle.style.display = 'block';
-    //footer.style.display = 'block';
     bigTitle.innerHTML = "Choose a reaction";
     moleculeBackground.style.display = 'block';
     footer.style.marginTop = '300px';
-    documentation_ar.style.display = "none"
-    documentation_reac.style.display = "none"
+    documentation_ar.style.display = "none";
+    documentation_reac.style.display = "none";
     camera(false);
     reaction.innerHTML = `
     <div id="child"></div>
@@ -136,7 +134,7 @@ function showReactionPage(){
 
 buttonA.addEventListener('click', showReactionPage);
 
-function loadReaction(evt){
+function loadReaction(evt){ //event triggered when clicking on a reaction tile from the menu
     let nbReaction = evt.currentTarget.param;
     let moduleReaction = moduleArray[nbReaction]
     console.log('loading '+moduleReaction.data['title']+' reaction...');
@@ -148,9 +146,10 @@ function loadReaction(evt){
 
 }
 
-function load (divRoot, nbReaction){
+function load (divRoot, nbReaction){ 
+    console.log("ueueeueuue");
     //create <a-scene> scaffold
-    createScaffold(divRoot, nbReaction);
+    createScaffold(divRoot, nbReaction);//injects html code for reaction display
     //reaction
     window.currentReaction = Reaction(nbReaction);
 }
@@ -177,7 +176,16 @@ function createScaffold(divRoot, nbReaction) {
 
     <!-- sliders -->
     <div id="sliders" class="slideContainer">
-        
+    </div>
+    
+    <!--legend-->
+    <div id="legendContainer">
+        <div id="atoms" style="padding-left: 15px">
+            <p style="color: white;font-weight: bold;font-size: 16px;">atoms</p>
+        </div>
+        <div id="markers2use" style="padding-left: 15px">
+            <p style="color: white;font-weight: bold;font-size: 16px;">markers to use</p>
+        </div>
     </div>
   `
     if(typeof moduleReaction.data['infoImage']!=='undefined'){ // if an 2d reac image is provided
@@ -224,15 +232,35 @@ function createScaffold(divRoot, nbReaction) {
                 </div>
             </div>
         `;    
-    };
+    }
     for (let i in conditions) {
         eval("const slider"+i+" = document.getElementById('input"+i+"'); slider"+i+".addEventListener('input', handleInput); slider"+i+".param= span"+i+";");
+    }
+
+    const divAtoms = document.getElementById("atoms");
+    const divMarkers = document.getElementById("markers2use");
+    let legend = moduleReaction.data['legend'];
+    for (let i in legend['atoms']) {
+        //console.log(legend['atoms'][i])
+        divAtoms.innerHTML+=`
+        <div>
+            <p style="width: 100px;color: white"><img src="/static/assets/legend/atoms/${legend['atoms'][i]}.png" style="width: 30%;float: left;margin-top: -3px;">${legend['atoms'][i]}</p>
+        </div>
+        `;
+    }
+    const m_keys = Object.keys(legend['markers'])
+    for (let i in m_keys){
+        divMarkers.innerHTML+=`
+        <div>
+            <p style="width: 300px;color: white;"><img src="/static/assets/legend/markers/${m_keys[i]}.png" style="width: 10%;float: left;margin-top: -3px;">&nbsp;&nbsp;${legend['markers'][m_keys[i]]}</p>
+        </div>
+        `;
     }
 
     let sizeReagents = Object.keys(table['reagents']).length;
     let sizeProducts = Object.keys(table['products']).length;
 
-    if (sizeReagents === 2 && sizeProducts === 2) {  //bimolecular reaction
+    if ( sizeReagents === 2 && sizeProducts === 2) {  //bimolecular reaction
         scaffoldType1(aFrameScene, table);
     }else if (sizeReagents === 3 && sizeProducts === 1) { //ex. water formation
         scaffoldType2(aFrameScene, table);
@@ -253,19 +281,24 @@ function display2Dreaction(){
     }
 }
 
+function displayLegend(){
+    console.log("loading legend...")
+}
+
 function Reaction(nbReaction) {
     let moduleReaction = moduleArray[nbReaction]
     let reactionData = moduleReaction.data["type"];
     let conditionData = moduleReaction.data["conditions"];
     let scene = document.getElementById("theScene");
 
+    //
     let sizeReagents = Object.keys(reactionData['reagents']).length;
     let sizeProducts = Object.keys(reactionData['products']).length;
 
     setInterval(function() {
         scene.object3D.updateMatrixWorld(); //select the scene
 
-        if (sizeReagents === 2 && sizeProducts === 2) {
+        if ( sizeReagents === 2 && sizeProducts === 2) {
             reactionType1(reactionData, conditionData);
         }else if (sizeReagents === 3 && sizeProducts === 1) {
             reactionType2(reactionData, conditionData);
@@ -287,6 +320,7 @@ function handleInput (evt) {
         output.classList.remove("show");
     });
 }
+
 function expCondition (conditionData) {
     if (Object.keys(conditionData).length == 0) {
         return true;
@@ -295,7 +329,6 @@ function expCondition (conditionData) {
         for (let i in conditionData) {
             eval("const slider"+i+" = document.getElementById('input"+i+"'); if (slider"+i+".value <= conditionData[i]['cutoffMax'] && slider"+i+".value >= conditionData[i]['cutoffMin']) {counter ++;};");
         }
-        console.log(Object.keys(conditionData).length);
         if (counter == Object.keys(conditionData).length) {
             return true;
         } else {
@@ -304,7 +337,7 @@ function expCondition (conditionData) {
     }
 }
 
-function reactionType1 (reactionData, conditionData) { //2 reagents, 2 products, 0 conditions with only 2 markers
+function reactionType1 (reactionData, conditionData) { //2 reagents, 2 products, with only 2 markers
     let reagentOne = Object.keys(reactionData['reagents'])[0];
     let reagentOneSelector = document.getElementById(reagentOne);
     let p1 = new THREE.Vector3(); p1.setFromMatrixPosition(reagentOneSelector.object3D.matrixWorld);
@@ -328,7 +361,7 @@ function reactionType1 (reactionData, conditionData) { //2 reagents, 2 products,
         reagentOneSelector.setAttribute('visible',true);
         productTwoSelector.setAttribute('visible',false);
         reagentTwoSelector.setAttribute('visible',true);
-    }else if (distReagents < 3 && cond == true) {
+    }else if (distReagents < 3  && cond == true) {
         productTwoSelector.setAttribute('visible',true);
         productOneSelector.setAttribute('visible',true);
         reagentOneSelector.setAttribute('visible',false);
@@ -371,17 +404,27 @@ function reactionType2 (reactionData, conditionData) {
 }
 
 function scaffoldType1 (aFrameScene, table) {       // create scaffold for reaction with 2 reagents and 2 products with only 2 markers
+    let preset = ['letterA', 'kanji', 'hiro']
     for (let element in table){
         for (let object in table[element]) {        //create a specified div for every reagent, product and condition
             let marker = (table[element][object][2]);
             let markerNode = document.getElementById(marker+"MarkerSelector")
 
             if (!markerNode){      // if <a-marker> doesn't exist yet
-                aFrameScene.innerHTML += `
-                    <a-marker preset = '${marker}' id = "${marker}MarkerSelector" material="" arjs-anchor="" arjs-hit-testing=""> 
-                        <a-obj-model id = "${object}" src = "#obj-${table[element][object][0]}" mtl = "#mtl-${table[element][object][1]}" visible = "false"></a-obj-model>
+                if (!(preset.includes(marker))) {  //for personalized markers
+                    aFrameScene.innerHTML += `
+                    <a-marker type = 'pattern' url = 'static/markers/pattern-${marker}.patt' id = "${marker}MarkerSelector" material="" arjs-anchor="" arjs-hit-testing=""> 
+                        <a-obj-model id = "${object}" src = "#obj-${table[element][object][0]}" mtl = "#mtl-${table[element][object][1]}" visible = "false"></a-obj-model> <!-- ptetre remplacer par un entity vers l'objet -->
                     </a-marker>
                 `
+                }else{ // for preset
+                    aFrameScene.innerHTML += `
+                    <a-marker preset = '${marker}' id = "${marker}MarkerSelector" material="" arjs-anchor="" arjs-hit-testing=""> 
+                        <a-obj-model id = "${object}" src = "#obj-${table[element][object][0]}" mtl = "#mtl-${table[element][object][1]}" visible = "false"></a-obj-model> <!-- ptetre remplacer par un entity vers l'objet -->
+                    </a-marker>
+                `
+                }
+
             }else{
                 markerNode.innerHTML += `
                     <a-obj-model id = "${object}" src = "#obj-${table[element][object][0]}" mtl = "#mtl-${table[element][object][1]}" visible = "false"></a-obj-model>
@@ -391,14 +434,15 @@ function scaffoldType1 (aFrameScene, table) {       // create scaffold for react
     }
 }
 
+
 function scaffoldType2 (aFrameScene, table) { // for H20 molecule...
     for (let element in table){
         for (let object in table[element]) {        //create a specified div for every reagent, product and condition
             let marker = (table[element][object][2]);
             if (element === 'reagents'){
                 aFrameScene.innerHTML += `
-                <a-marker preset = '${marker}' id = "${marker}MarkerSelector" material="" arjs-anchor="" arjs-hit-testing=""> 
-                    <a-obj-model id = "${object}" src = "#obj-${table[element][object][0]}" mtl = "#mtl-${table[element][object][1]}" visible = "false"></a-obj-model>
+                <a-marker type = 'pattern' url = 'static/markers/pattern-${marker}.patt' id = "${marker}MarkerSelector" material="" arjs-anchor="" arjs-hit-testing=""> 
+                    <a-obj-model id = "${object}" src = "#obj-${table[element][object][0]}" mtl = "#mtl-${table[element][object][1]}" visible = "false"></a-obj-model> <!-- ptetre remplacer par un entity vers l'objet -->
                 </a-marker>
                 `
             } else if (element === 'products'){
@@ -469,15 +513,9 @@ button_english.addEventListener('click', change_to_english)
 const button_italian = document.getElementById("language3")
 button_italian.addEventListener('click', change_to_italian)
 
-// gotta change that for a display change:
-
-// function goHome() {
-//     window.location.href = "home.html"; // sends the user back to the home menu
-// }
-
 const buttonB = document.getElementById('buttonB');
 
-function goDocu_ar() {
+function goDocu_ar() { // displays AR documentation
     var x = documentation_ar;
     hideReactionPage();
     reaction.style.display = "none";  //hides reaction page
@@ -505,19 +543,19 @@ function goDocu_ar() {
 
 buttonB.addEventListener('click', goDocu_ar);
 
-function goDocu_reac() {
+function goDocu_reac() {  // diplays chemistry documentation
     //see goDocu_ar for comments
     var x = documentation_reac;
     hideReactionPage();
-    reaction.style.display = "none";
+    reaction.style.display = "none";  //hides reaction page
     killRunningReaction();
     bigTitle.style.display = 'none';
-    documentation_ar.style.display = "none";
+    documentation_ar.style.display = "none"; //hides the other documentation
     languageButtons.style.display = "block";
     footer.style.marginTop = '0';
-    if (x.style.display === "none") {
+    if (x.style.display === "none") { 
         x.style.display = "block";
-        if (english.style.display === "block") {
+        if (english.style.display === "block") {  // conditional display of languages
             english.style.display = "none";
             english1.style.display = "block";
         } else if (french.style.display === "block") {
