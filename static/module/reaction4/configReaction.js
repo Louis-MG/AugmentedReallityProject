@@ -36,9 +36,9 @@ export const data = {
     },
     // legend stuff
     legend : {
-        atoms : ["carbon","hydrogen","oxygen","proton/electron??","Rchain"],//goes with a 1024x1024 image in assets/legend/ for each element, for exemple carbon.png for carbon
+        atoms : ["carbon","hydrogen","oxygen","proton+e-","Rchain"],//goes with a 1024x1024 image in assets/legend/ for each element, for exemple carbon.png for carbon
         markers : {
-            "A" : "di-cysteine", // A CHANGER
+            "letterA" : "di-cysteine", // A CHANGER
             "kanji" : "cysteine & proton/electron", // A CHANGER
         },
     },

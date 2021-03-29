@@ -175,7 +175,9 @@ function createScaffold(divRoot, nbReaction) {
 
     <!-- sliders -->
     <div id="sliders" class="slideContainer">
-    
+            
+    </div>
+
     <!--legend-->
     <div id="legendContainer">
         <div id="atoms" style="padding-left: 15px">
@@ -185,9 +187,8 @@ function createScaffold(divRoot, nbReaction) {
             <p style="color: white;font-weight: bold;font-size: 16px;">markers to use</p>
         </div>
     </div>
-        
-    </div>
-  `
+    `
+    
     if(typeof moduleReaction.data['infoImage']!=='undefined'){ // if an 2d reac image is provided
         const buttonE = document.getElementById("buttonE"); // click to see 2D reaction infos
         buttonE.addEventListener('click', display2Dreaction)
@@ -241,7 +242,6 @@ function createScaffold(divRoot, nbReaction) {
     const divMarkers = document.getElementById("markers2use");
     let legend = moduleReaction.data['legend'];
     for (let i in legend['atoms']) {
-        //console.log(legend['atoms'][i])
         divAtoms.innerHTML+=`
         <div>
             <p style="width: 100px;color: white"><img src="/static/assets/legend/atoms/${legend['atoms'][i]}.png" style="width: 30%;float: left;margin-top: -3px;">${legend['atoms'][i]}</p>
@@ -250,7 +250,6 @@ function createScaffold(divRoot, nbReaction) {
     }
     const m_keys = Object.keys(legend['markers'])
     for (let i in m_keys){
-        console.log(m_keys[i])
         divMarkers.innerHTML+=`
         <div>
             <p style="width: 300px;color: white;"><img src="/static/assets/legend/markers/${m_keys[i]}.png" style="width: 10%;float: left;margin-top: -3px;">&nbsp;&nbsp;${legend['markers'][m_keys[i]]}</p>
@@ -405,17 +404,26 @@ function reactionType2 (reactionData, conditionData) {
 }
 
 function scaffoldType1 (aFrameScene, table) {       // create scaffold for reaction with 2 reagents and 2 products with only 2 markers
+    let preset = ['letterA', 'kanji', 'hiro'];
     for (let element in table){
         for (let object in table[element]) {        //create a specified div for every reagent, product and condition
             let marker = (table[element][object][2]);
             let markerNode = document.getElementById(marker+"MarkerSelector")
 
             if (!markerNode){      // if <a-marker> doesn't exist yet
-                aFrameScene.innerHTML += `
+                if (!(preset.includes(marker))) {
+                    aFrameScene.innerHTML += `
                     <a-marker type = 'pattern' url = 'static/markers/pattern-${marker}.patt' id = "${marker}MarkerSelector" material="" arjs-anchor="" arjs-hit-testing=""> 
                         <a-obj-model id = "${object}" src = "#obj-${table[element][object][0]}" mtl = "#mtl-${table[element][object][1]}" visible = "false"></a-obj-model> <!-- ptetre remplacer par un entity vers l'objet -->
                     </a-marker>
-                `
+                    `
+                }else{
+                        aFrameScene.innerHTML += `
+                        <a-marker preset = '${marker}' id = "${marker}MarkerSelector" material="" arjs-anchor="" arjs-hit-testing=""> 
+                            <a-obj-model id = "${object}" src = "#obj-${table[element][object][0]}" mtl = "#mtl-${table[element][object][1]}" visible = "false"></a-obj-model> <!-- ptetre remplacer par un entity vers l'objet -->
+                        </a-marker>
+                        ` 
+                }
             }else{
                 markerNode.innerHTML += `
                     <a-obj-model id = "${object}" src = "#obj-${table[element][object][0]}" mtl = "#mtl-${table[element][object][1]}" visible = "false"></a-obj-model>
