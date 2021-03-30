@@ -216,7 +216,7 @@ function createScaffold(divRoot, nbReaction) {
     for (let i in conditions) {
         let min = conditions[i]['min'];
         let max = conditions[i]['max'];
-        let val = (min+max)/2;
+        let val = conditions[i]['val'];
         let step = conditions[i]['step'];
         sliders.innerHTML += `
             <div class="range-slider" id="${i}">
@@ -264,6 +264,8 @@ function createScaffold(divRoot, nbReaction) {
         scaffoldType1(aFrameScene, table);
     }else if (sizeReagents === 3 && sizeProducts === 1) { //ex. water formation
         scaffoldType2(aFrameScene, table);
+    }else if (sizeReagents === 1 && sizeProducts === 2) {
+        scaffoldType3(aFrameScene, table);
     }
 }
 
@@ -302,6 +304,8 @@ function Reaction(nbReaction) {
             reactionType1(reactionData, conditionData);
         }else if (sizeReagents === 3 && sizeProducts === 1) {
             reactionType2(reactionData, conditionData);
+        }else if (sizeReagents === 1 && sizeProducts === 2) {
+            reactionType3(reactionData, conditionData);
         }
     }, 200);
 }
@@ -395,64 +399,114 @@ function reactionType2 (reactionData, conditionData) {
         reagentOneSelector.setAttribute('visible',true);
         reagentTwoSelector.setAttribute('visible',true);
         reagentThreeSelector.setAttribute('visible',true);
-    }else if (distp1p2 < 2 && distp2p3 <2 && cond == true) {
+    }else if (distp1p2 < 2 && distp2p3 < 2 && cond == true) {
         productOneSelector.setAttribute('visible',true);
         reagentOneSelector.setAttribute('visible',false);
         reagentTwoSelector.setAttribute('visible',false);
         reagentThreeSelector.setAttribute('visible',false);
     }
+};
+
+function reactionType3 (reactionData, conditionData) {
+    let reagentOne = Object.keys(reactionData['reagents'])[0];
+    let reagentOneSelector = document.getElementById(reagentOne);
+    let p1 = new THREE.Vector3(); p1.setFromMatrixPosition(reagentOneSelector.object3D.matrixWorld);
+    
+    let productOne = Object.keys(reactionData['products'])[0];
+    let productOneSelector = document.getElementById(productOne);
+    let p2 = new THREE.Vector3(); p2.setFromMatrixPosition(productOneSelector.object3D.matrixWorld);
+
+    let productTwo = Object.keys(reactionData['products'])[1];
+    let productTwoSelector = document.getElementById(productTwo);
+    let p3 = new THREE.Vector3(); p3.setFromMatrixPosition(productTwoSelector.object3D.matrixWorld);
+
+    let distp1p2 = 2 * Math.sqrt( Math.pow(p1.x - p2.x, 2) + Math.pow(p1.y - p2.y, 2) + Math.pow(p1.z-p2.z,2));
+    let distp1p3 = 2 * Math.sqrt( Math.pow(p1.x - p3.x, 2) + Math.pow(p1.y - p3.y, 2) + Math.pow(p1.z-p3.z,2));
+
+    console.log(distp1p2);
+    console.log(distp1p3);
+    
+    let cond = expCondition(conditionData);
+
+    if(distp1p2 > 6 || distp1p3 > 6 || cond == false){
+        reagentOneSelector.setAttribute('visible',true);
+        productOneSelector.setAttribute('visible',false);
+        productTwoSelector.setAttribute('visible',false);
+    }else if (distp1p2 < 6 && distp1p3 < 6 && cond == true) {
+        console.log("dovrebbe vederis managiaa la madonana de deiiodipo");
+        productOneSelector.setAttribute('visible',true);
+        productTwoSelector.setAttribute('visible',true);
+        reagentOneSelector.setAttribute('visible',false);
+    }
+}
+
+function markerInject (aFrameScene, marker) {
+    let preset = ['letterA', 'kanji', 'hiro']
+    if (!(preset.includes(marker))) {  //for personalized markers
+        aFrameScene.innerHTML += `
+            <a-marker type = 'pattern' url = 'static/markers/pattern-${marker}.patt' id = "${marker}MarkerSelector" material="" arjs-anchor="" arjs-hit-testing=""> 
+        `
+    }else{ // for preset
+        aFrameScene.innerHTML += `
+            <a-marker preset = '${marker}' id = "${marker}MarkerSelector" material="" arjs-anchor="" arjs-hit-testing=""></a-marker>
+        `
+    }
 }
 
 function scaffoldType1 (aFrameScene, table) {       // create scaffold for reaction with 2 reagents and 2 products with only 2 markers
-    let preset = ['letterA', 'kanji', 'hiro']
     for (let element in table){
         for (let object in table[element]) {        //create a specified div for every reagent, product and condition
             let marker = (table[element][object][2]);
-            let markerNode = document.getElementById(marker+"MarkerSelector")
+            let markerNode = document.getElementById(marker+"MarkerSelector");
 
             if (!markerNode){      // if <a-marker> doesn't exist yet
-                if (!(preset.includes(marker))) {  //for personalized markers
-                    aFrameScene.innerHTML += `
-                    <a-marker type = 'pattern' url = 'static/markers/pattern-${marker}.patt' id = "${marker}MarkerSelector" material="" arjs-anchor="" arjs-hit-testing=""> 
-                        <a-obj-model id = "${object}" src = "#obj-${table[element][object][0]}" mtl = "#mtl-${table[element][object][1]}" visible = "false"></a-obj-model> <!-- ptetre remplacer par un entity vers l'objet -->
-                    </a-marker>
-                `
-                }else{ // for preset
-                    aFrameScene.innerHTML += `
-                    <a-marker preset = '${marker}' id = "${marker}MarkerSelector" material="" arjs-anchor="" arjs-hit-testing=""> 
-                        <a-obj-model id = "${object}" src = "#obj-${table[element][object][0]}" mtl = "#mtl-${table[element][object][1]}" visible = "false"></a-obj-model> <!-- ptetre remplacer par un entity vers l'objet -->
-                    </a-marker>
-                `
-                }
-
-            }else{
-                markerNode.innerHTML += `
-                    <a-obj-model id = "${object}" src = "#obj-${table[element][object][0]}" mtl = "#mtl-${table[element][object][1]}" visible = "false"></a-obj-model>
-                `
+                markerInject(aFrameScene, marker);
             }
+            markerNode = document.getElementById(marker+"MarkerSelector");
+            markerNode.innerHTML += `
+                <a-obj-model id = "${object}" src = "#obj-${table[element][object][0]}" mtl = "#mtl-${table[element][object][1]}" visible = "false"></a-obj-model>
+                `
         }
     }
 }
 
 
 function scaffoldType2 (aFrameScene, table) { // for H20 molecule...
+    let markerNode;
     for (let element in table){
         for (let object in table[element]) {        //create a specified div for every reagent, product and condition
             let marker = (table[element][object][2]);
             if (element === 'reagents'){
-                aFrameScene.innerHTML += `
-                <a-marker type = 'pattern' url = 'static/markers/pattern-${marker}.patt' id = "${marker}MarkerSelector" material="" arjs-anchor="" arjs-hit-testing=""> 
+                markerInject(aFrameScene, marker);
+                markerNode = document.getElementById(marker+"MarkerSelector");
+                markerNode.innerHTML += `
                     <a-obj-model id = "${object}" src = "#obj-${table[element][object][0]}" mtl = "#mtl-${table[element][object][1]}" visible = "false"></a-obj-model> <!-- ptetre remplacer par un entity vers l'objet -->
-                </a-marker>
                 `
             } else if (element === 'products'){
-                let markerNode = document.getElementById(marker+"MarkerSelector");
+                markerNode = document.getElementById(marker+"MarkerSelector");
                 markerNode.innerHTML += `
                     <a-obj-model id = "${object}" src = "#obj-${table[element][object][0]}" mtl = "#mtl-${table[element][object][1]}" visible = "false"></a-obj-model>
                 `
             }
         }
     }
+}
+
+function scaffoldType3 (aFrameScene, table) {
+    for (let element in table){
+        for (let object in table[element]) {        //create a specified div for every reagent, product and condition
+            let marker = (table[element][object][2]);
+            let markerNode = document.getElementById(marker+"MarkerSelector");
+
+            if (!markerNode){      // if <a-marker> doesn't exist yet
+                markerInject(aFrameScene, marker);
+            }
+            markerNode = document.getElementById(marker+"MarkerSelector");
+            markerNode.innerHTML += `
+                <a-obj-model id = "${object}" src = "#obj-${table[element][object][0]}" mtl = "#mtl-${table[element][object][1]}" visible = "false"></a-obj-model>
+                `
+        }
+    }  
 }
 
 // functions for Documentation
