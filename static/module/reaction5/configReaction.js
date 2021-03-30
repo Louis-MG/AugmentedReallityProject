@@ -28,7 +28,7 @@ export const data = {
         
     },
     legend : {
-        atoms : ["carbon","hydrogen","oxygen"],//goes with a 1024x1024 image in assets/legend/ for each element, for exemple carbon.png for carbon
+        atoms : ["carbon","hydrogen","oxygen","boron","sodium"],//goes with a 1024x1024 image in assets/legend/ for each element, for exemple carbon.png for carbon
         markers : {
             "OSE" : "Glycer/itol/aldheyde", // A CHANGER
             "kanji" : "NaBH4", // A CHANGER
