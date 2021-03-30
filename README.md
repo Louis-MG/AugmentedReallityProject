@@ -18,18 +18,20 @@ It was produced by four students :
 The first step is to print the markers that can be found on the documentation fo the website or at ./statics/assets/markers.pdf and ./statics/assets/markers.png
 
 Then from the main menu of the website : Choose a reaction and use markers to make the reaction happen.
-* ### different types of reaction
+##### different types of reaction
+
+
 ![Reactions type](/statics/assets/Disegno_senza_titolo.png )
 
 
 ## Markers 
-* ### Add new markers for new molecules  
+##### Add new markers for new molecules  
 To add new markers, simply create new markers using this [website](https://jeromeetienne.github.io/AR.js/three.js/examples/marker-training/examples/generator.html). Be sure to use 250px for the image size
 
  Then put the .png file and .patt file in the ./statics/assets directory. 
 
 ## Molecules
-* ### Add new molecules 
+##### Add new molecules 
 Create a .obj and .mtl file using another tool (Blender for exemple) and put them in the ./statics/assets directory. 
 
 ## How to implement new reactions
