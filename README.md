@@ -21,14 +21,14 @@ Then from the main menu of the website : Choose a reaction and use markers to ma
 ##### different types of reaction
 
 
-![Reactions type](./statics/assets/Disegno_senza_titolo.png "Reactions type" )
+![Reactions type](./static/assets/Disegno_senza_titolo.png "Reactions type" )
 
 
 ## Markers 
 ##### Add new markers for new molecules  
 To add new markers, simply create new markers using this [website](https://jeromeetienne.github.io/AR.js/three.js/examples/marker-training/examples/generator.html). Be sure to use 250px for the image size
 
- Then put the .png file and .patt file in the ./statics/assets directory. 
+ Then put the .png file and .patt file in the ./static/assets directory. 
 
 ## Molecules
 ##### Add new molecules 
@@ -42,7 +42,7 @@ the ./statics/assets directory.
  
  If not, see information before.
  
-* Then, create a new directory in the ./statics/assets/module directory called reactionX where X is 
+* Then, create a new directory in the ./static/assets/module directory called reactionX where X is 
  
 1 + the number of reaction already implemented.
  
@@ -51,10 +51,10 @@ the ./statics/assets directory.
 
 Add the .png file that must will be use as the icon on the main menu of the website. (TODO: there is no restriction ont the iamge for now, but use small images)
 
-Finally create a configReaction.js that must follow the template at ./statics/assets/configReactionTemplate.js
+Finally create a configReaction.js that must follow the template at ./static/assets/configReactionTemplate.js
 
 * ConfigReaction.js
-ConfigReaction must follow the template at ./statics/assets/configReactionTemplate.js
+ConfigReaction must follow the template at ./static/assets/configReactionTemplate.js
 
 All elements must existe even if empty.
 
