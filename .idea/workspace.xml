@@ -19,12 +19,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2011a926-b223-453b-8fd3-cfc4a49f2b16" name="Default Changelist" comment="style modif &amp; adds">
+    <list default="true" id="2011a926-b223-453b-8fd3-cfc4a49f2b16" name="Default Changelist" comment="addings in legend">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/module/reaction2/configReaction.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/module/reaction2/configReaction.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/module/reaction3/configReaction.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/module/reaction3/configReaction.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/module/reaction4/configReaction.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/module/reaction4/configReaction.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/module/reaction5/configReaction.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/module/reaction5/configReaction.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/legend/atoms/boron.png" beforeDir="false" afterPath="$PROJECT_DIR$/static/assets/legend/atoms/boron.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/legend/atoms/potassium.png" beforeDir="false" afterPath="$PROJECT_DIR$/static/assets/legend/atoms/potassium.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/legend/atoms/sodium.png" beforeDir="false" afterPath="$PROJECT_DIR$/static/assets/legend/atoms/sodium.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/module/reaction6/configReaction.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/module/reaction6/configReaction.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -59,6 +59,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -90,7 +91,9 @@
       <workItem from="1615545042334" duration="12832000" />
       <workItem from="1616684966655" duration="10979000" />
       <workItem from="1616753843070" duration="130000" />
-      <workItem from="1616861600776" duration="2427000" />
+      <workItem from="1616861600776" duration="2964000" />
+      <workItem from="1616923863398" duration="2222000" />
+      <workItem from="1617116954286" duration="1838000" />
     </task>
     <task id="LOCAL-00001" summary="ajout d'un selecteur customisable pour choisir ses réactions">
       <created>1611433371857</created>
@@ -162,7 +165,14 @@
       <option name="project" value="LOCAL" />
       <updated>1616688313623</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="addings in legend">
+      <created>1616864453503</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1616864453503</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -189,7 +199,8 @@
     <MESSAGE value="missing ressources" />
     <MESSAGE value="arjs-video bug solved" />
     <MESSAGE value="style modif &amp; adds" />
-    <option name="LAST_COMMIT_MESSAGE" value="style modif &amp; adds" />
+    <MESSAGE value="addings in legend" />
+    <option name="LAST_COMMIT_MESSAGE" value="addings in legend" />
   </component>
   <component name="WindowStateProjectService">
     <state x="345" y="230" key="MultipleFileMergeDialog" timestamp="1611433447003">
@@ -202,28 +213,28 @@
     <state x="764" y="278" key="SettingsEditor/-1920.23.1920.1057/0.23.1920.1057@0.23.1920.1057" timestamp="1610986930098" />
     <state x="443" y="106" key="SettingsEditor/0.23.1440.877@0.23.1440.877" timestamp="1611406496626" />
     <state x="591" y="123" key="SettingsEditor/0.23.1920.1057/-1920.23.1920.1057@0.23.1920.1057" timestamp="1615373691013" />
-    <state x="409" y="238" key="Vcs.Push.Dialog.v2" timestamp="1616688317632">
+    <state x="409" y="238" key="Vcs.Push.Dialog.v2" timestamp="1616864455519">
       <screen x="0" y="23" width="1920" height="1057" />
     </state>
     <state x="307" y="201" key="Vcs.Push.Dialog.v2/0.23.1440.877@0.23.1440.877" timestamp="1613829046208" />
-    <state x="409" y="238" key="Vcs.Push.Dialog.v2/0.23.1920.1057/-1920.23.1920.1057@0.23.1920.1057" timestamp="1616688317632" />
-    <state x="691" y="456" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1616861658730">
+    <state x="409" y="238" key="Vcs.Push.Dialog.v2/0.23.1920.1057/-1920.23.1920.1057@0.23.1920.1057" timestamp="1616864455519" />
+    <state x="691" y="456" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1617124575152">
       <screen x="0" y="23" width="1920" height="1057" />
     </state>
-    <state x="518" y="382" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1440.877@0.23.1440.877" timestamp="1613836779236" />
-    <state x="691" y="456" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1920.1057/-1920.23.1920.1057@0.23.1920.1057" timestamp="1616861658730" />
+    <state x="518" y="382" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1440.877@0.23.1440.877" timestamp="1617116962669" />
+    <state x="691" y="456" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1920.1057/-1920.23.1920.1057@0.23.1920.1057" timestamp="1617124575152" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/static/main.js</url>
-          <line>179</line>
+          <line>181</line>
           <option name="timeStamp" value="11" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/static/main.js</url>
-          <line>241</line>
+          <line>242</line>
           <option name="timeStamp" value="13" />
         </line-breakpoint>
       </breakpoints>

@@ -252,7 +252,7 @@ function createScaffold(divRoot, nbReaction) {
     for (let i in m_keys){
         divMarkers.innerHTML+=`
         <div>
-            <p style="width: 300px;color: white;"><img src="/static/assets/legend/markers/${m_keys[i]}.png" style="width: 10%;float: left;margin-top: -3px;">&nbsp;&nbsp;${legend['markers'][m_keys[i]]}</p>
+            <p style="width: 170px;color: white;"><img src="/static/assets/legend/markers/${m_keys[i]}.png" style="width: 21%;float: left;margin-top: -3px;">&nbsp;&nbsp;${legend['markers'][m_keys[i]]}</p>
         </div>
         `;
     }

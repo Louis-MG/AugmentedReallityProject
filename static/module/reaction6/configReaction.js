@@ -14,13 +14,13 @@ export const data = {
         // list of reagents
         reagents: {
             reagent1: ["Dgluc.obj", "Dgluc.mtl", "OSE"],
-            reagent2: ["NitricAcid.obj", "NitricAcid.mtl", "AH"],
+            reagent2: ["NitricAcid.obj", "NitricAcid.mtl", "Acid"],
         },
 
         // list of products
         products: {
             product1: ["DglucAcid.obj", "DglucAcid.mtl", "OSE"],
-            product2: ["NitricAcid.obj", "NitricAcid.mtl", "AH"]
+            product2: ["NitricAcid.obj", "NitricAcid.mtl", "Acid"]
         },
     },
     // list of condition
@@ -31,7 +31,7 @@ export const data = {
         atoms : ['carbon', 'oxygen', 'hydrogen', 'nitrogen'],
         markers : {
             "OSE" : "D-glucose",
-            "AH" : "Nitric Acid"
+            "Acid" : "Nitric Acid"
         }
     }
 };
