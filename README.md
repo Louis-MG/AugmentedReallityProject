@@ -21,7 +21,7 @@ Then from the main menu of the website : Choose a reaction and use markers to ma
 ##### different types of reaction
 
 
-![Reactions type](./statics/assets/Disegno_senza_titolo.png )
+![Reactions type](./statics/assets/Disegno_senza_titolo.png "Reactions type" )
 
 
 ## Markers 
