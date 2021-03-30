@@ -28,6 +28,7 @@ export const data = {
             min: 0,
             max: 14,
             step: 1,
+            val: 7,
             cutoffMin: 6,
             cutoffMax: 8
         },
@@ -36,6 +37,7 @@ export const data = {
             min: -170,
             max: 300,
             step: 1,
+            val: 30,
             cutoffMin: 30,
             cutoffMax: 70
         },

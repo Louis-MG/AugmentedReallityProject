@@ -26,9 +26,10 @@ export const data = {
     // list of condition
     conditions: {
         oxidation: {
-            name: "Oxidation",
+            name: "oxidation (1:yes, 0:no)",
             min: 0,
             max: 1,
+            val: 0,
             step: 1,
             cutoffMin: 1,
             cutoffMax: 1

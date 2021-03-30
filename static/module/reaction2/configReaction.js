@@ -29,6 +29,7 @@ export const data = {
             min: 0,
             max: 150,
             step: 1,
+            val: 30,
             cutoffMin: 100,
             cutoffMax: 150
         },
