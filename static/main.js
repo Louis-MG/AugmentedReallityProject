@@ -360,12 +360,12 @@ function reactionType1 (reactionData, conditionData) { //2 reagents, 2 products,
 
     let cond = expCondition(conditionData);
 
-    if (distReagents > 3 || cond == false) {
+    if (distReagents > 4 || cond == false) {
         productOneSelector.setAttribute('visible',false);
         reagentOneSelector.setAttribute('visible',true);
         productTwoSelector.setAttribute('visible',false);
         reagentTwoSelector.setAttribute('visible',true);
-    }else if (distReagents < 3  && cond == true) {
+    }else if (distReagents < 4  && cond == true) {
         productTwoSelector.setAttribute('visible',true);
         productOneSelector.setAttribute('visible',true);
         reagentOneSelector.setAttribute('visible',false);
@@ -394,12 +394,12 @@ function reactionType2 (reactionData, conditionData) {
 
     let cond = expCondition(conditionData);
 
-    if(distp1p2 > 2 && distp2p3 > 2 || cond == false){
+    if(distp1p2 > 4 && distp2p3 > 4 || cond == false){
         productOneSelector.setAttribute('visible',false);
         reagentOneSelector.setAttribute('visible',true);
         reagentTwoSelector.setAttribute('visible',true);
         reagentThreeSelector.setAttribute('visible',true);
-    }else if (distp1p2 < 2 && distp2p3 <2 && cond == true) {
+    }else if (distp1p2 < 4 && distp2p3 < 4 && cond == true) {
         productOneSelector.setAttribute('visible',true);
         reagentOneSelector.setAttribute('visible',false);
         reagentTwoSelector.setAttribute('visible',false);
@@ -433,7 +433,6 @@ function reactionType3 (reactionData, conditionData) {
         productOneSelector.setAttribute('visible',false);
         productTwoSelector.setAttribute('visible',false);
     }else if (distp1p2 < 6 && distp1p3 < 6 && cond == true) {
-        console.log("dovrebbe vederis managiaa la madonana de deiiodipo");
         productOneSelector.setAttribute('visible',true);
         productTwoSelector.setAttribute('visible',true);
         reagentOneSelector.setAttribute('visible',false);
