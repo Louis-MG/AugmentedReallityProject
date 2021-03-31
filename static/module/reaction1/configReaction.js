@@ -12,7 +12,7 @@ export const data = {
     type: {
     // list of reagents
         reagents: {
-            reagent1: ["cube.obj", "cube.mtl", "AAI"],
+            reagent1: ["aminoacid.obj", "aminoacid.mtl", "AAI"],
             reagent2: ["aminoacid.obj", "aminoacid.mtl", "AAII"],
         },
 

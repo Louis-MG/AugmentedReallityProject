@@ -170,7 +170,7 @@ function createScaffold(divRoot, nbReaction) {
     </div>
 
     <!-- a-frame scene reaction -->
-    <a-scene id="theScene" artoolkit='sourceType: webcam;' embedded arjs = "trackingMethod: best;">
+    <a-scene id="theScene" artoolkit='sourceType: webcam;' embedded arjs = "trackingMethod: best; debugUIEnabled: false;">
 
     </a-scene>
 
@@ -345,7 +345,7 @@ function reactionType1 (reactionData, conditionData) { //2 reagents, 2 products,
     let reagentOne = Object.keys(reactionData['reagents'])[0];
     let reagentOneSelector = document.getElementById(reagentOne);
     let p1 = new THREE.Vector3(); p1.setFromMatrixPosition(reagentOneSelector.object3D.matrixWorld);
-
+    
     let reagentTwo = Object.keys(reactionData['reagents'])[1];
     let reagentTwoSelector = document.getElementById(reagentTwo);
     let p2 = new THREE.Vector3(); p2.setFromMatrixPosition(reagentTwoSelector.object3D.matrixWorld);
@@ -358,16 +358,30 @@ function reactionType1 (reactionData, conditionData) { //2 reagents, 2 products,
 
     let distReagents = 2 * Math.sqrt( Math.pow(p1.x - p2.x, 2) + Math.pow(p1.y - p2.y, 2) + Math.pow(p1.z-p2.z,2));//distance between reagents markers
 
+    console.log("object");
+    console.log(reagentTwoSelector.getAttribute('position'));
+    console.log("marker");
+    console.log(p2);
+
+    // reagentOneSelector.setAttribute('position',{x: p1['x'], y: p1['y'], z: p1['z'] })
+    // reagentTwoSelector.setAttribute('position',{x: p2['x'], y: p2['y'], z: p2['z'] })
+
+    // console.log("pos object"+reagentOneSelector.getAttribute('position'))
     let cond = expCondition(conditionData);
 
     if (distReagents > 4 || cond == false) {
         productOneSelector.setAttribute('visible',false);
         reagentOneSelector.setAttribute('visible',true);
+        // reagentOneSelector.setAttribute('position',{x: p1['x']-1.6, y: 1.5, z: p1['z']-1.6});
         productTwoSelector.setAttribute('visible',false);
         reagentTwoSelector.setAttribute('visible',true);
+        reagentTwoSelector.setAttribute('visible',true);
+        // reagentTwoSelector.setAttribute('position',{x: p2['x']-1.6, y: 1.5, z: p2['z']-1.6});
     }else if (distReagents < 4  && cond == true) {
         productTwoSelector.setAttribute('visible',true);
+        // productTwoSelector.setAttribute('position',{x: p2['x']-1.6, y: 1.5, z: p2['z']-1.6});
         productOneSelector.setAttribute('visible',true);
+        // productOneSelector.setAttribute('position',{x: p1['x']-1.6, y: 1.5, z: p1['z']-1.6});
         reagentOneSelector.setAttribute('visible',false);
         reagentTwoSelector.setAttribute('visible',false);
     }
@@ -377,7 +391,7 @@ function reactionType2 (reactionData, conditionData) {
     let reagentOne = Object.keys(reactionData['reagents'])[0];
     let reagentOneSelector = document.getElementById(reagentOne);
     let p1 = new THREE.Vector3(); p1.setFromMatrixPosition(reagentOneSelector.object3D.matrixWorld);
-
+    
     let reagentTwo = Object.keys(reactionData['reagents'])[1];
     let reagentTwoSelector = document.getElementById(reagentTwo);
     let p2 = new THREE.Vector3(); p2.setFromMatrixPosition(reagentTwoSelector.object3D.matrixWorld);
@@ -443,11 +457,11 @@ function markerInject (aFrameScene, marker) {
     let preset = ['letterA', 'kanji', 'hiro']
     if (!(preset.includes(marker))) {  //for personalized markers
         aFrameScene.innerHTML += `
-            <a-marker type = 'pattern' url = 'static/markers/pattern-${marker}.patt' id = "${marker}MarkerSelector" material="" arjs-anchor="" arjs-hit-testing="true"> 
+            <a-marker type = 'pattern' url = 'static/markers/pattern-${marker}.patt' id = "${marker}MarkerSelector" material="" arjs-anchor="true" arjs-hit-testing="true"> 
         `
     }else{ // for preset
         aFrameScene.innerHTML += `
-            <a-marker preset = '${marker}' id = "${marker}MarkerSelector" material="" arjs-anchor="" arjs-hit-testing="true"></a-marker>
+            <a-marker preset = '${marker}' id = "${marker}MarkerSelector" material="" arjs-anchor="true" arjs-hit-testing="true"></a-marker>
         `
     }
 }
@@ -463,7 +477,7 @@ function scaffoldType1 (aFrameScene, table) {       // create scaffold for react
             }
             markerNode = document.getElementById(marker+"MarkerSelector");
             markerNode.innerHTML += `
-                <a-entity id = "${object}" obj-model="obj: #obj-${table[element][object][0]}; mtl: #mtl-${table[element][object][1]}" visible = "false" position="-1.6 -2 -1.6"></a-entity>
+                <a-entity id = "${object}" obj-model="obj: #obj-${table[element][object][0]}; mtl: #mtl-${table[element][object][1]}" visible = "false" rotation = "180 0 0"></a-entity>
                 `
         }
     }
