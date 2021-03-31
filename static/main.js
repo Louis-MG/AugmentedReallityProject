@@ -170,7 +170,7 @@ function createScaffold(divRoot, nbReaction) {
     </div>
 
     <!-- a-frame scene reaction -->
-    <a-scene id="theScene" embedded = "" artoolkit='patternRatio: 500; sourceType: webcam;' inspector = "" keyboard-shortcuts = "" screenshot = "">
+    <a-scene id="theScene" artoolkit='sourceType: webcam;' embedded arjs = "trackingMethod: best;">
 
     </a-scene>
 
@@ -360,12 +360,12 @@ function reactionType1 (reactionData, conditionData) { //2 reagents, 2 products,
 
     let cond = expCondition(conditionData);
 
-    if (distReagents > 3 || cond == false) {
+    if (distReagents > 4 || cond == false) {
         productOneSelector.setAttribute('visible',false);
         reagentOneSelector.setAttribute('visible',true);
         productTwoSelector.setAttribute('visible',false);
         reagentTwoSelector.setAttribute('visible',true);
-    }else if (distReagents < 3  && cond == true) {
+    }else if (distReagents < 4  && cond == true) {
         productTwoSelector.setAttribute('visible',true);
         productOneSelector.setAttribute('visible',true);
         reagentOneSelector.setAttribute('visible',false);
@@ -394,12 +394,12 @@ function reactionType2 (reactionData, conditionData) {
 
     let cond = expCondition(conditionData);
 
-    if(distp1p2 > 2 && distp2p3 > 2 || cond == false){
+    if(distp1p2 > 3 && distp2p3 > 3 || cond == false){
         productOneSelector.setAttribute('visible',false);
         reagentOneSelector.setAttribute('visible',true);
         reagentTwoSelector.setAttribute('visible',true);
         reagentThreeSelector.setAttribute('visible',true);
-    }else if (distp1p2 < 2 && distp2p3 < 2 && cond == true) {
+    }else if (distp1p2 < 3 && distp2p3 < 3 && cond == true) {
         productOneSelector.setAttribute('visible',true);
         reagentOneSelector.setAttribute('visible',false);
         reagentTwoSelector.setAttribute('visible',false);
@@ -433,7 +433,6 @@ function reactionType3 (reactionData, conditionData) {
         productOneSelector.setAttribute('visible',false);
         productTwoSelector.setAttribute('visible',false);
     }else if (distp1p2 < 6 && distp1p3 < 6 && cond == true) {
-        console.log("dovrebbe vederis managiaa la madonana de deiiodipo");
         productOneSelector.setAttribute('visible',true);
         productTwoSelector.setAttribute('visible',true);
         reagentOneSelector.setAttribute('visible',false);
@@ -444,11 +443,11 @@ function markerInject (aFrameScene, marker) {
     let preset = ['letterA', 'kanji', 'hiro']
     if (!(preset.includes(marker))) {  //for personalized markers
         aFrameScene.innerHTML += `
-            <a-marker type = 'pattern' url = 'static/markers/pattern-${marker}.patt' id = "${marker}MarkerSelector" material="" arjs-anchor="" arjs-hit-testing=""> 
+            <a-marker type = 'pattern' url = 'static/markers/pattern-${marker}.patt' id = "${marker}MarkerSelector" material="" arjs-anchor="" arjs-hit-testing="true"> 
         `
     }else{ // for preset
         aFrameScene.innerHTML += `
-            <a-marker preset = '${marker}' id = "${marker}MarkerSelector" material="" arjs-anchor="" arjs-hit-testing=""></a-marker>
+            <a-marker preset = '${marker}' id = "${marker}MarkerSelector" material="" arjs-anchor="" arjs-hit-testing="true"></a-marker>
         `
     }
 }
@@ -464,7 +463,7 @@ function scaffoldType1 (aFrameScene, table) {       // create scaffold for react
             }
             markerNode = document.getElementById(marker+"MarkerSelector");
             markerNode.innerHTML += `
-                <a-obj-model id = "${object}" src = "#obj-${table[element][object][0]}" mtl = "#mtl-${table[element][object][1]}" visible = "false"></a-obj-model>
+                <a-entity id = "${object}" obj-model="obj: #obj-${table[element][object][0]}; mtl: #mtl-${table[element][object][1]}" visible = "false" position="-1.6 -2 -1.6"></a-entity>
                 `
         }
     }
