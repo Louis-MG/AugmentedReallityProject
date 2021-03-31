@@ -430,14 +430,14 @@ footer{
 
 #docu_ar {
     background-image: url("./assets/molecule_docu.png");
-    background-size: 100%;
+    background-size: cover;
     background-position: 100%;
     display: none;
 }
 
 #docu_reac {
     background-image: url("./assets/molecule_docu.png");
-    background-size: 100%;
+    background-size: cover;
     background-position: 100%;
     display: none;
 }
