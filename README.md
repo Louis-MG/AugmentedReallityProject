@@ -49,7 +49,8 @@ the ./statics/markers directory.
 * In the new directory , add the .obj and .mtl file for the molecules you want to use in the reaction.
 
 
-Add the .png file that will be use as the icon on the main menu of the website. (TODO: there is no restriction ont the image for now, but we recommend small images)
+Add the .png file that will be use as the icon on the main menu of the website it must be called "icon.png" and must have a 1024x1024 resolution . 
+Add another .png file called "infoImage.png". It will be displayed on the top left legend of the reaction when the user click on the arrowE. It is here to show the formal writing of the chemical reaction.
 
 Finally create a configReaction.js that must follow the template at ./static/assets/configReactionTemplate.js
 

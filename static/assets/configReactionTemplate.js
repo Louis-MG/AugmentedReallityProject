@@ -2,9 +2,7 @@ export const data = {
     name: "Name",// example : "Saponification"
     title: "Title",//example : "Saponification reaction",
     description: "description",//"Saponification is a process that involves the conversion of fat, oil, or lipid, into soap and alcohol by the action of heat in the presence of aqueous alkali."
-    // X is the number of the module
-    image: "<img src='/static/module/reactionX/icon.png' style='width: 43%;position: relative; top:140px; left:30px'>",// this is an html tag for a picture. The path is realtive from the root of the project
-    infoImage: "<img src='/static/module/reactionX/infoImage.png'>",//max weight : 500px
+    infoImage: "<img src='/PATH/TO/infoImage.png'>",// an html tag for a picture. the src attribute is the path to the infoImage.mng of the reaction. max weight : 500px example : "<img src='/static/module/reactionX/infoImage.png'>"
  
     /*
     For the reagents, products and experimental condition,
