@@ -28,17 +28,17 @@ Then from the main menu of the website : Choose a reaction and use markers to ma
 ##### Add new markers for new molecules  
 To add new markers, simply create new markers using this [website](https://jeromeetienne.github.io/AR.js/three.js/examples/marker-training/examples/generator.html). Be sure to use 250px for the image size
 
- Then put the .png file and .patt file in the ./static/assets directory. 
+ Then put the .png file and .patt file in the ./static/markers directory. 
 
 ## Molecules
 ##### Add new molecules 
-Create a .obj and .mtl file using another tool (Blender for exemple) and put them in the ./statics/assets directory. 
+Create a .obj and .mtl file using another tool (Blender for exemple) and put them in the directory of the reaction you need them (see  below). 
 
 ## How to implement new reactions
  This tool use dynamic import to create new reactions.
-* The first step is to be sure that the files for the molecules and markers you want  to use are in
+* The first step is to be sure that the files for the markers you want to use are in
 
-the ./statics/assets directory. 
+the ./statics/markers directory. 
  
  If not, see information before.
  
@@ -49,7 +49,7 @@ the ./statics/assets directory.
 * In the new directory , add the .obj and .mtl file for the molecules you want to use in the reaction.
 
 
-Add the .png file that must will be use as the icon on the main menu of the website. (TODO: there is no restriction ont the iamge for now, but use small images)
+Add the .png file that will be use as the icon on the main menu of the website. (TODO: there is no restriction ont the image for now, but we recommend small images)
 
 Finally create a configReaction.js that must follow the template at ./static/assets/configReactionTemplate.js
 
@@ -58,7 +58,9 @@ ConfigReaction must follow the template at ./static/assets/configReactionTemplat
 
 All elements must existe even if empty.
 
-If there is conditions that must be implemented : it must follow the following template
+If there is conditions that must be implemented : it must follow the following template. The condition will show as a slider on the website.
+
+the slider will go from intMin to maxInt and will start with the value StartValue. The reaction will trigger if the value of the slider is inside the [cutoffMinInt;ccutoffMaxInt] interval.
 ```
 conditions: {
         Condition1: {
