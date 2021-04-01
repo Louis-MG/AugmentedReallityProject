@@ -2,7 +2,7 @@ export const data = {
     name: "Name",// example : "Saponification"
     title: "Title",//example : "Saponification reaction",
     description: "description",//"Saponification is a process that involves the conversion of fat, oil, or lipid, into soap and alcohol by the action of heat in the presence of aqueous alkali."
-    image: "<img src='/static/module/reactionX/icon.png' style='width: 43%;position: relative; top:140px; left:30px'>"// this is an html tag for a picture. The path is realtiive from the root of the project
+    image: "<img src='/static/module/reactionX/icon.png' style='width: 43%;position: relative; top:140px; left:30px'>",// this is an html tag for a picture. The path is realtiive from the root of the project
     
     /*
     For the reagents, products and experimental condition,
