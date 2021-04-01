@@ -22,24 +22,7 @@ export const data = {
         },
     },
     conditions: {
-        pH: {
-            name: "pH",
-            min: 0,
-            max: 14,
-            step: 1,
-            val: 7,
-            cutoffMin: 6,
-            cutoffMax: 8
-        },
-        temp: {
-            name: "temperature",
-            min: -170,
-            max: 300,
-            step: 1,
-            val: 30,
-            cutoffMin: 30,
-            cutoffMax: 70
-        },
+
     },
 
     /* legend stuff */
