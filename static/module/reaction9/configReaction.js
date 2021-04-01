@@ -2,7 +2,6 @@ export const data = {
     name: "Ketones reduction",
     title: "Ketones reduction with NaBH4",
     description: "Reduction of a ketone leads to a secondary alcohol. A secondary alcohol is one which has two alkyl groups attached to the carbon with the -OH group on it. They all contain the grouping -CHOH.",
-    image: "<img src='/static/module/reaction9/icon.png' style='width: 43%;position: relative; top:140px; left:30px'>",
     infoImage: "<img src='/static/module/reaction9/infoImage.png'>",//max weight : 500px
     
     /*

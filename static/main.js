@@ -57,7 +57,7 @@ function collection() { // creates the grid of reaction tiles
                 <button type="button" class="buttonD" id="button${i}">
                     <i class="small material-icons">arrow_forward</i>
                 </button>
-                ${reactionModule.data['image']}
+                <img src='/static/module/reaction${i+1}/icon.png' style="width: 32%;margin-top:128px;margin-left:30px">
             </div>
         </div>
         `;
@@ -345,16 +345,20 @@ function reactionType1 (reactionData, conditionData) { //2 reagents, 2 products,
     let reagentOne = Object.keys(reactionData['reagents'])[0];
     let reagentOneSelector = document.getElementById(reagentOne);
     let p1 = new THREE.Vector3(); p1.setFromMatrixPosition(reagentOneSelector.object3D.matrixWorld);
+    //p1.y = p1.y + 2;
 
     let reagentTwo = Object.keys(reactionData['reagents'])[1];
     let reagentTwoSelector = document.getElementById(reagentTwo);
     let p2 = new THREE.Vector3(); p2.setFromMatrixPosition(reagentTwoSelector.object3D.matrixWorld);
+    //p2.y = p2.y + 2;
 
     let productOne = Object.keys(reactionData['products'])[0];
     let productOneSelector = document.getElementById(productOne);
+    //document.getElementById('reagent1').setAttribute('position', `${p1.x} ${p1.y} ${p1.z}`);
 
     let productTwo = Object.keys(reactionData['products'])[1];
     let productTwoSelector = document.getElementById(productTwo);
+    //document.getElementById('reagent2').setAttribute('position', `${p2.x} ${p2.y} ${p2.z}`);
 
     let distReagents = 2 * Math.sqrt( Math.pow(p1.x - p2.x, 2) + Math.pow(p1.y - p2.y, 2) + Math.pow(p1.z-p2.z,2));//distance between reagents markers
 
@@ -463,7 +467,7 @@ function scaffoldType1 (aFrameScene, table) {       // create scaffold for react
             }
             markerNode = document.getElementById(marker+"MarkerSelector");
             markerNode.innerHTML += `
-                <a-obj-model id = "${object}" src = "#obj-${table[element][object][0]}" mtl = "#mtl-${table[element][object][1]}" visible = "false"></a-obj-model>
+                <a-obj-model id = "${object}" src = "#obj-${table[element][object][0]}" mtl = "#mtl-${table[element][object][1]}" visible = "false" position="0 3 0"></a-obj-model>
                 `
         }
     }
@@ -479,12 +483,12 @@ function scaffoldType2 (aFrameScene, table) { // for H20 molecule...
                 markerInject(aFrameScene, marker);
                 markerNode = document.getElementById(marker+"MarkerSelector");
                 markerNode.innerHTML += `
-                    <a-obj-model id = "${object}" src = "#obj-${table[element][object][0]}" mtl = "#mtl-${table[element][object][1]}" visible = "false"></a-obj-model> <!-- ptetre remplacer par un entity vers l'objet -->
+                    <a-obj-model id = "${object}" src = "#obj-${table[element][object][0]}" mtl = "#mtl-${table[element][object][1]}" visible = "false" position="0 1.5 0"></a-obj-model> <!-- ptetre remplacer par un entity vers l'objet -->
                 `
             } else if (element === 'products'){
                 markerNode = document.getElementById(marker+"MarkerSelector");
                 markerNode.innerHTML += `
-                    <a-obj-model id = "${object}" src = "#obj-${table[element][object][0]}" mtl = "#mtl-${table[element][object][1]}" visible = "false"></a-obj-model>
+                    <a-obj-model id = "${object}" src = "#obj-${table[element][object][0]}" mtl = "#mtl-${table[element][object][1]}" visible = "false" position="0 1.5 0></a-obj-model>
                 `
             }
         }

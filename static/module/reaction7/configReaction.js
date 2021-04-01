@@ -2,7 +2,6 @@ export const data = {
     name: "Sugar methylation",
     title: "Sugar methylation",
     description: "A hydroxyl group of a suger is methylated, releasing water.",
-    image: "<img src='/static/module/reaction5/icon.png' style='width: 100%;position: relative; top:80px; left:-80px'>",
     infoImage: "<img src='/static/module/reaction5/infoImage.png'>",//max weight : 500px
     
     /*
